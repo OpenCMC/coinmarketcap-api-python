@@ -30,4 +30,5 @@ __all__ = [
 ]
 
 # Models live in coinmarketcap.models (generated re-exports).
-# Import explicitly: from coinmarketcap.models import DqueryBatchPriceRequestDTO
+# PyPI package: pip install coinmarketcap-sdk
+# Import as: from coinmarketcap import CoinMarketCap

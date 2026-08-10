@@ -1,5 +1,5 @@
 [project]
-name = "coinmarketcap"
+name = "coinmarketcap-sdk"
 version = "4.0.1"
 description = "Official CoinMarketCap Pro API Python SDK"
 readme = "README.md"
