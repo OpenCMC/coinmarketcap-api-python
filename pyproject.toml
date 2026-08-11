@@ -72,8 +72,15 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length = 120
 # Generated code is not linted; it is produced by openapi-python-client and
-# scripts/gen-py-namespaces.py.
-extend-exclude = ["coinmarketcap/_generated", "coinmarketcap/_namespaces_gen.py", "coinmarketcap/models.py"]
+# scripts/gen-py-namespaces.py. NOTE: these must be listed explicitly (not just
+# gitignored) because in the published SDK repo the generated files are tracked,
+# so ruff's respect-gitignore does not skip them there.
+extend-exclude = [
+    "coinmarketcap/_generated",
+    "coinmarketcap/_namespaces_gen.py",
+    "coinmarketcap/_client_attrs_gen.py",
+    "coinmarketcap/models.py",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
