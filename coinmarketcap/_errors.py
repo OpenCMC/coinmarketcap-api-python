@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from typing import Any
 
 
@@ -10,22 +11,22 @@ class CMCError(Exception):
 
     status_code: int
     body: Any
-    headers: dict[str, str]
+    headers: Mapping[str, str]
 
     def __init__(
         self,
         status_code: int,
         body: Any = None,
-        headers: dict[str, str] | None = None,
+        headers: Mapping[str, str] | None = None,
         message: str | None = None,
     ) -> None:
         self.status_code = status_code
         self.body = body
-        self.headers = headers or {}
+        self.headers = headers if headers is not None else {}
         super().__init__(message or f"Request failed with status {status_code}")
 
     @classmethod
-    def from_response(cls, status_code: int, body: Any, headers: dict[str, str]) -> "CMCError":
+    def from_response(cls, status_code: int, body: Any, headers: Mapping[str, str]) -> CMCError:
         """Create the appropriate error subclass based on status code."""
         message = _extract_message(body)
 
@@ -75,19 +76,23 @@ class InternalServerError(CMCError):
 
 
 class APIConnectionError(Exception):
-    """Network-level connection failure."""
+    """Network-level failure (DNS, connection refused/reset, protocol, proxy).
 
-    def __init__(self, message: str = "Connection failed", cause: BaseException | None = None) -> None:
+    Raised after retries are exhausted for transport-level errors that never
+    produced an HTTP response. The originating ``httpx`` exception is available
+    on ``cause`` (and as ``__cause__`` via exception chaining).
+    """
+
+    def __init__(self, message: str = "Connection failed", *, cause: BaseException | None = None) -> None:
         self.cause = cause
         super().__init__(message)
 
 
 class APITimeoutError(APIConnectionError):
-    """Request timed out."""
+    """Request timed out (connect, read, write, or pool timeout)."""
 
-    def __init__(self, timeout: float) -> None:
-        self.timeout = timeout
-        super().__init__(f"Request timed out after {timeout}s")
+    def __init__(self, message: str = "Request timed out", *, cause: BaseException | None = None) -> None:
+        super().__init__(message, cause=cause)
 
 
 def _extract_message(body: Any) -> str | None:

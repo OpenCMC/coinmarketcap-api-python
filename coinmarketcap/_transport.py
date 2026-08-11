@@ -6,6 +6,19 @@ import httpx
 
 from ._retry import RetryConfig, get_retry_delay, should_retry, sleep_async, sleep_sync
 
+# Transient transport-level failures worth retrying. httpx.NetworkError covers
+# ConnectError/ReadError/WriteError/CloseError; TimeoutException covers
+# connect/read/write/pool timeouts. RemoteProtocolError (server closed the
+# connection mid-response) and ProxyError are also transient. We deliberately
+# do NOT retry LocalProtocolError / UnsupportedProtocol / DecodingError, which
+# indicate a client-side or non-retryable problem.
+RETRYABLE_NETWORK_ERRORS: tuple[type[Exception], ...] = (
+    httpx.TimeoutException,
+    httpx.NetworkError,
+    httpx.RemoteProtocolError,
+    httpx.ProxyError,
+)
+
 
 class RetryTransport(httpx.BaseTransport):
     """Sync httpx transport that retries on transient status codes."""
@@ -41,7 +54,7 @@ class RetryTransport(httpx.BaseTransport):
                     )
                     sleep_sync(delay)
 
-            except (httpx.ConnectError, httpx.TimeoutException) as e:
+            except RETRYABLE_NETWORK_ERRORS as e:
                 last_error = e
                 if attempt < self._retry_config.max_retries:
                     delay = get_retry_delay(attempt, 0, self._retry_config)
@@ -91,7 +104,7 @@ class AsyncRetryTransport(httpx.AsyncBaseTransport):
                     )
                     await sleep_async(delay)
 
-            except (httpx.ConnectError, httpx.TimeoutException) as e:
+            except RETRYABLE_NETWORK_ERRORS as e:
                 last_error = e
                 if attempt < self._retry_config.max_retries:
                     delay = get_retry_delay(attempt, 0, self._retry_config)

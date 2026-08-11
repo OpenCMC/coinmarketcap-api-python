@@ -1,13 +1,13 @@
 """Tests for error hierarchy."""
 
 from coinmarketcap._errors import (
+    APIConnectionError,
+    APITimeoutError,
     AuthenticationError,
     BadRequestError,
     CMCError,
     InternalServerError,
     RateLimitError,
-    APITimeoutError,
-    APIConnectionError,
 )
 
 
@@ -39,7 +39,15 @@ def test_extracts_cmc_error_message():
 
 
 def test_timeout_error():
-    err = APITimeoutError(5.0)
+    cause = TimeoutError("slow")
+    err = APITimeoutError(cause=cause)
     assert isinstance(err, APIConnectionError)
-    assert "5.0s" in str(err)
-    assert err.timeout == 5.0
+    assert "timed out" in str(err).lower()
+    assert err.cause is cause
+
+
+def test_connection_error_carries_cause():
+    cause = OSError("refused")
+    err = APIConnectionError("Connection failed", cause=cause)
+    assert err.cause is cause
+    assert "Connection failed" in str(err)

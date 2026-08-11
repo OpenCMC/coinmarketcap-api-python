@@ -113,12 +113,20 @@ cmc = CoinMarketCap(api_key="your-key")
 try:
     quotes = cmc.cryptocurrency.quotes_latest(id="1")
 except RateLimitError as e:
-    print("Rate limited:", e)
+    # e.headers carries response headers, e.g. Retry-After
+    print("Rate limited, retry after:", e.headers.get("Retry-After"))
 except AuthenticationError as e:
     print("Invalid API key:", e)
 except CMCError as e:
+    # HTTP-level failures: e.status_code, e.body, e.headers
     print(f"API error {e.status_code}:", e)
 ```
+
+`CMCError` (and its subclasses) expose `status_code`, `body`, and `headers`.
+Transport-level failures raise `APIConnectionError` / `APITimeoutError` after
+retries are exhausted; the original `httpx` exception is available on `.cause`.
+`APITimeoutError` is a subclass of `APIConnectionError`, so catching the latter
+also catches timeouts.
 
 ### Error Types
 
@@ -138,9 +146,13 @@ except CMCError as e:
 
 Requests that fail with retryable status codes are automatically retried with exponential backoff:
 
-- **Retryable**: 408, 409, 429, 500, 502, 503, 504, and network errors
-- **Default**: 2 retries with 500ms initial delay, up to 8s max
+- **Retryable statuses**: 408, 409, 429, 500, 502, 503, 504
+- **Retryable network errors**: connect/read/write/pool timeouts, connection
+  errors, remote protocol errors, and proxy errors
+- **Default**: 2 retries with 500ms initial delay and exponential backoff, up to 8s max
 - **429 responses**: Respects the `Retry-After` header when present
+
+Both sync and async calls share the same retry behavior.
 
 Disable retries:
 

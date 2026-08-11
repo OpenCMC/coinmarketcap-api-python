@@ -6,7 +6,6 @@ from typing import Any, Literal
 
 from ._client_attrs_gen import NamespacesMixin, init_namespaces
 from ._gen_client import RetryAuthenticatedClient, RetryClient, create_retry_client
-from ._retry import RetryConfig
 
 Environment = Literal["pro", "public"]
 
@@ -41,7 +40,6 @@ class CoinMarketCap(NamespacesMixin):
         self._environment = environment
         self._base_url = base_url or ENVIRONMENTS[environment]
         self._timeout = timeout
-        self._retry_config = RetryConfig(max_retries=max_retries)
 
         self._gen_client = create_retry_client(
             api_key, self._base_url, timeout, max_retries, httpx_kwargs
@@ -63,13 +61,13 @@ class CoinMarketCap(NamespacesMixin):
         if client:
             await client.aclose()
 
-    def __enter__(self) -> "CoinMarketCap":
+    def __enter__(self) -> CoinMarketCap:
         return self
 
     def __exit__(self, *args: Any) -> None:
         self.close()
 
-    async def __aenter__(self) -> "CoinMarketCap":
+    async def __aenter__(self) -> CoinMarketCap:
         return self
 
     async def __aexit__(self, *args: Any) -> None:

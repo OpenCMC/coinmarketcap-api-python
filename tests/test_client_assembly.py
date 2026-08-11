@@ -1,8 +1,7 @@
 """Tests for client HTTP assembly (sync/async base_url, auth, retry)."""
 
-import httpx
 
-from coinmarketcap import CoinMarketCap, ENVIRONMENTS
+from coinmarketcap import ENVIRONMENTS, CoinMarketCap
 from coinmarketcap._transport import AsyncRetryTransport, RetryTransport
 
 

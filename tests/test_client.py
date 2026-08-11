@@ -4,7 +4,7 @@ import inspect
 
 import pytest
 
-from coinmarketcap import CoinMarketCap, ENVIRONMENTS
+from coinmarketcap import ENVIRONMENTS, CoinMarketCap
 
 
 def test_pro_requires_api_key():
@@ -87,3 +87,10 @@ def test_acronym_method_names():
 def test_context_manager():
     with CoinMarketCap(api_key="test-key") as cmc:
         assert cmc.base_url == ENVIRONMENTS["pro"]
+
+
+def test_version_exposed():
+    import coinmarketcap
+
+    assert isinstance(coinmarketcap.__version__, str)
+    assert coinmarketcap.__version__

@@ -17,9 +17,13 @@ from coinmarketcap._transport import AsyncRetryTransport, RetryTransport
 
 @define
 class RetryClient(Client):
-    """Client subclass that injects retry transports."""
+    """Client subclass that injects retry transports.
 
-    _retry_config: RetryConfig = field(factory=RetryConfig, init=False)
+    ``_retry_config`` is assigned by :func:`create_retry_client` after
+    construction; when ``None`` the transports fall back to their own defaults.
+    """
+
+    _retry_config: RetryConfig | None = field(default=None, init=False)
 
     def get_httpx_client(self) -> httpx.Client:
         if self._client is None:
@@ -52,9 +56,13 @@ class RetryClient(Client):
 
 @define
 class RetryAuthenticatedClient(AuthenticatedClient):
-    """Authenticated client subclass that injects retry transports."""
+    """Authenticated client subclass that injects retry transports.
 
-    _retry_config: RetryConfig = field(factory=RetryConfig, init=False)
+    ``_retry_config`` is assigned by :func:`create_retry_client` after
+    construction; when ``None`` the transports fall back to their own defaults.
+    """
+
+    _retry_config: RetryConfig | None = field(default=None, init=False)
 
     def get_httpx_client(self) -> httpx.Client:
         if self._client is None:
@@ -103,10 +111,15 @@ def create_retry_client(
     client_kwargs: dict[str, Any] = {
         "base_url": base_url,
         "timeout": httpx.Timeout(timeout),
-        "raise_on_unexpected_status": True,
+        # Keep False so the generated ``*_detailed`` functions always return a
+        # ``Response`` (carrying status_code + headers) even on 4xx/5xx, instead
+        # of raising a headerless ``UnexpectedStatus``. ``_wrap`` then maps errors
+        # by status code and preserves response headers (e.g. Retry-After).
+        "raise_on_unexpected_status": False,
         "httpx_args": httpx_kwargs,
     }
 
+    client: RetryAuthenticatedClient | RetryClient
     if api_key:
         client = RetryAuthenticatedClient(
             token=api_key,

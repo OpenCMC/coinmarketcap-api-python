@@ -1,6 +1,6 @@
 [project]
 name = "coinmarketcap-sdk"
-version = "4.0.1"
+version = "4.0.2"
 description = "Official CoinMarketCap Pro API Python SDK"
 readme = "README.md"
 license = {text = "MIT"}
@@ -8,7 +8,7 @@ authors = [{name = "CoinMarketCap", email = "api@coinmarketcap.com"}]
 requires-python = ">=3.10"
 keywords = ["coinmarketcap", "cmc", "cryptocurrency", "api", "sdk", "bitcoin", "ethereum"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -24,6 +24,13 @@ dependencies = [
     "python-dateutil>=2.8.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.5",
+    "mypy>=1.8",
+]
+
 [project.urls]
 Homepage = "https://coinmarketcap.com/api/documentation/"
 Repository = "https://github.com/OpenCMC/coinmarketcap-api-python"
@@ -33,14 +40,56 @@ Issues = "https://github.com/OpenCMC/coinmarketcap-api-python/issues"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+# The generated client (_generated/, _namespaces_gen.py, _client_attrs_gen.py,
+# models.py) is .gitignored in the monorepo. Hatchling honours VCS ignore files
+# by default, which would silently drop this code from the sdist/wheel and ship
+# a broken package. Declaring it as build artifacts force-includes it.
+[tool.hatch.build]
+artifacts = [
+    "coinmarketcap/_generated/**/*",
+    "coinmarketcap/_namespaces_gen.py",
+    "coinmarketcap/_client_attrs_gen.py",
+    "coinmarketcap/models.py",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["coinmarketcap"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "coinmarketcap",
+    "tests",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pyproject.toml",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 120
+# Generated code is not linted; it is produced by openapi-python-client and
+# scripts/gen-py-namespaces.py.
+extend-exclude = ["coinmarketcap/_generated", "coinmarketcap/_namespaces_gen.py", "coinmarketcap/models.py"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+# Only type-check the hand-written wrapper; generated code is excluded.
+files = [
+    "coinmarketcap/__init__.py",
+    "coinmarketcap/_client.py",
+    "coinmarketcap/_gen_client.py",
+    "coinmarketcap/_transport.py",
+    "coinmarketcap/_retry.py",
+    "coinmarketcap/_wrap.py",
+    "coinmarketcap/_errors.py",
+]
+ignore_missing_imports = true
+# Don't report errors inside generated modules we import but don't own.
+follow_imports = "silent"
