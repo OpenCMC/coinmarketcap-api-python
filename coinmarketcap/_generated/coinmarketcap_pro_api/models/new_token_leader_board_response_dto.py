@@ -21,16 +21,16 @@ class NewTokenLeaderBoardResponseDTO:
 
     Attributes:
         leaderboard_list (list[TokenLeaderboardDTO] | Unset): List of token leaderboard entries
-        total (int | Unset): Total number of entries matching the filter
+        total (str | Unset): Total number of entries matching the filter
         has_next_page (bool | Unset): Whether there is another page after this one
-        last_update_time (int | Unset): Timestamp (in milliseconds) of the last update
+        last_update_time (str | Unset): Timestamp (in milliseconds) of the last update
         next_page_index (str | Unset): Index to be used for the next page request, if hasNextPage is true
     """
 
     leaderboard_list: list[TokenLeaderboardDTO] | Unset = UNSET
-    total: int | Unset = UNSET
+    total: str | Unset = UNSET
     has_next_page: bool | Unset = UNSET
-    last_update_time: int | Unset = UNSET
+    last_update_time: str | Unset = UNSET
     next_page_index: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

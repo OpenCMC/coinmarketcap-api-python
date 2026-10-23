@@ -20,8 +20,7 @@ class CryptocurrencyQuotesHistoricalResultsMap:
     Example:
         {'1': {'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'is_active': 1, 'is_fiat': 0, 'quotes': [{'timestamp':
             '2018-06-22T00:00:00.000Z', 'quote': {'USD': {'price': 6242.48, 'volume_24h': 4894120000, 'market_cap':
-            107057808682, 'last_updated': '2018-06-22T00:04:16.000Z', 'volume_24hr': 4894120000, 'timestamp':
-            '2018-06-22T00:04:16.000Z'}}}]}}
+            107057808682, 'timestamp': '2018-06-22T00:04:16.000Z'}}}]}}
 
     """
 

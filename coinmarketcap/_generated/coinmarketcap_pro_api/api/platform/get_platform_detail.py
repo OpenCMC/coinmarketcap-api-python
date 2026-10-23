@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.platform_dto import PlatformDTO
+from ...models.v1dex_platform_detail_response_model import V1DEXPlatformDetailResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -29,9 +29,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> PlatformDTO | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXPlatformDetailResponseModel | None:
     if response.status_code == 200:
-        response_200 = PlatformDTO.from_dict(response.json())
+        response_200 = V1DEXPlatformDetailResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -41,7 +43,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[PlatformDTO]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXPlatformDetailResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -54,7 +58,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
-) -> Response[PlatformDTO]:
+) -> Response[V1DEXPlatformDetailResponseModel]:
     r"""Get platform detail
 
      Get detailed information for a specific platform
@@ -73,7 +77,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[PlatformDTO]
+        Response[V1DEXPlatformDetailResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -91,7 +95,7 @@ def sync(
     *,
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
-) -> PlatformDTO | None:
+) -> V1DEXPlatformDetailResponseModel | None:
     r"""Get platform detail
 
      Get detailed information for a specific platform
@@ -110,7 +114,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        PlatformDTO
+        V1DEXPlatformDetailResponseModel
     """
 
     return sync_detailed(
@@ -123,7 +127,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
-) -> Response[PlatformDTO]:
+) -> Response[V1DEXPlatformDetailResponseModel]:
     r"""Get platform detail
 
      Get detailed information for a specific platform
@@ -142,7 +146,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[PlatformDTO]
+        Response[V1DEXPlatformDetailResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -158,7 +162,7 @@ async def asyncio(
     *,
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
-) -> PlatformDTO | None:
+) -> V1DEXPlatformDetailResponseModel | None:
     r"""Get platform detail
 
      Get detailed information for a specific platform
@@ -177,7 +181,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        PlatformDTO
+        V1DEXPlatformDetailResponseModel
     """
 
     return (

@@ -42,7 +42,7 @@ class DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItem:
     """
     Attributes:
         market_id (int | Unset): The CoinMarketCap ID for this market pair. Example: 79477.
-        market_pair (str | Unset): Symbol pair identifier as listed on the exchange. Example: BTC/USDT.
+        market_pair_symbol (str | Unset): Symbol pair identifier as listed on the exchange. Example: BTC/USDT.
         category (DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItemCategory | Unset): Derivative
             category. Example: perpetual.
         fee_type (DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItemFeeType | Unset): Fee type the
@@ -63,7 +63,7 @@ class DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItem:
     """
 
     market_id: int | Unset = UNSET
-    market_pair: str | Unset = UNSET
+    market_pair_symbol: str | Unset = UNSET
     category: DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItemCategory | Unset = UNSET
     fee_type: DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItemFeeType | Unset = UNSET
     outlier_detected: bool | Unset = UNSET
@@ -80,7 +80,7 @@ class DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItem:
     def to_dict(self) -> dict[str, Any]:
         market_id = self.market_id
 
-        market_pair = self.market_pair
+        market_pair_symbol = self.market_pair_symbol
 
         category: str | Unset = UNSET
         if not isinstance(self.category, Unset):
@@ -132,8 +132,8 @@ class DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItem:
         field_dict.update({})
         if market_id is not UNSET:
             field_dict["market_id"] = market_id
-        if market_pair is not UNSET:
-            field_dict["market_pair"] = market_pair
+        if market_pair_symbol is not UNSET:
+            field_dict["market_pair_symbol"] = market_pair_symbol
         if category is not UNSET:
             field_dict["category"] = category
         if fee_type is not UNSET:
@@ -176,7 +176,7 @@ class DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItem:
         d = dict(src_dict)
         market_id = d.pop("market_id", UNSET)
 
-        market_pair = d.pop("market_pair", UNSET)
+        market_pair_symbol = d.pop("market_pair_symbol", UNSET)
 
         _category = d.pop("category", UNSET)
         category: DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItemCategory | Unset
@@ -270,7 +270,7 @@ class DerivativesCryptoMarketPairsListLatestResultsObjectMarketPairsItem:
 
         derivatives_crypto_market_pairs_list_latest_results_object_market_pairs_item = cls(
             market_id=market_id,
-            market_pair=market_pair,
+            market_pair_symbol=market_pair_symbol,
             category=category,
             fee_type=fee_type,
             outlier_detected=outlier_detected,

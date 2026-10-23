@@ -10,6 +10,9 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.api_status_object import APIStatusObject
+    from ..models.cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
+        CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+    )
     from ..models.cryptocurrency_ohlcv_historical_results_object import CryptocurrencyOHLCVHistoricalResultsObject
 
 
@@ -20,24 +23,26 @@ T = TypeVar("T", bound="CryptocurrencyOHLCVHistoricalResponseModel")
 class CryptocurrencyOHLCVHistoricalResponseModel:
     """
     Attributes:
-        data (CryptocurrencyOHLCVHistoricalResultsObject): Results of your query returned as an object. Example: {'id':
-            1, 'name': 'Bitcoin', 'symbol': 'BTC', 'quotes': [{'time_open': '2019-01-02T00:00:00.000Z', 'time_close':
-            '2019-01-02T23:59:59.999Z', 'time_high': '2019-01-02T03:53:00.000Z', 'time_low': '2019-01-02T02:43:00.000Z',
-            'quote': {'USD': {'open': 3849.21640853, 'high': 3947.9812729, 'low': 3817.40949569, 'close': 3943.40933686,
-            'volume': 5244856835.70851, 'market_cap': 68849856731.6738, 'timestamp': '2019-01-02T23:59:59.999Z'}}},
-            {'time_open': '2019-01-03T00:00:00.000Z', 'time_close': '2019-01-03T23:59:59.999Z', 'time_high':
-            '2019-01-02T03:53:00.000Z', 'time_low': '2019-01-02T02:43:00.000Z', 'quote': {'USD': {'open': 3931.04863841,
-            'high': 3935.68513083, 'low': 3826.22287069, 'close': 3836.74131867, 'volume': 4530215218.84018, 'market_cap':
-            66994920902.7202, 'timestamp': '2019-01-03T23:59:59.999Z'}}}]}.
+        data (CryptocurrencyOHLCVHistoricalResponseModelDataType0 | CryptocurrencyOHLCVHistoricalResultsObject): A
+            single object when you request one cryptocurrency, and an object map keyed by cryptocurrency ID when you request
+            several.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
-    data: CryptocurrencyOHLCVHistoricalResultsObject
+    data: CryptocurrencyOHLCVHistoricalResponseModelDataType0 | CryptocurrencyOHLCVHistoricalResultsObject
     status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        data = self.data.to_dict()
+        from ..models.cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
+            CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+        )
+
+        data: dict[str, Any]
+        if isinstance(self.data, CryptocurrencyOHLCVHistoricalResponseModelDataType0):
+            data = self.data.to_dict()
+        else:
+            data = self.data.to_dict()
 
         status: dict[str, Any] | Unset = UNSET
         if not isinstance(self.status, Unset):
@@ -58,10 +63,31 @@ class CryptocurrencyOHLCVHistoricalResponseModel:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.api_status_object import APIStatusObject
+        from ..models.cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
+            CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+        )
         from ..models.cryptocurrency_ohlcv_historical_results_object import CryptocurrencyOHLCVHistoricalResultsObject
 
         d = dict(src_dict)
-        data = CryptocurrencyOHLCVHistoricalResultsObject.from_dict(d.pop("data"))
+
+        def _parse_data(
+            data: object,
+        ) -> CryptocurrencyOHLCVHistoricalResponseModelDataType0 | CryptocurrencyOHLCVHistoricalResultsObject:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                data_type_0 = CryptocurrencyOHLCVHistoricalResponseModelDataType0.from_dict(data)
+
+                return data_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            data_type_1 = CryptocurrencyOHLCVHistoricalResultsObject.from_dict(data)
+
+            return data_type_1
+
+        data = _parse_data(d.pop("data"))
 
         _status = d.pop("status", UNSET)
         status: APIStatusObject | Unset

@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.token_security_response_dto import TokenSecurityResponseDTO
+from ...models.v1dex_security_detail_response_model import V1DEXSecurityDetailResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -34,14 +34,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> list[TokenSecurityResponseDTO] | None:
+) -> V1DEXSecurityDetailResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = TokenSecurityResponseDTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V1DEXSecurityDetailResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -53,7 +48,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[list[TokenSecurityResponseDTO]]:
+) -> Response[V1DEXSecurityDetailResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -67,7 +62,7 @@ def sync_detailed(
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> Response[list[TokenSecurityResponseDTO]]:
+) -> Response[V1DEXSecurityDetailResponseModel]:
     r"""Get security detail
 
      Get security audit information for a token
@@ -87,7 +82,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[TokenSecurityResponseDTO]]
+        Response[V1DEXSecurityDetailResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -107,7 +102,7 @@ def sync(
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> list[TokenSecurityResponseDTO] | None:
+) -> V1DEXSecurityDetailResponseModel | None:
     r"""Get security detail
 
      Get security audit information for a token
@@ -127,7 +122,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[TokenSecurityResponseDTO]
+        V1DEXSecurityDetailResponseModel
     """
 
     return sync_detailed(
@@ -142,7 +137,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> Response[list[TokenSecurityResponseDTO]]:
+) -> Response[V1DEXSecurityDetailResponseModel]:
     r"""Get security detail
 
      Get security audit information for a token
@@ -162,7 +157,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[TokenSecurityResponseDTO]]
+        Response[V1DEXSecurityDetailResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -180,7 +175,7 @@ async def asyncio(
     client: AuthenticatedClient | Client,
     platform_name: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> list[TokenSecurityResponseDTO] | None:
+) -> V1DEXSecurityDetailResponseModel | None:
     r"""Get security detail
 
      Get security audit information for a token
@@ -200,7 +195,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[TokenSecurityResponseDTO]
+        V1DEXSecurityDetailResponseModel
     """
 
     return (

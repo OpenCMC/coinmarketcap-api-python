@@ -23,7 +23,7 @@ class AirdropsResponseModel:
         {'data': [{'id': '60e59b99c8ca1d58514a2322', 'project_name': 'DeRace Airdrop', 'description': 'For 7 days
             starting from August 15, 2021, CoinMarketCap will host an Airdrop event...', 'status': 'UPCOMING', 'coin':
             {'id': 10744, 'name': 'DeRace', 'slug': 'derace', 'symbol': 'DERC'}, 'start_date': '2021-06-01T22:11:00.000Z',
-            'end_date': '2021-07-01T22:11:00.000Z', 'total_prize': 20000000000, 'winner_count': 1000, 'link':
+            'end_date': '2021-07-01T22:11:00.000Z', 'total_prize': '20000000000', 'winner_count': 1000, 'link':
             'https://coinmarketcap.com/currencies/derace/airdrop/'}], 'status': {'timestamp': '2021-08-01T22:51:28.209Z',
             'error_code': 0, 'error_message': '', 'elapsed': 3, 'credit_count': 1}}
 

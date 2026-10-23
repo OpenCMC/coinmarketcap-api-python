@@ -6,7 +6,7 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.dquery_market_request_dto import DqueryMarketRequestDTO
-from ...models.gainer_leader_board_response_dto import GainerLeaderBoardResponseDTO
+from ...models.v1dex_gainer_loser_list_response_model import V1DEXGainerLoserListResponseModel
 from ...types import Response
 
 
@@ -31,9 +31,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> GainerLeaderBoardResponseDTO | None:
+) -> V1DEXGainerLoserListResponseModel | None:
     if response.status_code == 200:
-        response_200 = GainerLeaderBoardResponseDTO.from_dict(response.json())
+        response_200 = V1DEXGainerLoserListResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -45,7 +45,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[GainerLeaderBoardResponseDTO]:
+) -> Response[V1DEXGainerLoserListResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -58,7 +58,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMarketRequestDTO,
-) -> Response[GainerLeaderBoardResponseDTO]:
+) -> Response[V1DEXGainerLoserListResponseModel]:
     """Get top gainers and losers
 
      Get list of top gainer and loser tokens
@@ -71,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GainerLeaderBoardResponseDTO]
+        Response[V1DEXGainerLoserListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -89,7 +89,7 @@ def sync(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMarketRequestDTO,
-) -> GainerLeaderBoardResponseDTO | None:
+) -> V1DEXGainerLoserListResponseModel | None:
     """Get top gainers and losers
 
      Get list of top gainer and loser tokens
@@ -102,7 +102,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GainerLeaderBoardResponseDTO
+        V1DEXGainerLoserListResponseModel
     """
 
     return sync_detailed(
@@ -115,7 +115,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMarketRequestDTO,
-) -> Response[GainerLeaderBoardResponseDTO]:
+) -> Response[V1DEXGainerLoserListResponseModel]:
     """Get top gainers and losers
 
      Get list of top gainer and loser tokens
@@ -128,7 +128,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[GainerLeaderBoardResponseDTO]
+        Response[V1DEXGainerLoserListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -144,7 +144,7 @@ async def asyncio(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMarketRequestDTO,
-) -> GainerLeaderBoardResponseDTO | None:
+) -> V1DEXGainerLoserListResponseModel | None:
     """Get top gainers and losers
 
      Get list of top gainer and loser tokens
@@ -157,7 +157,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        GainerLeaderBoardResponseDTO
+        V1DEXGainerLoserListResponseModel
     """
 
     return (

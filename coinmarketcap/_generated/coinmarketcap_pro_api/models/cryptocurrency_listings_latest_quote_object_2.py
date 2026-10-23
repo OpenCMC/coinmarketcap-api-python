@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -37,6 +37,12 @@ class CryptocurrencyListingsLatestQuoteObject2:
             returned if requested through the `aux` request parameter.* Example: 4885880000.
         volume_30d_reported (float | Unset): Rolling 30 day reported volume in the specified currency. *This field is
             only returned if requested through the `aux` request parameter.* Example: 4885880000.
+        cex_volume_24h (float | Unset): 24 hour trading volume from centralized exchanges in the requested currency.
+        dex_volume_24h (float | Unset): 24 hour trading volume from decentralized exchanges in the requested currency.
+        percent_change_30d (float | Unset): 30 day price change as a percentage.
+        percent_change_60d (float | Unset): 60 day price change as a percentage.
+        percent_change_90d (float | Unset): 90 day price change as a percentage.
+        tvl (float | None | Unset): Total value locked in the requested currency. `null` when TVL is not available.
     """
 
     price: float
@@ -54,6 +60,12 @@ class CryptocurrencyListingsLatestQuoteObject2:
     volume_7d_reported: float | Unset = UNSET
     volume_30d: float | Unset = UNSET
     volume_30d_reported: float | Unset = UNSET
+    cex_volume_24h: float | Unset = UNSET
+    dex_volume_24h: float | Unset = UNSET
+    percent_change_30d: float | Unset = UNSET
+    percent_change_60d: float | Unset = UNSET
+    percent_change_90d: float | Unset = UNSET
+    tvl: float | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -87,6 +99,22 @@ class CryptocurrencyListingsLatestQuoteObject2:
 
         volume_30d_reported = self.volume_30d_reported
 
+        cex_volume_24h = self.cex_volume_24h
+
+        dex_volume_24h = self.dex_volume_24h
+
+        percent_change_30d = self.percent_change_30d
+
+        percent_change_60d = self.percent_change_60d
+
+        percent_change_90d = self.percent_change_90d
+
+        tvl: float | None | Unset
+        if isinstance(self.tvl, Unset):
+            tvl = UNSET
+        else:
+            tvl = self.tvl
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -114,6 +142,18 @@ class CryptocurrencyListingsLatestQuoteObject2:
             field_dict["volume_30d"] = volume_30d
         if volume_30d_reported is not UNSET:
             field_dict["volume_30d_reported"] = volume_30d_reported
+        if cex_volume_24h is not UNSET:
+            field_dict["cex_volume_24h"] = cex_volume_24h
+        if dex_volume_24h is not UNSET:
+            field_dict["dex_volume_24h"] = dex_volume_24h
+        if percent_change_30d is not UNSET:
+            field_dict["percent_change_30d"] = percent_change_30d
+        if percent_change_60d is not UNSET:
+            field_dict["percent_change_60d"] = percent_change_60d
+        if percent_change_90d is not UNSET:
+            field_dict["percent_change_90d"] = percent_change_90d
+        if tvl is not UNSET:
+            field_dict["tvl"] = tvl
 
         return field_dict
 
@@ -150,6 +190,25 @@ class CryptocurrencyListingsLatestQuoteObject2:
 
         volume_30d_reported = d.pop("volume_30d_reported", UNSET)
 
+        cex_volume_24h = d.pop("cex_volume_24h", UNSET)
+
+        dex_volume_24h = d.pop("dex_volume_24h", UNSET)
+
+        percent_change_30d = d.pop("percent_change_30d", UNSET)
+
+        percent_change_60d = d.pop("percent_change_60d", UNSET)
+
+        percent_change_90d = d.pop("percent_change_90d", UNSET)
+
+        def _parse_tvl(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tvl = _parse_tvl(d.pop("tvl", UNSET))
+
         cryptocurrency_listings_latest_quote_object_2 = cls(
             price=price,
             volume_24h=volume_24h,
@@ -166,6 +225,12 @@ class CryptocurrencyListingsLatestQuoteObject2:
             volume_7d_reported=volume_7d_reported,
             volume_30d=volume_30d,
             volume_30d_reported=volume_30d_reported,
+            cex_volume_24h=cex_volume_24h,
+            dex_volume_24h=dex_volume_24h,
+            percent_change_30d=percent_change_30d,
+            percent_change_60d=percent_change_60d,
+            percent_change_90d=percent_change_90d,
+            tvl=tvl,
         )
 
         cryptocurrency_listings_latest_quote_object_2.additional_properties = d

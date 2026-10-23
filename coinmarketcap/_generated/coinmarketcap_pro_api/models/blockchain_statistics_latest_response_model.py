@@ -21,10 +21,10 @@ class BlockchainStatisticsLatestResponseModel:
     """
     Attributes:
         data (BlockchainStatisticsLatestResultsMap): A map of blockchain objects by ID, symbol, or slug (as used in
-            query parameters). Example: {'1': {'id': 1, 'slug': 'bitcoin', 'symbol': 'BTC', 'block_reward_static': 12.5,
+            query parameters). Example: {'1': {'id': 1, 'slug': 'bitcoin', 'symbol': 'BTC', 'block_reward_static': '12.5',
             'consensus_mechanism': 'proof-of-work', 'difficulty': '11890594958796', 'hashrate_24h': '85116194130018810000',
-            'pending_transactions': 1177, 'reduction_rate': '50%', 'total_blocks': 595165, 'total_transactions':
-            '455738994', 'tps_24h': 3.808090277777778, 'first_block_timestamp': '2009-01-09T02:54:25.000Z'}}.
+            'pending_transactions': '1177', 'reduction_rate': '50%', 'total_blocks': '595165', 'total_transactions':
+            '455738994', 'tps_24h': '3.808090277777778', 'first_block_timestamp': '2009-01-09T02:54:25.000Z'}}.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 

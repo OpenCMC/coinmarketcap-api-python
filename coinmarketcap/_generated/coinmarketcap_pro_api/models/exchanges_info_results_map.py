@@ -21,11 +21,10 @@ class ExchangesInfoResultsMap:
         {'1': {'id': 270, 'name': 'Binance', 'slug': 'binance', 'logo':
             'https://s2.coinmarketcap.com/static/img/exchanges/64x64/270.png', 'description': 'Launched in Jul-2017, Binance
             is a centralized exchange based in Malta.', 'date_launched': '2017-07-14T00:00:00.000Z', 'notice': '',
-            'countries': [], 'fiats': ['AED', 'USD'], 'tags': None, 'type': '', 'maker_fee': 0.02, 'taker_fee': 0.04,
-            'weekly_visits': 5123451, 'spot_volume_usd': 66926283498.60113, 'spot_volume_last_updated':
-            '2021-05-06T01:20:15.451Z', 'urls': {'website': ['https://www.binance.com/'], 'twitter':
-            ['https://twitter.com/binance'], 'blog': [], 'chat': ['https://t.me/binanceexchange'], 'fee':
-            ['https://www.binance.com/fees.html']}}}
+            'countries': [], 'fiats': ['AED', 'USD'], 'maker_fee': 0.02, 'taker_fee': 0.04, 'weekly_visits': 5123451,
+            'spot_volume_usd': 66926283498.60113, 'spot_volume_last_updated': '2021-05-06T01:20:15.451Z', 'urls':
+            {'website': ['https://www.binance.com/'], 'twitter': ['https://twitter.com/binance'], 'blog': [], 'chat':
+            ['https://t.me/binanceexchange'], 'fee': ['https://www.binance.com/fees.html']}}}
 
     """
 

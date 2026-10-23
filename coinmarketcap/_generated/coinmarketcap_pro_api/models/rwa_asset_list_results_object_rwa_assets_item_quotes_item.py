@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -19,17 +19,17 @@ class RWAAssetListResultsObjectRwaAssetsItemQuotesItem:
     Attributes:
         crypto_id (int | Unset): CoinMarketCap ID of the quote currency. Example: 2781.
         symbol (str | Unset): Symbol of the quote currency. Example: USD.
-        average_tokenized_price (float | Unset): Aggregate tokenized price in the converted currency.
-        tokenized_market_cap (float | Unset): Aggregate tokenized market cap in the converted currency.
-        tokenized_volume_24h (float | Unset): Aggregate 24h tokenized volume in the converted currency.
+        average_tokenized_price (float | None | Unset): Aggregate tokenized price in the converted currency.
+        tokenized_market_cap (float | None | Unset): Aggregate tokenized market cap in the converted currency.
+        tokenized_volume_24h (float | None | Unset): Aggregate 24h tokenized volume in the converted currency.
         last_updated (datetime.datetime | Unset): ISO 8601 timestamp of the quote.
     """
 
     crypto_id: int | Unset = UNSET
     symbol: str | Unset = UNSET
-    average_tokenized_price: float | Unset = UNSET
-    tokenized_market_cap: float | Unset = UNSET
-    tokenized_volume_24h: float | Unset = UNSET
+    average_tokenized_price: float | None | Unset = UNSET
+    tokenized_market_cap: float | None | Unset = UNSET
+    tokenized_volume_24h: float | None | Unset = UNSET
     last_updated: datetime.datetime | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -38,11 +38,23 @@ class RWAAssetListResultsObjectRwaAssetsItemQuotesItem:
 
         symbol = self.symbol
 
-        average_tokenized_price = self.average_tokenized_price
+        average_tokenized_price: float | None | Unset
+        if isinstance(self.average_tokenized_price, Unset):
+            average_tokenized_price = UNSET
+        else:
+            average_tokenized_price = self.average_tokenized_price
 
-        tokenized_market_cap = self.tokenized_market_cap
+        tokenized_market_cap: float | None | Unset
+        if isinstance(self.tokenized_market_cap, Unset):
+            tokenized_market_cap = UNSET
+        else:
+            tokenized_market_cap = self.tokenized_market_cap
 
-        tokenized_volume_24h = self.tokenized_volume_24h
+        tokenized_volume_24h: float | None | Unset
+        if isinstance(self.tokenized_volume_24h, Unset):
+            tokenized_volume_24h = UNSET
+        else:
+            tokenized_volume_24h = self.tokenized_volume_24h
 
         last_updated: str | Unset = UNSET
         if not isinstance(self.last_updated, Unset):
@@ -73,11 +85,32 @@ class RWAAssetListResultsObjectRwaAssetsItemQuotesItem:
 
         symbol = d.pop("symbol", UNSET)
 
-        average_tokenized_price = d.pop("average_tokenized_price", UNSET)
+        def _parse_average_tokenized_price(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
 
-        tokenized_market_cap = d.pop("tokenized_market_cap", UNSET)
+        average_tokenized_price = _parse_average_tokenized_price(d.pop("average_tokenized_price", UNSET))
 
-        tokenized_volume_24h = d.pop("tokenized_volume_24h", UNSET)
+        def _parse_tokenized_market_cap(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tokenized_market_cap = _parse_tokenized_market_cap(d.pop("tokenized_market_cap", UNSET))
+
+        def _parse_tokenized_volume_24h(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tokenized_volume_24h = _parse_tokenized_volume_24h(d.pop("tokenized_volume_24h", UNSET))
 
         _last_updated = d.pop("last_updated", UNSET)
         last_updated: datetime.datetime | Unset

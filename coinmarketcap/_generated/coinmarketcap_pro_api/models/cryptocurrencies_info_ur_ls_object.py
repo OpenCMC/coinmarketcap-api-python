@@ -6,6 +6,8 @@ from typing import Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 T = TypeVar("T", bound="CryptocurrenciesInfoURLsObject")
 
 
@@ -26,6 +28,7 @@ class CryptocurrenciesInfoURLsObject:
         announcement (list[str]): Array of announcement URLs.
         reddit (list[str]): Array of Reddit community page URLs. Example: ['https://reddit.com/r/bitcoin'].
         twitter (list[str]): Array of official twitter profile URLs. Example: ['https://twitter.com/Bitcoin'].
+        facebook (list[str] | Unset): Facebook links for this cryptocurrency.
     """
 
     website: list[str]
@@ -37,6 +40,7 @@ class CryptocurrenciesInfoURLsObject:
     announcement: list[str]
     reddit: list[str]
     twitter: list[str]
+    facebook: list[str] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -58,6 +62,10 @@ class CryptocurrenciesInfoURLsObject:
 
         twitter = self.twitter
 
+        facebook: list[str] | Unset = UNSET
+        if not isinstance(self.facebook, Unset):
+            facebook = self.facebook
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -73,6 +81,8 @@ class CryptocurrenciesInfoURLsObject:
                 "twitter": twitter,
             }
         )
+        if facebook is not UNSET:
+            field_dict["facebook"] = facebook
 
         return field_dict
 
@@ -97,6 +107,8 @@ class CryptocurrenciesInfoURLsObject:
 
         twitter = cast(list[str], d.pop("twitter"))
 
+        facebook = cast(list[str], d.pop("facebook", UNSET))
+
         cryptocurrencies_info_ur_ls_object = cls(
             website=website,
             technical_doc=technical_doc,
@@ -107,6 +119,7 @@ class CryptocurrenciesInfoURLsObject:
             announcement=announcement,
             reddit=reddit,
             twitter=twitter,
+            facebook=facebook,
         )
 
         cryptocurrencies_info_ur_ls_object.additional_properties = d

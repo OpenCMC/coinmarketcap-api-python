@@ -6,7 +6,10 @@ from typing import TYPE_CHECKING, Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 if TYPE_CHECKING:
+    from ..models.api_status_object import APIStatusObject
     from ..models.content_top_posts_results import ContentTopPostsResults
 
 
@@ -29,17 +32,23 @@ class ContentLatestPostsResponseModel:
             success and the failure are almost...', 'photos':
             ['https://s3.coinmarketcap.com/static/img/portraits/621c22097aafe46422aa1161.png'], 'comment_count': '6',
             'like_count': '60', 'post_time': '1662612816768', 'currencies': [{'id': 1027, 'symbol': 'ETH', 'slug':
-            'ethereum'}], 'repost_count': '0', 'language_code': 'en'}], 'last_score': '1662903634322'}}
+            'ethereum'}], 'language_code': 'en'}], 'last_score': '1662903634322'}}
 
     Attributes:
         data (ContentTopPostsResults): Cntent objects.
+        status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
     data: ContentTopPostsResults
+    status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         data = self.data.to_dict()
+
+        status: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.status, Unset):
+            status = self.status.to_dict()
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -48,18 +57,29 @@ class ContentLatestPostsResponseModel:
                 "data": data,
             }
         )
+        if status is not UNSET:
+            field_dict["status"] = status
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.api_status_object import APIStatusObject
         from ..models.content_top_posts_results import ContentTopPostsResults
 
         d = dict(src_dict)
         data = ContentTopPostsResults.from_dict(d.pop("data"))
 
+        _status = d.pop("status", UNSET)
+        status: APIStatusObject | Unset
+        if isinstance(_status, Unset):
+            status = UNSET
+        else:
+            status = APIStatusObject.from_dict(_status)
+
         content_latest_posts_response_model = cls(
             data=data,
+            status=status,
         )
 
         content_latest_posts_response_model.additional_properties = d

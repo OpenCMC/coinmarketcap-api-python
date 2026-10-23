@@ -20,7 +20,7 @@ class TradeHistoryDTO:
     """Swap transaction data
 
     Attributes:
-        ts (int | Unset): Transaction time (timestamp)
+        ts (str | Unset): Transaction time (timestamp)
         tp (str | Unset): Transaction type (buy/sell)
         t0a (str | Unset): Base token address
         t1a (str | Unset): Quote token address
@@ -40,13 +40,13 @@ class TradeHistoryDTO:
         ex (bool | Unset): exclude
         txtp (int | Unset): exclude
         tx (str | Unset): Transaction hash
-        h (int | Unset): height
-        tx_id (int | Unset): txId
-        lgid (int | Unset): Log ID
+        h (str | Unset): height
+        tx_id (str | Unset): txId
+        lgid (str | Unset): Log ID
         t0t (bool | Unset): t0top
         t1t (bool | Unset): t1top
         tags (list[TagDTO] | Unset): holder tags
-        tc (int | Unset): transaction count
+        tc (str | Unset): transaction count
         kn (str | Unset): kol name
         kpn (str | Unset): kol public name
         klu (str | Unset): kol logo url
@@ -54,7 +54,7 @@ class TradeHistoryDTO:
         t1pt (str | Unset): Token1 position type (open/close/add/reduce)
     """
 
-    ts: int | Unset = UNSET
+    ts: str | Unset = UNSET
     tp: str | Unset = UNSET
     t0a: str | Unset = UNSET
     t1a: str | Unset = UNSET
@@ -74,13 +74,13 @@ class TradeHistoryDTO:
     ex: bool | Unset = UNSET
     txtp: int | Unset = UNSET
     tx: str | Unset = UNSET
-    h: int | Unset = UNSET
-    tx_id: int | Unset = UNSET
-    lgid: int | Unset = UNSET
+    h: str | Unset = UNSET
+    tx_id: str | Unset = UNSET
+    lgid: str | Unset = UNSET
     t0t: bool | Unset = UNSET
     t1t: bool | Unset = UNSET
     tags: list[TagDTO] | Unset = UNSET
-    tc: int | Unset = UNSET
+    tc: str | Unset = UNSET
     kn: str | Unset = UNSET
     kpn: str | Unset = UNSET
     klu: str | Unset = UNSET

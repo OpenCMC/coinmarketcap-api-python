@@ -24,16 +24,16 @@ class DerivativesMarketPairsListLatestResponseModel:
     Attributes:
         data (DerivativesMarketPairsListLatestResultsObject): Results of your query returned as an object. Example:
             {'exchange_id': 270, 'exchange_name': 'Binance', 'exchange_slug': 'binance', 'num_market_pairs': 2045,
-            'volume_24h': 69306677552.93349, 'market_pairs': [{'market_id': 47150, 'market_pair': 'BTC/USDT', 'category':
-            'perpetual', 'fee_type': 'percentage', 'outlier_detected': False, 'exclusions': None, 'market_pair_base':
-            {'exchange_symbol': 'BTC', 'symbol': 'BTC', 'crypto_id': 1, 'currency_type': 'cryptocurrency'},
-            'market_pair_quote': {'exchange_symbol': 'USDT', 'symbol': 'USDT', 'crypto_id': 825, 'currency_type':
-            'cryptocurrency'}, 'exchange_reported_quotes': [{'crypto_id': 2781, 'symbol': 'USD', 'price': 80521.2,
-            'volume_24h_base': 184589.83976729, 'volume_24h_quote': 14863395405.87, 'open_interest': 5000000, 'index_price':
-            80498.5, 'index_basis': 0.0023, 'funding_rate': 0.0001, 'last_updated': '2026-05-15T06:54:18.743Z',
-            'volume_percentage': 21.441131937316662}], 'quotes': [{'crypto_id': 2781, 'symbol': 'USD', 'price':
-            80504.01770192, 'volume_24h': 14860136175.4951, 'open_interest': 5000000, 'last_updated':
-            '2026-05-15T06:54:18.743Z'}]}]}.
+            'volume_24h': 69306677552.93349, 'market_pairs': [{'market_id': 47150, 'market_pair_symbol': 'BTC/USDT',
+            'category': 'perpetual', 'fee_type': 'percentage', 'outlier_detected': False, 'exclusions': None,
+            'market_pair_base': {'exchange_symbol': 'BTC', 'symbol': 'BTC', 'crypto_id': 1, 'currency_type':
+            'cryptocurrency'}, 'market_pair_quote': {'exchange_symbol': 'USDT', 'symbol': 'USDT', 'crypto_id': 825,
+            'currency_type': 'cryptocurrency'}, 'exchange_reported_quotes': [{'convert_id': 2781, 'convert_symbol': 'USD',
+            'price': 80521.2, 'volume_24h_base': 184589.83976729, 'volume_24h_quote': 14863395405.87, 'open_interest':
+            5000000, 'index_price': 80498.5, 'index_basis': 0.0023, 'funding_rate': 0.0001, 'last_updated':
+            '2026-05-15T06:54:18.743Z', 'volume_percentage': 21.441131937316662}], 'quotes': [{'convert_id': 2781,
+            'convert_symbol': 'USD', 'price': 80504.01770192, 'volume_24h': 14860136175.4951, 'open_interest': 5000000,
+            'last_updated': '2026-05-15T06:54:18.743Z'}]}]}.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 

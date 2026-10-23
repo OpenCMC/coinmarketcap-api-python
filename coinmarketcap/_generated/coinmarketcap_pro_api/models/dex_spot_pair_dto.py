@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,13 +26,13 @@ class DexSpotPairDTO:
             included is USD.
         contract_address (str | Unset): The unique contract address for this spot pair.
         name (str | Unset): The name of this spot pair.
-        base_asset_id (str | Unset): The id of this base asset in the spot pair.
-        base_asset_ucid (str | Unset): The ucid of this base asset in the spot pair.
+        base_asset_id (None | str | Unset): The id of this base asset in the spot pair.
+        base_asset_ucid (None | str | Unset): The ucid of this base asset in the spot pair.
         base_asset_name (str | Unset): The name of this base asset in the spot pair.
         base_asset_symbol (str | Unset): The symbol of this base asset in the spot pair.
         base_asset_contract_address (str | Unset): The contract addres of this base asset in the spot pair.
-        quote_asset_id (str | Unset): The id of this quote asset in the spot pair.
-        quote_asset_ucid (str | Unset): The ucid of this quote asset in the spot pair.
+        quote_asset_id (None | str | Unset): The id of this quote asset in the spot pair.
+        quote_asset_ucid (None | str | Unset): The ucid of this quote asset in the spot pair.
         quote_asset_name (str | Unset): The name of this quote asset in the spot pair.
         quote_asset_symbol (str | Unset): The symbol of this quote asset in the spot pair.
         quote_asset_contract_address (str | Unset): The contract addresss of this quote asset in the spot pair.
@@ -41,7 +41,7 @@ class DexSpotPairDTO:
         network_id (str | Unset): The id of the network the spot pair is on.
         network_slug (str | Unset): The slug of the network the spot pair is on.
         last_updated (datetime.datetime | Unset): Timestamp (ISO 8601) of the last time this record was updated.
-        created_at (datetime.datetime | Unset): Timestamp (ISO 8601) when we started tracking this asset.
+        created_at (datetime.datetime | None | Unset): Timestamp (ISO 8601) when we started tracking this asset.
         num_transactions_24h (int | Unset): Number of transactions in past 24 hours
         holders (int | Unset): Number of holders of the asset
         field_24h_no_of_buys (int | Unset): Number of asset buys in the past 24 hours
@@ -74,13 +74,13 @@ class DexSpotPairDTO:
     quote: list[DexQuoteDTO] | Unset = UNSET
     contract_address: str | Unset = UNSET
     name: str | Unset = UNSET
-    base_asset_id: str | Unset = UNSET
-    base_asset_ucid: str | Unset = UNSET
+    base_asset_id: None | str | Unset = UNSET
+    base_asset_ucid: None | str | Unset = UNSET
     base_asset_name: str | Unset = UNSET
     base_asset_symbol: str | Unset = UNSET
     base_asset_contract_address: str | Unset = UNSET
-    quote_asset_id: str | Unset = UNSET
-    quote_asset_ucid: str | Unset = UNSET
+    quote_asset_id: None | str | Unset = UNSET
+    quote_asset_ucid: None | str | Unset = UNSET
     quote_asset_name: str | Unset = UNSET
     quote_asset_symbol: str | Unset = UNSET
     quote_asset_contract_address: str | Unset = UNSET
@@ -89,7 +89,7 @@ class DexSpotPairDTO:
     network_id: str | Unset = UNSET
     network_slug: str | Unset = UNSET
     last_updated: datetime.datetime | Unset = UNSET
-    created_at: datetime.datetime | Unset = UNSET
+    created_at: datetime.datetime | None | Unset = UNSET
     num_transactions_24h: int | Unset = UNSET
     holders: int | Unset = UNSET
     field_24h_no_of_buys: int | Unset = UNSET
@@ -120,9 +120,17 @@ class DexSpotPairDTO:
 
         name = self.name
 
-        base_asset_id = self.base_asset_id
+        base_asset_id: None | str | Unset
+        if isinstance(self.base_asset_id, Unset):
+            base_asset_id = UNSET
+        else:
+            base_asset_id = self.base_asset_id
 
-        base_asset_ucid = self.base_asset_ucid
+        base_asset_ucid: None | str | Unset
+        if isinstance(self.base_asset_ucid, Unset):
+            base_asset_ucid = UNSET
+        else:
+            base_asset_ucid = self.base_asset_ucid
 
         base_asset_name = self.base_asset_name
 
@@ -130,9 +138,17 @@ class DexSpotPairDTO:
 
         base_asset_contract_address = self.base_asset_contract_address
 
-        quote_asset_id = self.quote_asset_id
+        quote_asset_id: None | str | Unset
+        if isinstance(self.quote_asset_id, Unset):
+            quote_asset_id = UNSET
+        else:
+            quote_asset_id = self.quote_asset_id
 
-        quote_asset_ucid = self.quote_asset_ucid
+        quote_asset_ucid: None | str | Unset
+        if isinstance(self.quote_asset_ucid, Unset):
+            quote_asset_ucid = UNSET
+        else:
+            quote_asset_ucid = self.quote_asset_ucid
 
         quote_asset_name = self.quote_asset_name
 
@@ -152,9 +168,13 @@ class DexSpotPairDTO:
         if not isinstance(self.last_updated, Unset):
             last_updated = self.last_updated.isoformat()
 
-        created_at: str | Unset = UNSET
-        if not isinstance(self.created_at, Unset):
+        created_at: None | str | Unset
+        if isinstance(self.created_at, Unset):
+            created_at = UNSET
+        elif isinstance(self.created_at, datetime.datetime):
             created_at = self.created_at.isoformat()
+        else:
+            created_at = self.created_at
 
         num_transactions_24h = self.num_transactions_24h
 
@@ -292,9 +312,23 @@ class DexSpotPairDTO:
 
         name = d.pop("name", UNSET)
 
-        base_asset_id = d.pop("base_asset_id", UNSET)
+        def _parse_base_asset_id(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
 
-        base_asset_ucid = d.pop("base_asset_ucid", UNSET)
+        base_asset_id = _parse_base_asset_id(d.pop("base_asset_id", UNSET))
+
+        def _parse_base_asset_ucid(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        base_asset_ucid = _parse_base_asset_ucid(d.pop("base_asset_ucid", UNSET))
 
         base_asset_name = d.pop("base_asset_name", UNSET)
 
@@ -302,9 +336,23 @@ class DexSpotPairDTO:
 
         base_asset_contract_address = d.pop("base_asset_contract_address", UNSET)
 
-        quote_asset_id = d.pop("quote_asset_id", UNSET)
+        def _parse_quote_asset_id(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
 
-        quote_asset_ucid = d.pop("quote_asset_ucid", UNSET)
+        quote_asset_id = _parse_quote_asset_id(d.pop("quote_asset_id", UNSET))
+
+        def _parse_quote_asset_ucid(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        quote_asset_ucid = _parse_quote_asset_ucid(d.pop("quote_asset_ucid", UNSET))
 
         quote_asset_name = d.pop("quote_asset_name", UNSET)
 
@@ -327,12 +375,22 @@ class DexSpotPairDTO:
         else:
             last_updated = isoparse(_last_updated)
 
-        _created_at = d.pop("created_at", UNSET)
-        created_at: datetime.datetime | Unset
-        if isinstance(_created_at, Unset):
-            created_at = UNSET
-        else:
-            created_at = isoparse(_created_at)
+        def _parse_created_at(data: object) -> datetime.datetime | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                created_at_type_0 = isoparse(data)
+
+                return created_at_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(datetime.datetime | None | Unset, data)
+
+        created_at = _parse_created_at(d.pop("created_at", UNSET))
 
         num_transactions_24h = d.pop("num_transactions_24h", UNSET)
 

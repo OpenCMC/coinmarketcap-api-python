@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.platform_dto import PlatformDTO
+from ...models.v1dex_platform_list_response_model import V1DEXPlatformListResponseModel
 from ...types import Response
 
 
@@ -19,14 +19,11 @@ def _get_kwargs() -> dict[str, Any]:
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[PlatformDTO] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXPlatformListResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = PlatformDTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V1DEXPlatformListResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -36,7 +33,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[list[PlatformDTO]]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXPlatformListResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -48,7 +47,7 @@ def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Res
 def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
-) -> Response[list[PlatformDTO]]:
+) -> Response[V1DEXPlatformListResponseModel]:
     r"""Get platform list
 
      Get list of all supported platforms
@@ -64,7 +63,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[PlatformDTO]]
+        Response[V1DEXPlatformListResponseModel]
     """
 
     kwargs = _get_kwargs()
@@ -79,7 +78,7 @@ def sync_detailed(
 def sync(
     *,
     client: AuthenticatedClient | Client,
-) -> list[PlatformDTO] | None:
+) -> V1DEXPlatformListResponseModel | None:
     r"""Get platform list
 
      Get list of all supported platforms
@@ -95,7 +94,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[PlatformDTO]
+        V1DEXPlatformListResponseModel
     """
 
     return sync_detailed(
@@ -106,7 +105,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
-) -> Response[list[PlatformDTO]]:
+) -> Response[V1DEXPlatformListResponseModel]:
     r"""Get platform list
 
      Get list of all supported platforms
@@ -122,7 +121,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[PlatformDTO]]
+        Response[V1DEXPlatformListResponseModel]
     """
 
     kwargs = _get_kwargs()
@@ -135,7 +134,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: AuthenticatedClient | Client,
-) -> list[PlatformDTO] | None:
+) -> V1DEXPlatformListResponseModel | None:
     r"""Get platform list
 
      Get list of all supported platforms
@@ -151,7 +150,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[PlatformDTO]
+        V1DEXPlatformListResponseModel
     """
 
     return (

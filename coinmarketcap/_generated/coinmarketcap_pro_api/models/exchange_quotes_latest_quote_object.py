@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,9 +27,15 @@ class ExchangeQuotesLatestQuoteObject:
         percent_change_volume_7d (float): 7 day percent change in the specified currency. Example: 5.75.
         percent_change_volume_30d (float): 30 day percent change in the specified currency. Example: -19.64.
         effective_liquidity_24h (float | Unset): 24 hour liquidity in the specified currency. Example: -19.64.
-        derivative_volume (float | Unset): Reported 24 hour derivative volume in the specified currency. Example:
+        derivative_volume (float | None | Unset): Reported 24 hour derivative volume in the specified currency. Example:
             768478308.529847.
         spot_volume (float | Unset): Reported 24 hour spot volume in the specified currency. Example: 768478308.529847.
+        derivative_volume_usd (float | None | Unset): Aggregate 24h derivative trade volume in USD. Example:
+            62828618628.85901.
+        spot_volume_usd (float | Unset): Reported all time spot volume in the specified currency. Example:
+            768478308.529847.
+        open_interest (float | None | Unset): Reported 24 hour derivative open interest in the specified currency.
+            Example: 768478308.529847.
     """
 
     last_updated: str
@@ -41,8 +47,11 @@ class ExchangeQuotesLatestQuoteObject:
     percent_change_volume_7d: float
     percent_change_volume_30d: float
     effective_liquidity_24h: float | Unset = UNSET
-    derivative_volume: float | Unset = UNSET
+    derivative_volume: float | None | Unset = UNSET
     spot_volume: float | Unset = UNSET
+    derivative_volume_usd: float | None | Unset = UNSET
+    spot_volume_usd: float | Unset = UNSET
+    open_interest: float | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -64,9 +73,27 @@ class ExchangeQuotesLatestQuoteObject:
 
         effective_liquidity_24h = self.effective_liquidity_24h
 
-        derivative_volume = self.derivative_volume
+        derivative_volume: float | None | Unset
+        if isinstance(self.derivative_volume, Unset):
+            derivative_volume = UNSET
+        else:
+            derivative_volume = self.derivative_volume
 
         spot_volume = self.spot_volume
+
+        derivative_volume_usd: float | None | Unset
+        if isinstance(self.derivative_volume_usd, Unset):
+            derivative_volume_usd = UNSET
+        else:
+            derivative_volume_usd = self.derivative_volume_usd
+
+        spot_volume_usd = self.spot_volume_usd
+
+        open_interest: float | None | Unset
+        if isinstance(self.open_interest, Unset):
+            open_interest = UNSET
+        else:
+            open_interest = self.open_interest
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -88,6 +115,12 @@ class ExchangeQuotesLatestQuoteObject:
             field_dict["derivative_volume"] = derivative_volume
         if spot_volume is not UNSET:
             field_dict["spot_volume"] = spot_volume
+        if derivative_volume_usd is not UNSET:
+            field_dict["derivative_volume_usd"] = derivative_volume_usd
+        if spot_volume_usd is not UNSET:
+            field_dict["spot_volume_usd"] = spot_volume_usd
+        if open_interest is not UNSET:
+            field_dict["open_interest"] = open_interest
 
         return field_dict
 
@@ -112,9 +145,36 @@ class ExchangeQuotesLatestQuoteObject:
 
         effective_liquidity_24h = d.pop("effective_liquidity_24h", UNSET)
 
-        derivative_volume = d.pop("derivative_volume", UNSET)
+        def _parse_derivative_volume(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        derivative_volume = _parse_derivative_volume(d.pop("derivative_volume", UNSET))
 
         spot_volume = d.pop("spot_volume", UNSET)
+
+        def _parse_derivative_volume_usd(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        derivative_volume_usd = _parse_derivative_volume_usd(d.pop("derivative_volume_usd", UNSET))
+
+        spot_volume_usd = d.pop("spot_volume_usd", UNSET)
+
+        def _parse_open_interest(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        open_interest = _parse_open_interest(d.pop("open_interest", UNSET))
 
         exchange_quotes_latest_quote_object = cls(
             last_updated=last_updated,
@@ -128,6 +188,9 @@ class ExchangeQuotesLatestQuoteObject:
             effective_liquidity_24h=effective_liquidity_24h,
             derivative_volume=derivative_volume,
             spot_volume=spot_volume,
+            derivative_volume_usd=derivative_volume_usd,
+            spot_volume_usd=spot_volume_usd,
+            open_interest=open_interest,
         )
 
         exchange_quotes_latest_quote_object.additional_properties = d

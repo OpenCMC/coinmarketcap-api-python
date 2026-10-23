@@ -23,13 +23,13 @@ class LiquidityChangeListResponseDTO:
         last_id (str | Unset): Last ID for pagination
         lcs (list[LiquidityChangeDTO] | Unset): List of liquidity change transactions
         tlu (float | Unset): total liquidity usd value
-        lpc (int | Unset): liquidity pool count
+        lpc (str | Unset): liquidity pool count
     """
 
     last_id: str | Unset = UNSET
     lcs: list[LiquidityChangeDTO] | Unset = UNSET
     tlu: float | Unset = UNSET
-    lpc: int | Unset = UNSET
+    lpc: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:

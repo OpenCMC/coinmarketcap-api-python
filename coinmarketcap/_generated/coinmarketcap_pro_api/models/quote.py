@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -37,7 +37,7 @@ class Quote:
         market_cap_dominance (float | Unset): Market cap dominance percentage
         fully_diluted_market_cap (float | Unset): Fully diluted market capitalization
         minted_market_cap (float | Unset): Minted market capitalization
-        tvl (float | Unset): Total Value Locked
+        tvl (float | None | Unset): Total Value Locked
         market_cap_by_total_supply (float | Unset): Market cap calculated by total supply
         last_updated (str | Unset): Last updated timestamp
     """
@@ -64,7 +64,7 @@ class Quote:
     market_cap_dominance: float | Unset = UNSET
     fully_diluted_market_cap: float | Unset = UNSET
     minted_market_cap: float | Unset = UNSET
-    tvl: float | Unset = UNSET
+    tvl: float | None | Unset = UNSET
     market_cap_by_total_supply: float | Unset = UNSET
     last_updated: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -114,7 +114,11 @@ class Quote:
 
         minted_market_cap = self.minted_market_cap
 
-        tvl = self.tvl
+        tvl: float | None | Unset
+        if isinstance(self.tvl, Unset):
+            tvl = UNSET
+        else:
+            tvl = self.tvl
 
         market_cap_by_total_supply = self.market_cap_by_total_supply
 
@@ -223,7 +227,14 @@ class Quote:
 
         minted_market_cap = d.pop("minted_market_cap", UNSET)
 
-        tvl = d.pop("tvl", UNSET)
+        def _parse_tvl(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tvl = _parse_tvl(d.pop("tvl", UNSET))
 
         market_cap_by_total_supply = d.pop("market_cap_by_total_supply", UNSET)
 

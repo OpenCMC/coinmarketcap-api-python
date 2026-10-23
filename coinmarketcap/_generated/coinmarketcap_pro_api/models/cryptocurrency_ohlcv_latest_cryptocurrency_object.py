@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -26,8 +26,9 @@ class CryptocurrencyOHLCVLatestCryptocurrencyObject:
         time_open (str): Timestamp (ISO 8601) of the start of this OHLCV period. Example: 2018-06-02T00:00:00.000Z.
         time_high (str): Timestamp (ISO 8601) of the high of this OHLCV period. Example: 2018-06-02T00:00:00.000Z.
         time_low (str): Timestamp (ISO 8601) of the low of this OHLCV period. Example: 2018-06-02T00:00:00.000Z.
-        time_close (str): Timestamp (ISO 8601) of the end of this OHLCV period. Always `null` as the current day is
-            incomplete. See `last_updated` for the last UTC time included in the current OHLCV calculation. Example: null.
+        time_close (None | str): Timestamp (ISO 8601) of the end of this OHLCV period. Always `null` as the current day
+            is incomplete. See `last_updated` for the last UTC time included in the current OHLCV calculation. Example:
+            null.
         quote (CryptocurrencyOHLCVLatestQuoteMap): A map of market quotes in different currency conversions. The default
             map included is USD.
     """
@@ -39,7 +40,7 @@ class CryptocurrencyOHLCVLatestCryptocurrencyObject:
     time_open: str
     time_high: str
     time_low: str
-    time_close: str
+    time_close: None | str
     quote: CryptocurrencyOHLCVLatestQuoteMap
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -58,6 +59,7 @@ class CryptocurrencyOHLCVLatestCryptocurrencyObject:
 
         time_low = self.time_low
 
+        time_close: None | str
         time_close = self.time_close
 
         quote = self.quote.to_dict()
@@ -99,7 +101,12 @@ class CryptocurrencyOHLCVLatestCryptocurrencyObject:
 
         time_low = d.pop("time_low")
 
-        time_close = d.pop("time_close")
+        def _parse_time_close(data: object) -> None | str:
+            if data is None:
+                return data
+            return cast(None | str, data)
+
+        time_close = _parse_time_close(d.pop("time_close"))
 
         quote = CryptocurrencyOHLCVLatestQuoteMap.from_dict(d.pop("quote"))
 

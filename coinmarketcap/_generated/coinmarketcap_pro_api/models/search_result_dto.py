@@ -21,8 +21,8 @@ class SearchResultDTO:
         n (str | Unset):
         s (str | Unset):
         addr (str | Unset):
-        pt (int | Unset):
-        lt (int | Unset):
+        pt (str | Unset):
+        lt (str | Unset):
         w (str | Unset):
         x (str | Unset):
         l (str | Unset):
@@ -30,17 +30,17 @@ class SearchResultDTO:
         pc24h (float | Unset):
         dec (int | Unset):
         tsup (str | Unset):
-        fpt (int | Unset):
-        fpct (int | Unset):
+        fpt (str | Unset):
+        fpct (str | Unset):
         v24h (float | Unset):
         fdv (float | Unset):
         mc (float | Unset):
         liq (float | Unset):
-        ts (int | Unset):
+        ts (str | Unset):
         lf (int | Unset):
         cid (int | Unset):
         bn_cid (str | Unset):
-        ut24h (int | Unset):
+        ut24h (str | Unset):
         ecs (int | Unset): Binance exclusive code, 1 - exclusive
         ssc (float | Unset): Search relevance score
         pin (str | Unset): Comma-separated pinned types based on sort fields: ido,alpha,trending or null
@@ -52,8 +52,8 @@ class SearchResultDTO:
     n: str | Unset = UNSET
     s: str | Unset = UNSET
     addr: str | Unset = UNSET
-    pt: int | Unset = UNSET
-    lt: int | Unset = UNSET
+    pt: str | Unset = UNSET
+    lt: str | Unset = UNSET
     w: str | Unset = UNSET
     x: str | Unset = UNSET
     l: str | Unset = UNSET
@@ -61,17 +61,17 @@ class SearchResultDTO:
     pc24h: float | Unset = UNSET
     dec: int | Unset = UNSET
     tsup: str | Unset = UNSET
-    fpt: int | Unset = UNSET
-    fpct: int | Unset = UNSET
+    fpt: str | Unset = UNSET
+    fpct: str | Unset = UNSET
     v24h: float | Unset = UNSET
     fdv: float | Unset = UNSET
     mc: float | Unset = UNSET
     liq: float | Unset = UNSET
-    ts: int | Unset = UNSET
+    ts: str | Unset = UNSET
     lf: int | Unset = UNSET
     cid: int | Unset = UNSET
     bn_cid: str | Unset = UNSET
-    ut24h: int | Unset = UNSET
+    ut24h: str | Unset = UNSET
     ecs: int | Unset = UNSET
     ssc: float | Unset = UNSET
     pin: str | Unset = UNSET

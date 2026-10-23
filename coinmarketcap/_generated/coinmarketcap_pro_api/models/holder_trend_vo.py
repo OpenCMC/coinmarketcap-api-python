@@ -15,18 +15,18 @@ T = TypeVar("T", bound="HolderTrendVO")
 class HolderTrendVO:
     """
     Attributes:
-        ts (int | Unset):
-        end_ts (int | Unset):
+        ts (str | Unset):
+        end_ts (str | Unset):
         platform (int | Unset):
         token_address (str | Unset):
-        holders (int | Unset):
+        holders (str | Unset):
         holding_ratio_of_top_100 (str | Unset):
         holding_ratio_of_top_50 (str | Unset):
         holding_ratio_of_top_10 (str | Unset):
         total_balance_of_top_100 (str | Unset):
         total_balance_of_top_50 (str | Unset):
         total_balance_of_top_10 (str | Unset):
-        bigger_than_10d_holders (int | Unset):
+        bigger_than_10d_holders (str | Unset):
         avg_balance_all_holders (str | Unset):
         avg_balance_of_top_100 (str | Unset):
         avg_position_cost_of_top_100 (str | Unset):
@@ -38,18 +38,18 @@ class HolderTrendVO:
         price (str | Unset):
     """
 
-    ts: int | Unset = UNSET
-    end_ts: int | Unset = UNSET
+    ts: str | Unset = UNSET
+    end_ts: str | Unset = UNSET
     platform: int | Unset = UNSET
     token_address: str | Unset = UNSET
-    holders: int | Unset = UNSET
+    holders: str | Unset = UNSET
     holding_ratio_of_top_100: str | Unset = UNSET
     holding_ratio_of_top_50: str | Unset = UNSET
     holding_ratio_of_top_10: str | Unset = UNSET
     total_balance_of_top_100: str | Unset = UNSET
     total_balance_of_top_50: str | Unset = UNSET
     total_balance_of_top_10: str | Unset = UNSET
-    bigger_than_10d_holders: int | Unset = UNSET
+    bigger_than_10d_holders: str | Unset = UNSET
     avg_balance_all_holders: str | Unset = UNSET
     avg_balance_of_top_100: str | Unset = UNSET
     avg_position_cost_of_top_100: str | Unset = UNSET

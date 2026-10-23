@@ -33,6 +33,8 @@ class PlatformDTO:
         ho (int | Unset): Display order for highlighted platforms Example: 3.
         plt_a (str | Unset): platform acronym Example: ETH.
         cid (int | Unset):
+        na (str | Unset): Address used for this platform's native coin, for example
+            `0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee` on EVM chains.
     """
 
     id: int | Unset = UNSET
@@ -51,6 +53,7 @@ class PlatformDTO:
     ho: int | Unset = UNSET
     plt_a: str | Unset = UNSET
     cid: int | Unset = UNSET
+    na: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -85,6 +88,8 @@ class PlatformDTO:
         plt_a = self.plt_a
 
         cid = self.cid
+
+        na = self.na
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -121,6 +126,8 @@ class PlatformDTO:
             field_dict["pltA"] = plt_a
         if cid is not UNSET:
             field_dict["cid"] = cid
+        if na is not UNSET:
+            field_dict["na"] = na
 
         return field_dict
 
@@ -159,6 +166,8 @@ class PlatformDTO:
 
         cid = d.pop("cid", UNSET)
 
+        na = d.pop("na", UNSET)
+
         platform_dto = cls(
             id=id,
             n=n,
@@ -176,6 +185,7 @@ class PlatformDTO:
             ho=ho,
             plt_a=plt_a,
             cid=cid,
+            na=na,
         )
 
         platform_dto.additional_properties = d

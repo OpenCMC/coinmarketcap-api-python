@@ -10,6 +10,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.api_status_object import APIStatusObject
+    from ..models.cryptocurrency_quotes_historical_result_object import CryptocurrencyQuotesHistoricalResultObject
     from ..models.cryptocurrency_quotes_historical_results_map import CryptocurrencyQuotesHistoricalResultsMap
 
 
@@ -20,20 +21,24 @@ T = TypeVar("T", bound="CryptocurrencyQuotesHistoricalResponseModel")
 class CryptocurrencyQuotesHistoricalResponseModel:
     """
     Attributes:
-        data (CryptocurrencyQuotesHistoricalResultsMap): Results of your query returned as an object map. Example: {'1':
-            {'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'is_active': 1, 'is_fiat': 0, 'quotes': [{'timestamp':
-            '2018-06-22T00:00:00.000Z', 'quote': {'USD': {'price': 6242.48, 'volume_24h': 4894120000, 'market_cap':
-            107057808682, 'last_updated': '2018-06-22T00:04:16.000Z', 'volume_24hr': 4894120000, 'timestamp':
-            '2018-06-22T00:04:16.000Z'}}}]}}.
+        data (CryptocurrencyQuotesHistoricalResultObject | CryptocurrencyQuotesHistoricalResultsMap): The v3 endpoint
+            always returns an object map keyed by cryptocurrency ID. The v1 and v2 endpoints return a single object when you
+            request one cryptocurrency, and an object map keyed by ID when you request several.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
-    data: CryptocurrencyQuotesHistoricalResultsMap
+    data: CryptocurrencyQuotesHistoricalResultObject | CryptocurrencyQuotesHistoricalResultsMap
     status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        data = self.data.to_dict()
+        from ..models.cryptocurrency_quotes_historical_results_map import CryptocurrencyQuotesHistoricalResultsMap
+
+        data: dict[str, Any]
+        if isinstance(self.data, CryptocurrencyQuotesHistoricalResultsMap):
+            data = self.data.to_dict()
+        else:
+            data = self.data.to_dict()
 
         status: dict[str, Any] | Unset = UNSET
         if not isinstance(self.status, Unset):
@@ -54,10 +59,29 @@ class CryptocurrencyQuotesHistoricalResponseModel:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.api_status_object import APIStatusObject
+        from ..models.cryptocurrency_quotes_historical_result_object import CryptocurrencyQuotesHistoricalResultObject
         from ..models.cryptocurrency_quotes_historical_results_map import CryptocurrencyQuotesHistoricalResultsMap
 
         d = dict(src_dict)
-        data = CryptocurrencyQuotesHistoricalResultsMap.from_dict(d.pop("data"))
+
+        def _parse_data(
+            data: object,
+        ) -> CryptocurrencyQuotesHistoricalResultObject | CryptocurrencyQuotesHistoricalResultsMap:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                data_type_0 = CryptocurrencyQuotesHistoricalResultsMap.from_dict(data)
+
+                return data_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            data_type_1 = CryptocurrencyQuotesHistoricalResultObject.from_dict(data)
+
+            return data_type_1
+
+        data = _parse_data(d.pop("data"))
 
         _status = d.pop("status", UNSET)
         status: APIStatusObject | Unset

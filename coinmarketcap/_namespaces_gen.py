@@ -118,7 +118,7 @@ from coinmarketcap._generated.coinmarketcap_pro_api.api.tools.get_v1_fiat_map im
 from coinmarketcap._generated.coinmarketcap_pro_api.api.tools.get_v1_key_info import sync_detailed as _sync_tools_get_v1_key_info, asyncio_detailed as _async_tools_get_v1_key_info
 from coinmarketcap._generated.coinmarketcap_pro_api.api.tools.get_v1_tools_postman import sync_detailed as _sync_tools_get_v1_tools_postman, asyncio_detailed as _async_tools_get_v1_tools_postman
 from coinmarketcap._generated.coinmarketcap_pro_api.api.tools.get_v2_tools_priceconversion import sync_detailed as _sync_tools_get_v2_tools_priceconversion, asyncio_detailed as _async_tools_get_v2_tools_priceconversion
-from coinmarketcap._generated.coinmarketcap_pro_api.models import (AccountInfoResponseModel, AirdropResponseModel, AirdropsResponseModel, AltcoinSeasonIndexHistoricalResponseModel, AltcoinSeasonIndexLatestResponseModel, ApiResponseOfCMC20IndexHistoricalResponseDTO, ApiResponseOfCMC20IndexLatestResponseDTO, ApiResponseOfIndexHistoricalResponseDTO, ApiResponseOfIndexLatestResponseDTO, BlockchainStatisticsLatestResponseModel, CMCAICoinsLatestResponseModel, CMCAICoinsMapResponseModel, CMCAILatestResponseModel, CategoriesResponseModel, CategoryResponseModel, CommunityTrendingTokenResponseModel, CommunityTrendingTopicResponseModel, ContentLatestPostsResponseModel, ContentLatestResponseModel, ContentPostCommentsResponseModel, ContentTopPostsResponseModel, CryptoQuoteV3DTO, CryptocurrenciesInfoResponseModel, CryptocurrencyListingsLatestResponseModel, CryptocurrencyListingsLatestResponseModel1, CryptocurrencyListingsNewResponseModel, CryptocurrencyMapResponseModel, CryptocurrencyMarketPairsLatestResponseModel, CryptocurrencyMultiplierResponseModel, CryptocurrencyOHLCVHistoricalResponseModel, CryptocurrencyOHLCVLatestResponseModel, CryptocurrencyPricePerformanceStatsLatestResponseModel, CryptocurrencyQuotesHistoricalResponseModel, CryptocurrencyQuotesLatestResponseModel, CryptocurrencyTrendingGainersLosersResponseModel, CryptocurrencyTrendingLatestResponseModel, CryptocurrencyTrendingMostVisitedResponseModel, DerivativesCryptoMarketPairsListLatestResponseModel, DerivativesExchangesListResponseModel, DerivativesMarketPairsListLatestResponseModel, DexCommonInfoDTO, DexInfoDTO, DexMultiplierResponseModel, DexMultiplierValidationErrorObject, DexPairsOhlcvDTO, DexPairsOhlcvHistoricalDTO, DexPairsTradeDTO, DexParisQuotesDTO, DexSpotPairDTO, DqueryBatchPriceRequestDTO, DqueryBatchTokenRequestDTO, DqueryHoldersDetailRequestDTO, DqueryHoldersRequestDTO, DqueryMarketRequestDTO, DqueryMemeRequestDTO, ExchangeAssetsResponseModel, ExchangeHistoricalQuotesResponseModel, ExchangeListingsLatestResponseModel, ExchangeMapResponseModel, ExchangeMarketPairsLatestResponseModel, ExchangeQuotesLatestResponseModel, ExchangesInfoResponseModel, FCASListingsLatestResponseModel, FCASQuoteLatestResponseModel, FearAndGreedHistoricalResponseModel, FearAndGreedLatestResponseModel, FiatMapResponseModel, GainerLeaderBoardResponseDTO, GetV1AltcoinSeasonIndexHistoricalTimeframe, GetV1ContentLatestLanguage, GetV1CryptocurrencyAirdropsStatus, GetV1CryptocurrencyListingsHistoricalCryptocurrencyType, GetV1CryptocurrencyListingsHistoricalSort, GetV1CryptocurrencyListingsHistoricalSortDir, GetV1CryptocurrencyListingsLatestCryptocurrencyType, GetV1CryptocurrencyListingsLatestSort, GetV1CryptocurrencyListingsLatestSortDir, GetV1CryptocurrencyListingsLatestTag, GetV1CryptocurrencyListingsNewSortDir, GetV1CryptocurrencyMapSort, GetV1CryptocurrencyMarketpairsLatestCategory, GetV1CryptocurrencyMarketpairsLatestFeeType, GetV1CryptocurrencyMarketpairsLatestSort, GetV1CryptocurrencyMarketpairsLatestSortDir, GetV1CryptocurrencyOhlcvHistoricalInterval, GetV1CryptocurrencyOhlcvHistoricalTimePeriod, GetV1CryptocurrencyQuotesHistoricalInterval, GetV1CryptocurrencyTrendingGainerslosersSort, GetV1CryptocurrencyTrendingGainerslosersSortDir, GetV1CryptocurrencyTrendingGainerslosersTimePeriod, GetV1CryptocurrencyTrendingLatestTimePeriod, GetV1CryptocurrencyTrendingMostvisitedTimePeriod, GetV1ExchangeListingsLatestCategory, GetV1ExchangeListingsLatestMarketType, GetV1ExchangeListingsLatestSort, GetV1ExchangeListingsLatestSortDir, GetV1ExchangeMapSort, GetV1ExchangeMarketpairsLatestCategory, GetV1ExchangeMarketpairsLatestFeeType, GetV1ExchangeQuotesHistoricalInterval, GetV1FiatMapSort, GetV1GlobalmetricsQuotesHistoricalInterval, GetV2CryptocurrencyMarketpairsLatestCategory, GetV2CryptocurrencyMarketpairsLatestFeeType, GetV2CryptocurrencyMarketpairsLatestSort, GetV2CryptocurrencyMarketpairsLatestSortDir, GetV2CryptocurrencyOhlcvHistoricalInterval, GetV2CryptocurrencyOhlcvHistoricalTimePeriod, GetV2CryptocurrencyQuotesHistoricalInterval, GetV3CryptocurrencyListingsLatestResponse200, GetV3CryptocurrencyQuotesHistoricalInterval, GetV5CmcAiCoinsMapSort, GetV5CryptocurrencyDerivativesMarketPairsListLatestCategory, GetV5CryptocurrencyDerivativesMarketPairsListLatestCenterType, GetV5CryptocurrencyDerivativesMarketPairsListLatestFeeType, GetV5CryptocurrencyDerivativesMarketPairsListLatestSort, GetV5CryptocurrencyDerivativesMarketPairsListLatestSortDir, GetV5DerivativesLiquidationsCryptocurrencyListLatestSort, GetV5DerivativesLiquidationsCryptocurrencyListLatestSortDir, GetV5DerivativesLiquidationsExchangeListLatestSort, GetV5DerivativesLiquidationsExchangeListLatestSortDir, GetV5ExchangeDerivativesListSort, GetV5ExchangeDerivativesListSortDir, GetV5ExchangeDerivativesMarketPairsListLatestCategory, GetV5ExchangeDerivativesMarketPairsListLatestFeeType, GetV5ExchangeDerivativesMarketPairsListLatestSort, GetV5ExchangeDerivativesMarketPairsListLatestSortDir, GetV5RealWorldAssetsAssetsListAssetType, GetV5RealWorldAssetsAssetsListSort, GetV5RealWorldAssetsAssetsListSortDir, GetV5RealWorldAssetsMapAssetType, GetV5RealWorldAssetsMapSort, GetV5RealWorldAssetsMarketPairsListSort, GetV5RealWorldAssetsMarketPairsListSortDir, GlobalMetricsQuotesHistoricResponseModel, GlobalMetricsQuotesLatestResponseModel, HTTPStatus400ErrorObject, HTTPStatus401ErrorObject, HTTPStatus403ErrorObject, HTTPStatus429ErrorObject, HTTPStatus500ErrorObject, HolderCountVO, HolderDetailVO, HolderDexVO, HolderTagCountVO, HolderTrendVO, LiquidationsByCryptocurrencyResponseModel, LiquidationsByExchangeResponseModel, LiquidationsTotalResponseModel, LiquidityChangeListResponseDTO, MemeCoinResponseDTO, NetworkInfoDTO, NewTokenLeaderBoardResponseDTO, PlatformDTO, RWAAssetListResponseModel, RWAIDMapResponseModel, RWAInfoResponseModel, RWAIssuerResponseModel, RWAIssuersListResponseModel, RWAMarketPairsResponseModel, RWAQuotesLatestResponseModel, SearchResponseDTO, SimplePriceResponseModel, SwapListResponseDTO, TokenDetailDTO, TokenLiquiditySnapshotDTO, TokenPriceDTO, TokenSecurityResponseDTO, TokenTopPoolDTO, ToolsPriceConversionResponseModel, TrendingTokensResponseDTO, V2SimplePriceResponseModel)
+from coinmarketcap._generated.coinmarketcap_pro_api.models import (AccountInfoResponseModel, AirdropResponseModel, AirdropsResponseModel, AltcoinSeasonIndexHistoricalResponseModel, AltcoinSeasonIndexLatestResponseModel, ApiResponseOfCMC20IndexHistoricalResponseDTO, ApiResponseOfCMC20IndexLatestResponseDTO, ApiResponseOfIndexHistoricalResponseDTO, ApiResponseOfIndexLatestResponseDTO, BlockchainStatisticsLatestResponseModel, CMCAICoinsLatestResponseModel, CMCAICoinsMapResponseModel, CMCAILatestResponseModel, CategoriesResponseModel, CategoryResponseModel, CommunityTrendingTokenResponseModel, CommunityTrendingTopicResponseModel, ContentLatestPostsResponseModel, ContentLatestResponseModel, ContentPostCommentsResponseModel, ContentTopPostsResponseModel, CryptocurrenciesInfoResponseModel, CryptocurrencyListingsLatestResponseModel, CryptocurrencyListingsLatestResponseModel1, CryptocurrencyListingsNewResponseModel, CryptocurrencyMapResponseModel, CryptocurrencyMarketPairsLatestResponseModel, CryptocurrencyMultiplierResponseModel, CryptocurrencyOHLCVHistoricalResponseModel, CryptocurrencyOHLCVLatestResponseModel, CryptocurrencyPricePerformanceStatsLatestResponseModel, CryptocurrencyQuotesHistoricalResponseModel, CryptocurrencyQuotesLatestResponseModel, CryptocurrencyTrendingGainersLosersResponseModel, CryptocurrencyTrendingLatestResponseModel, CryptocurrencyTrendingMostVisitedResponseModel, DerivativesCryptoMarketPairsListLatestResponseModel, DerivativesExchangesListResponseModel, DerivativesMarketPairsListLatestResponseModel, DexMultiplierResponseModel, DexMultiplierValidationErrorObject, DqueryBatchPriceRequestDTO, DqueryBatchTokenRequestDTO, DqueryHoldersDetailRequestDTO, DqueryHoldersRequestDTO, DqueryMarketRequestDTO, DqueryMemeRequestDTO, ExchangeAssetsResponseModel, ExchangeHistoricalQuotesResponseModel, ExchangeListingsLatestResponseModel, ExchangeMapResponseModel, ExchangeMarketPairsLatestResponseModel, ExchangeQuotesLatestResponseModel, ExchangesInfoResponseModel, FCASListingsLatestResponseModel, FCASQuoteLatestResponseModel, FearAndGreedHistoricalResponseModel, FearAndGreedLatestResponseModel, FiatMapResponseModel, GetV1AltcoinSeasonIndexHistoricalTimeframe, GetV1ContentLatestLanguage, GetV1CryptocurrencyAirdropsStatus, GetV1CryptocurrencyListingsHistoricalCryptocurrencyType, GetV1CryptocurrencyListingsHistoricalSort, GetV1CryptocurrencyListingsHistoricalSortDir, GetV1CryptocurrencyListingsLatestCryptocurrencyType, GetV1CryptocurrencyListingsLatestSort, GetV1CryptocurrencyListingsLatestSortDir, GetV1CryptocurrencyListingsLatestTag, GetV1CryptocurrencyListingsNewSortDir, GetV1CryptocurrencyMapSort, GetV1CryptocurrencyMarketpairsLatestCategory, GetV1CryptocurrencyMarketpairsLatestFeeType, GetV1CryptocurrencyMarketpairsLatestSort, GetV1CryptocurrencyMarketpairsLatestSortDir, GetV1CryptocurrencyOhlcvHistoricalInterval, GetV1CryptocurrencyOhlcvHistoricalTimePeriod, GetV1CryptocurrencyQuotesHistoricalInterval, GetV1CryptocurrencyTrendingGainerslosersSort, GetV1CryptocurrencyTrendingGainerslosersSortDir, GetV1CryptocurrencyTrendingGainerslosersTimePeriod, GetV1CryptocurrencyTrendingLatestTimePeriod, GetV1CryptocurrencyTrendingMostvisitedTimePeriod, GetV1ExchangeListingsLatestCategory, GetV1ExchangeListingsLatestMarketType, GetV1ExchangeListingsLatestSort, GetV1ExchangeListingsLatestSortDir, GetV1ExchangeMapSort, GetV1ExchangeMarketpairsLatestCategory, GetV1ExchangeMarketpairsLatestFeeType, GetV1ExchangeQuotesHistoricalInterval, GetV1FiatMapSort, GetV1GlobalmetricsQuotesHistoricalInterval, GetV2CryptocurrencyMarketpairsLatestCategory, GetV2CryptocurrencyMarketpairsLatestFeeType, GetV2CryptocurrencyMarketpairsLatestSort, GetV2CryptocurrencyMarketpairsLatestSortDir, GetV2CryptocurrencyOhlcvHistoricalInterval, GetV2CryptocurrencyOhlcvHistoricalTimePeriod, GetV2CryptocurrencyQuotesHistoricalInterval, GetV3CryptocurrencyListingsLatestResponse200, GetV3CryptocurrencyQuotesHistoricalInterval, GetV5CmcAiCoinsMapSort, GetV5CryptocurrencyDerivativesMarketPairsListLatestCategory, GetV5CryptocurrencyDerivativesMarketPairsListLatestCenterType, GetV5CryptocurrencyDerivativesMarketPairsListLatestFeeType, GetV5CryptocurrencyDerivativesMarketPairsListLatestSort, GetV5CryptocurrencyDerivativesMarketPairsListLatestSortDir, GetV5DerivativesLiquidationsCryptocurrencyListLatestSort, GetV5DerivativesLiquidationsCryptocurrencyListLatestSortDir, GetV5DerivativesLiquidationsExchangeListLatestSort, GetV5DerivativesLiquidationsExchangeListLatestSortDir, GetV5ExchangeDerivativesListSort, GetV5ExchangeDerivativesListSortDir, GetV5ExchangeDerivativesMarketPairsListLatestCategory, GetV5ExchangeDerivativesMarketPairsListLatestFeeType, GetV5ExchangeDerivativesMarketPairsListLatestSort, GetV5ExchangeDerivativesMarketPairsListLatestSortDir, GetV5RealWorldAssetsAssetsListAssetType, GetV5RealWorldAssetsAssetsListSort, GetV5RealWorldAssetsAssetsListSortDir, GetV5RealWorldAssetsMapAssetType, GetV5RealWorldAssetsMapSort, GetV5RealWorldAssetsMarketPairsListSort, GetV5RealWorldAssetsMarketPairsListSortDir, GlobalMetricsQuotesHistoricResponseModel, GlobalMetricsQuotesLatestResponseModel, HTTPStatus400ErrorObject, HTTPStatus401ErrorObject, HTTPStatus403ErrorObject, HTTPStatus429ErrorObject, HTTPStatus500ErrorObject, LiquidationsByCryptocurrencyResponseModel, LiquidationsByExchangeResponseModel, LiquidationsTotalResponseModel, RWAAssetListResponseModel, RWAIDMapResponseModel, RWAInfoResponseModel, RWAIssuerResponseModel, RWAIssuersListResponseModel, RWAMarketPairsResponseModel, RWAQuotesLatestResponseModel, SimplePriceResponseModel, ToolsPriceConversionResponseModel, V1DEXGainerLoserListResponseModel, V1DEXHoldersCountResponseModel, V1DEXHoldersDetailResponseModel, V1DEXHoldersListResponseModel, V1DEXHoldersTagCountResponseModel, V1DEXHoldersTrendListResponseModel, V1DEXLiquidityChangeListResponseModel, V1DEXMemeListResponseModel, V1DEXNewListResponseModel, V1DEXPlatformDetailResponseModel, V1DEXPlatformListResponseModel, V1DEXSearchResponseModel, V1DEXSecurityDetailResponseModel, V1DEXTokenLiquidityQueryResponseModel, V1DEXTokenPoolsResponseModel, V1DEXTokenPriceBatchResponseModel, V1DEXTokenPriceResponseModel, V1DEXTokenResponseModel, V1DEXTokensBatchQueryResponseModel, V1DEXTokensTransactionsResponseModel, V1DEXTokensTrendingListResponseModel, V1KLineCandlesResponseModel, V1KLinePointsResponseModel, V2SimplePriceResponseModel, V3CryptocurrencyQuotesLatestResponseModel, V4DEXListingsInfoResponseModel, V4DEXListingsQuotesResponseModel, V4DEXNetworksListResponseModel, V4DEXPairsOhlcvHistoricalResponseModel, V4DEXPairsOhlcvLatestResponseModel, V4DEXPairsQuotesLatestResponseModel, V4DEXPairsTradeLatestResponseModel, V4DEXSpotPairsLatestResponseModel)
 from coinmarketcap._generated.coinmarketcap_pro_api.types import UNSET, Unset
 from coinmarketcap._wrap import wrap_call, wrap_call_async
 
@@ -423,11 +423,11 @@ class CryptocurrencyApi:
         """Quotes Historical (async)"""
         return await wrap_call_async(_async_cryptocurrency_get_v3_cryptocurrency_quotes_historical, client=self._client._gen_client, id=id, symbol=symbol, time_start=time_start, time_end=time_end, count=count, interval=interval, convert=convert, convert_id=convert_id, aux=aux, skip_invalid=skip_invalid)
 
-    def quotes_latest(self, *, id: str | Unset = UNSET, slug: str | Unset = UNSET, symbol: str | Unset = UNSET, convert: str | Unset = UNSET, convert_id: str | Unset = UNSET, aux: str | Unset = UNSET, skip_invalid: str | Unset = UNSET) -> list[CryptoQuoteV3DTO]:
+    def quotes_latest(self, *, id: str | Unset = UNSET, slug: str | Unset = UNSET, symbol: str | Unset = UNSET, convert: str | Unset = UNSET, convert_id: str | Unset = UNSET, aux: str | Unset = UNSET, skip_invalid: str | Unset = UNSET) -> V3CryptocurrencyQuotesLatestResponseModel:
         """Quotes Latest"""
         return wrap_call(_sync_cryptocurrency_get_v3_cryptocurrency_quotes_latest, client=self._client._gen_client, id=id, slug=slug, symbol=symbol, convert=convert, convert_id=convert_id, aux=aux, skip_invalid=skip_invalid)
 
-    async def async_quotes_latest(self, *, id: str | Unset = UNSET, slug: str | Unset = UNSET, symbol: str | Unset = UNSET, convert: str | Unset = UNSET, convert_id: str | Unset = UNSET, aux: str | Unset = UNSET, skip_invalid: str | Unset = UNSET) -> list[CryptoQuoteV3DTO]:
+    async def async_quotes_latest(self, *, id: str | Unset = UNSET, slug: str | Unset = UNSET, symbol: str | Unset = UNSET, convert: str | Unset = UNSET, convert_id: str | Unset = UNSET, aux: str | Unset = UNSET, skip_invalid: str | Unset = UNSET) -> V3CryptocurrencyQuotesLatestResponseModel:
         """Quotes Latest (async)"""
         return await wrap_call_async(_async_cryptocurrency_get_v3_cryptocurrency_quotes_latest, client=self._client._gen_client, id=id, slug=slug, symbol=symbol, convert=convert, convert_id=convert_id, aux=aux, skip_invalid=skip_invalid)
 
@@ -438,51 +438,51 @@ class DeprecatedApi:
     def __init__(self, client: "CoinMarketCap") -> None:
         self._client = client
 
-    def latest_listings(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'volume_24h', sort_dir: str | Unset = 'desc', type_: str | Unset = 'all', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> list[DexInfoDTO]:
+    def latest_listings(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'volume_24h', sort_dir: str | Unset = 'desc', type_: str | Unset = 'all', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> V4DEXListingsQuotesResponseModel:
         """DEX Listings Latest"""
         return wrap_call(_sync_deprecated_get_latest_listings, client=self._client._gen_client, start=start, limit=limit, sort=sort, sort_dir=sort_dir, type_=type_, aux=aux, convert_id=convert_id)
 
-    async def async_latest_listings(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'volume_24h', sort_dir: str | Unset = 'desc', type_: str | Unset = 'all', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> list[DexInfoDTO]:
+    async def async_latest_listings(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'volume_24h', sort_dir: str | Unset = 'desc', type_: str | Unset = 'all', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> V4DEXListingsQuotesResponseModel:
         """DEX Listings Latest (async)"""
         return await wrap_call_async(_async_deprecated_get_latest_listings, client=self._client._gen_client, start=start, limit=limit, sort=sort, sort_dir=sort_dir, type_=type_, aux=aux, convert_id=convert_id)
 
-    def listings_info(self, *, id: str | Unset = UNSET, aux: str | Unset = '') -> list[DexCommonInfoDTO]:
+    def listings_info(self, *, id: str | Unset = UNSET, aux: str | Unset = '') -> V4DEXListingsInfoResponseModel:
         """DEX Metadata"""
         return wrap_call(_sync_deprecated_get_listings_info, client=self._client._gen_client, id=id, aux=aux)
 
-    async def async_listings_info(self, *, id: str | Unset = UNSET, aux: str | Unset = '') -> list[DexCommonInfoDTO]:
+    async def async_listings_info(self, *, id: str | Unset = UNSET, aux: str | Unset = '') -> V4DEXListingsInfoResponseModel:
         """DEX Metadata (async)"""
         return await wrap_call_async(_async_deprecated_get_listings_info, client=self._client._gen_client, id=id, aux=aux)
 
-    def networks(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'id', sort_dir: str | Unset = 'desc', aux: str | Unset = UNSET) -> list[NetworkInfoDTO]:
+    def networks(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'id', sort_dir: str | Unset = 'desc', aux: str | Unset = UNSET) -> V4DEXNetworksListResponseModel:
         """CoinMarketCap ID Map"""
         return wrap_call(_sync_deprecated_get_networks, client=self._client._gen_client, start=start, limit=limit, sort=sort, sort_dir=sort_dir, aux=aux)
 
-    async def async_networks(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'id', sort_dir: str | Unset = 'desc', aux: str | Unset = UNSET) -> list[NetworkInfoDTO]:
+    async def async_networks(self, *, start: str | Unset = '1', limit: str | Unset = '50', sort: str | Unset = 'id', sort_dir: str | Unset = 'desc', aux: str | Unset = UNSET) -> V4DEXNetworksListResponseModel:
         """CoinMarketCap ID Map (async)"""
         return await wrap_call_async(_async_deprecated_get_networks, client=self._client._gen_client, start=start, limit=limit, sort=sort, sort_dir=sort_dir, aux=aux)
 
-    def pairs_historical_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, time_period: str | Unset = 'daily', time_start: str | Unset = UNSET, time_end: str | Unset = UNSET, count: str | Unset = '10', interval: str | Unset = 'daily', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> list[DexPairsOhlcvHistoricalDTO]:
+    def pairs_historical_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, time_period: str | Unset = 'daily', time_start: str | Unset = UNSET, time_end: str | Unset = UNSET, count: str | Unset = '10', interval: str | Unset = 'daily', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> V4DEXPairsOhlcvHistoricalResponseModel:
         """OHLCV Historical"""
         return wrap_call(_sync_deprecated_get_pairs_historical_ohlcv, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, time_period=time_period, time_start=time_start, time_end=time_end, count=count, interval=interval, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    async def async_pairs_historical_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, time_period: str | Unset = 'daily', time_start: str | Unset = UNSET, time_end: str | Unset = UNSET, count: str | Unset = '10', interval: str | Unset = 'daily', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> list[DexPairsOhlcvHistoricalDTO]:
+    async def async_pairs_historical_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, time_period: str | Unset = 'daily', time_start: str | Unset = UNSET, time_end: str | Unset = UNSET, count: str | Unset = '10', interval: str | Unset = 'daily', aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> V4DEXPairsOhlcvHistoricalResponseModel:
         """OHLCV Historical (async)"""
         return await wrap_call_async(_async_deprecated_get_pairs_historical_ohlcv, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, time_period=time_period, time_start=time_start, time_end=time_end, count=count, interval=interval, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    def pairs_latest_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> list[DexPairsOhlcvDTO]:
+    def pairs_latest_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> V4DEXPairsOhlcvLatestResponseModel:
         """OHLCV Latest"""
         return wrap_call(_sync_deprecated_get_pairs_latest_ohlcv, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    async def async_pairs_latest_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> list[DexPairsOhlcvDTO]:
+    async def async_pairs_latest_ohlcv(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> V4DEXPairsOhlcvLatestResponseModel:
         """OHLCV Latest (async)"""
         return await wrap_call_async(_async_deprecated_get_pairs_latest_ohlcv, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    def pairs_latest_trade(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = 'true', reverse_order: str | Unset = 'false') -> list[DexPairsTradeDTO]:
+    def pairs_latest_trade(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = 'true', reverse_order: str | Unset = 'false') -> V4DEXPairsTradeLatestResponseModel:
         """Trades Latest"""
         return wrap_call(_sync_deprecated_get_pairs_latest_trade, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    async def async_pairs_latest_trade(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = 'true', reverse_order: str | Unset = 'false') -> list[DexPairsTradeDTO]:
+    async def async_pairs_latest_trade(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = 'true', reverse_order: str | Unset = 'false') -> V4DEXPairsTradeLatestResponseModel:
         """Trades Latest (async)"""
         return await wrap_call_async(_async_deprecated_get_pairs_latest_trade, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
@@ -794,43 +794,43 @@ class HolderApi:
     def __init__(self, client: "CoinMarketCap") -> None:
         self._client = client
 
-    def hold_trend_list(self, *, platform: str | Unset = UNSET, token_address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, limit: int | Unset = UNSET) -> list[HolderTrendVO]:
+    def hold_trend_list(self, *, platform: str | Unset = UNSET, token_address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, limit: int | Unset = UNSET) -> V1DEXHoldersTrendListResponseModel:
         """Get holder trend list"""
         return wrap_call(_sync_holder_get_hold_trend_list, client=self._client._gen_client, platform=platform, token_address=token_address, interval=interval, from_=from_, to=to, limit=limit)
 
-    async def async_hold_trend_list(self, *, platform: str | Unset = UNSET, token_address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, limit: int | Unset = UNSET) -> list[HolderTrendVO]:
+    async def async_hold_trend_list(self, *, platform: str | Unset = UNSET, token_address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, limit: int | Unset = UNSET) -> V1DEXHoldersTrendListResponseModel:
         """Get holder trend list (async)"""
         return await wrap_call_async(_async_holder_get_hold_trend_list, client=self._client._gen_client, platform=platform, token_address=token_address, interval=interval, from_=from_, to=to, limit=limit)
 
-    def count(self, *, platform: str, token_address: str) -> HolderCountVO:
+    def count(self, *, platform: str, token_address: str) -> V1DEXHoldersCountResponseModel:
         """Get holder count"""
         return wrap_call(_sync_holder_get_holder_count, client=self._client._gen_client, platform=platform, token_address=token_address)
 
-    async def async_count(self, *, platform: str, token_address: str) -> HolderCountVO:
+    async def async_count(self, *, platform: str, token_address: str) -> V1DEXHoldersCountResponseModel:
         """Get holder count (async)"""
         return await wrap_call_async(_async_holder_get_holder_count, client=self._client._gen_client, platform=platform, token_address=token_address)
 
-    def detail(self, *, body: DqueryHoldersDetailRequestDTO) -> HolderDetailVO:
+    def detail(self, *, body: DqueryHoldersDetailRequestDTO) -> V1DEXHoldersDetailResponseModel:
         """Get holder detail"""
         return wrap_call(_sync_holder_get_holder_detail, client=self._client._gen_client, body=body)
 
-    async def async_detail(self, *, body: DqueryHoldersDetailRequestDTO) -> HolderDetailVO:
+    async def async_detail(self, *, body: DqueryHoldersDetailRequestDTO) -> V1DEXHoldersDetailResponseModel:
         """Get holder detail (async)"""
         return await wrap_call_async(_async_holder_get_holder_detail, client=self._client._gen_client, body=body)
 
-    def tag_count(self, *, platform: str, token_address: str) -> HolderTagCountVO:
+    def tag_count(self, *, platform: str, token_address: str) -> V1DEXHoldersTagCountResponseModel:
         """Get holder tag count"""
         return wrap_call(_sync_holder_get_holder_tag_count, client=self._client._gen_client, platform=platform, token_address=token_address)
 
-    async def async_tag_count(self, *, platform: str, token_address: str) -> HolderTagCountVO:
+    async def async_tag_count(self, *, platform: str, token_address: str) -> V1DEXHoldersTagCountResponseModel:
         """Get holder tag count (async)"""
         return await wrap_call_async(_async_holder_get_holder_tag_count, client=self._client._gen_client, platform=platform, token_address=token_address)
 
-    def holders(self, *, body: DqueryHoldersRequestDTO) -> HolderDexVO:
+    def holders(self, *, body: DqueryHoldersRequestDTO) -> V1DEXHoldersListResponseModel:
         """Get holders list"""
         return wrap_call(_sync_holder_get_holders, client=self._client._gen_client, body=body)
 
-    async def async_holders(self, *, body: DqueryHoldersRequestDTO) -> HolderDexVO:
+    async def async_holders(self, *, body: DqueryHoldersRequestDTO) -> V1DEXHoldersListResponseModel:
         """Get holders list (async)"""
         return await wrap_call_async(_async_holder_get_holders, client=self._client._gen_client, body=body)
 
@@ -841,19 +841,19 @@ class OhlcvApi:
     def __init__(self, client: "CoinMarketCap") -> None:
         self._client = client
 
-    def kline_candles(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> list[list[float]]:
+    def kline_candles(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> V1KLineCandlesResponseModel:
         """Get K-line candles"""
         return wrap_call(_sync_ohlcv_get_kline_candles, client=self._client._gen_client, platform=platform, address=address, interval=interval, from_=from_, to=to, unit=unit, limit=limit, pm=pm)
 
-    async def async_kline_candles(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> list[list[float]]:
+    async def async_kline_candles(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> V1KLineCandlesResponseModel:
         """Get K-line candles (async)"""
         return await wrap_call_async(_async_ohlcv_get_kline_candles, client=self._client._gen_client, platform=platform, address=address, interval=interval, from_=from_, to=to, unit=unit, limit=limit, pm=pm)
 
-    def kline_points(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> list[list[float]]:
+    def kline_points(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> V1KLinePointsResponseModel:
         """Get K-line points"""
         return wrap_call(_sync_ohlcv_get_kline_points, client=self._client._gen_client, platform=platform, address=address, interval=interval, from_=from_, to=to, unit=unit, limit=limit, pm=pm)
 
-    async def async_kline_points(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> list[list[float]]:
+    async def async_kline_points(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, from_: int | Unset = UNSET, to: int | Unset = UNSET, unit: str | Unset = UNSET, limit: int | Unset = UNSET, pm: str | Unset = UNSET) -> V1KLinePointsResponseModel:
         """Get K-line points (async)"""
         return await wrap_call_async(_async_ohlcv_get_kline_points, client=self._client._gen_client, platform=platform, address=address, interval=interval, from_=from_, to=to, unit=unit, limit=limit, pm=pm)
 
@@ -864,19 +864,19 @@ class PlatformApi:
     def __init__(self, client: "CoinMarketCap") -> None:
         self._client = client
 
-    def detail(self, *, platform_name: str | Unset = UNSET) -> PlatformDTO:
+    def detail(self, *, platform_name: str | Unset = UNSET) -> V1DEXPlatformDetailResponseModel:
         """Get platform detail"""
         return wrap_call(_sync_platform_get_platform_detail, client=self._client._gen_client, platform_name=platform_name)
 
-    async def async_detail(self, *, platform_name: str | Unset = UNSET) -> PlatformDTO:
+    async def async_detail(self, *, platform_name: str | Unset = UNSET) -> V1DEXPlatformDetailResponseModel:
         """Get platform detail (async)"""
         return await wrap_call_async(_async_platform_get_platform_detail, client=self._client._gen_client, platform_name=platform_name)
 
-    def list(self) -> list[PlatformDTO]:
+    def list(self) -> V1DEXPlatformListResponseModel:
         """Get platform list"""
         return wrap_call(_sync_platform_get_platform_list, client=self._client._gen_client)
 
-    async def async_list(self) -> list[PlatformDTO]:
+    async def async_list(self) -> V1DEXPlatformListResponseModel:
         """Get platform list (async)"""
         return await wrap_call_async(_async_platform_get_platform_list, client=self._client._gen_client)
 
@@ -950,131 +950,131 @@ class TokenApi:
     def __init__(self, client: "CoinMarketCap") -> None:
         self._client = client
 
-    def batch_get_token_price(self, *, body: DqueryBatchPriceRequestDTO) -> list[TokenPriceDTO]:
+    def batch_get_token_price(self, *, body: DqueryBatchPriceRequestDTO) -> V1DEXTokenPriceBatchResponseModel:
         """Batch get token prices"""
         return wrap_call(_sync_token_batch_get_token_price, client=self._client._gen_client, body=body)
 
-    async def async_batch_get_token_price(self, *, body: DqueryBatchPriceRequestDTO) -> list[TokenPriceDTO]:
+    async def async_batch_get_token_price(self, *, body: DqueryBatchPriceRequestDTO) -> V1DEXTokenPriceBatchResponseModel:
         """Batch get token prices (async)"""
         return await wrap_call_async(_async_token_batch_get_token_price, client=self._client._gen_client, body=body)
 
-    def batch_query_tokens(self, *, body: DqueryBatchTokenRequestDTO) -> list[TokenDetailDTO]:
+    def batch_query_tokens(self, *, body: DqueryBatchTokenRequestDTO) -> V1DEXTokensBatchQueryResponseModel:
         """Batch query tokens"""
         return wrap_call(_sync_token_batch_query_tokens, client=self._client._gen_client, body=body)
 
-    async def async_batch_query_tokens(self, *, body: DqueryBatchTokenRequestDTO) -> list[TokenDetailDTO]:
+    async def async_batch_query_tokens(self, *, body: DqueryBatchTokenRequestDTO) -> V1DEXTokensBatchQueryResponseModel:
         """Batch query tokens (async)"""
         return await wrap_call_async(_async_token_batch_query_tokens, client=self._client._gen_client, body=body)
 
-    def gainer_loser_list(self, *, body: DqueryMarketRequestDTO) -> GainerLeaderBoardResponseDTO:
+    def gainer_loser_list(self, *, body: DqueryMarketRequestDTO) -> V1DEXGainerLoserListResponseModel:
         """Get top gainers and losers"""
         return wrap_call(_sync_token_get_gainer_loser_list, client=self._client._gen_client, body=body)
 
-    async def async_gainer_loser_list(self, *, body: DqueryMarketRequestDTO) -> GainerLeaderBoardResponseDTO:
+    async def async_gainer_loser_list(self, *, body: DqueryMarketRequestDTO) -> V1DEXGainerLoserListResponseModel:
         """Get top gainers and losers (async)"""
         return await wrap_call_async(_async_token_get_gainer_loser_list, client=self._client._gen_client, body=body)
 
-    def latest_pairs_quotes(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> list[DexParisQuotesDTO]:
+    def latest_pairs_quotes(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> V4DEXPairsQuotesLatestResponseModel:
         """Quotes Latest"""
         return wrap_call(_sync_token_get_latest_pairs_quotes, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    async def async_latest_pairs_quotes(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> list[DexParisQuotesDTO]:
+    async def async_latest_pairs_quotes(self, *, contract_address: str | Unset = UNSET, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, aux: str | Unset = UNSET, convert_id: str | Unset = UNSET, skip_invalid: str | Unset = UNSET, reverse_order: str | Unset = UNSET) -> V4DEXPairsQuotesLatestResponseModel:
         """Quotes Latest (async)"""
         return await wrap_call_async(_async_token_get_latest_pairs_quotes, client=self._client._gen_client, contract_address=contract_address, network_id=network_id, network_slug=network_slug, aux=aux, convert_id=convert_id, skip_invalid=skip_invalid, reverse_order=reverse_order)
 
-    def liquidity_change_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET) -> LiquidityChangeListResponseDTO:
+    def liquidity_change_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET) -> V1DEXLiquidityChangeListResponseModel:
         """Get liquidity change list"""
         return wrap_call(_sync_token_get_liquidity_change_list, client=self._client._gen_client, platform=platform, address=address, type_=type_, maker=maker, sort_by=sort_by, sort_type=sort_type, start_time=start_time, end_time=end_time, min_volume=min_volume, max_volume=max_volume, last_id=last_id, limit=limit)
 
-    async def async_liquidity_change_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET) -> LiquidityChangeListResponseDTO:
+    async def async_liquidity_change_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET) -> V1DEXLiquidityChangeListResponseModel:
         """Get liquidity change list (async)"""
         return await wrap_call_async(_async_token_get_liquidity_change_list, client=self._client._gen_client, platform=platform, address=address, type_=type_, maker=maker, sort_by=sort_by, sort_type=sort_type, start_time=start_time, end_time=end_time, min_volume=min_volume, max_volume=max_volume, last_id=last_id, limit=limit)
 
-    def meme_list(self, *, body: DqueryMemeRequestDTO) -> MemeCoinResponseDTO:
+    def meme_list(self, *, body: DqueryMemeRequestDTO) -> V1DEXMemeListResponseModel:
         """Get meme tokens"""
         return wrap_call(_sync_token_get_meme_list, client=self._client._gen_client, body=body)
 
-    async def async_meme_list(self, *, body: DqueryMemeRequestDTO) -> MemeCoinResponseDTO:
+    async def async_meme_list(self, *, body: DqueryMemeRequestDTO) -> V1DEXMemeListResponseModel:
         """Get meme tokens (async)"""
         return await wrap_call_async(_async_token_get_meme_list, client=self._client._gen_client, body=body)
 
-    def new_list(self, *, body: DqueryMarketRequestDTO) -> NewTokenLeaderBoardResponseDTO:
+    def new_list(self, *, body: DqueryMarketRequestDTO) -> V1DEXNewListResponseModel:
         """Get new tokens"""
         return wrap_call(_sync_token_get_new_list, client=self._client._gen_client, body=body)
 
-    async def async_new_list(self, *, body: DqueryMarketRequestDTO) -> NewTokenLeaderBoardResponseDTO:
+    async def async_new_list(self, *, body: DqueryMarketRequestDTO) -> V1DEXNewListResponseModel:
         """Get new tokens (async)"""
         return await wrap_call_async(_async_token_get_new_list, client=self._client._gen_client, body=body)
 
-    def security_detail(self, *, platform_name: str | Unset = UNSET, address: str | Unset = UNSET) -> list[TokenSecurityResponseDTO]:
+    def security_detail(self, *, platform_name: str | Unset = UNSET, address: str | Unset = UNSET) -> V1DEXSecurityDetailResponseModel:
         """Get security detail"""
         return wrap_call(_sync_token_get_security_detail, client=self._client._gen_client, platform_name=platform_name, address=address)
 
-    async def async_security_detail(self, *, platform_name: str | Unset = UNSET, address: str | Unset = UNSET) -> list[TokenSecurityResponseDTO]:
+    async def async_security_detail(self, *, platform_name: str | Unset = UNSET, address: str | Unset = UNSET) -> V1DEXSecurityDetailResponseModel:
         """Get security detail (async)"""
         return await wrap_call_async(_async_token_get_security_detail, client=self._client._gen_client, platform_name=platform_name, address=address)
 
-    def spot_pairs_latest(self, *, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, dex_id: str | Unset = UNSET, dex_slug: str | Unset = UNSET, base_asset_id: str | Unset = UNSET, base_asset_symbol: str | Unset = UNSET, base_asset_contract_address: str | Unset = UNSET, base_asset_ucid: str | Unset = UNSET, quote_asset_id: str | Unset = UNSET, quote_asset_symbol: str | Unset = UNSET, quote_asset_contract_address: str | Unset = UNSET, quote_asset_ucid: str | Unset = UNSET, scroll_id: str | Unset = UNSET, limit: str | Unset = UNSET, liquidity_min: str | Unset = UNSET, liquidity_max: str | Unset = UNSET, volume_24h_min: str | Unset = UNSET, volume_24h_max: str | Unset = UNSET, no_of_transactions_24h_min: str | Unset = UNSET, no_of_transactions_24h_max: str | Unset = UNSET, percent_change_24h_min: str | Unset = UNSET, percent_change_24h_max: str | Unset = UNSET, sort: str | Unset = UNSET, sort_dir: str | Unset = UNSET, aux: str | Unset = UNSET, reverse_order: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> list[DexSpotPairDTO]:
+    def spot_pairs_latest(self, *, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, dex_id: str | Unset = UNSET, dex_slug: str | Unset = UNSET, base_asset_id: str | Unset = UNSET, base_asset_symbol: str | Unset = UNSET, base_asset_contract_address: str | Unset = UNSET, base_asset_ucid: str | Unset = UNSET, quote_asset_id: str | Unset = UNSET, quote_asset_symbol: str | Unset = UNSET, quote_asset_contract_address: str | Unset = UNSET, quote_asset_ucid: str | Unset = UNSET, scroll_id: str | Unset = UNSET, limit: str | Unset = UNSET, liquidity_min: str | Unset = UNSET, liquidity_max: str | Unset = UNSET, volume_24h_min: str | Unset = UNSET, volume_24h_max: str | Unset = UNSET, no_of_transactions_24h_min: str | Unset = UNSET, no_of_transactions_24h_max: str | Unset = UNSET, percent_change_24h_min: str | Unset = UNSET, percent_change_24h_max: str | Unset = UNSET, sort: str | Unset = UNSET, sort_dir: str | Unset = UNSET, aux: str | Unset = UNSET, reverse_order: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> V4DEXSpotPairsLatestResponseModel:
         """Pairs Listings Latest"""
         return wrap_call(_sync_token_get_spot_pairs_latest, client=self._client._gen_client, network_id=network_id, network_slug=network_slug, dex_id=dex_id, dex_slug=dex_slug, base_asset_id=base_asset_id, base_asset_symbol=base_asset_symbol, base_asset_contract_address=base_asset_contract_address, base_asset_ucid=base_asset_ucid, quote_asset_id=quote_asset_id, quote_asset_symbol=quote_asset_symbol, quote_asset_contract_address=quote_asset_contract_address, quote_asset_ucid=quote_asset_ucid, scroll_id=scroll_id, limit=limit, liquidity_min=liquidity_min, liquidity_max=liquidity_max, volume_24h_min=volume_24h_min, volume_24h_max=volume_24h_max, no_of_transactions_24h_min=no_of_transactions_24h_min, no_of_transactions_24h_max=no_of_transactions_24h_max, percent_change_24h_min=percent_change_24h_min, percent_change_24h_max=percent_change_24h_max, sort=sort, sort_dir=sort_dir, aux=aux, reverse_order=reverse_order, convert_id=convert_id)
 
-    async def async_spot_pairs_latest(self, *, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, dex_id: str | Unset = UNSET, dex_slug: str | Unset = UNSET, base_asset_id: str | Unset = UNSET, base_asset_symbol: str | Unset = UNSET, base_asset_contract_address: str | Unset = UNSET, base_asset_ucid: str | Unset = UNSET, quote_asset_id: str | Unset = UNSET, quote_asset_symbol: str | Unset = UNSET, quote_asset_contract_address: str | Unset = UNSET, quote_asset_ucid: str | Unset = UNSET, scroll_id: str | Unset = UNSET, limit: str | Unset = UNSET, liquidity_min: str | Unset = UNSET, liquidity_max: str | Unset = UNSET, volume_24h_min: str | Unset = UNSET, volume_24h_max: str | Unset = UNSET, no_of_transactions_24h_min: str | Unset = UNSET, no_of_transactions_24h_max: str | Unset = UNSET, percent_change_24h_min: str | Unset = UNSET, percent_change_24h_max: str | Unset = UNSET, sort: str | Unset = UNSET, sort_dir: str | Unset = UNSET, aux: str | Unset = UNSET, reverse_order: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> list[DexSpotPairDTO]:
+    async def async_spot_pairs_latest(self, *, network_id: str | Unset = UNSET, network_slug: str | Unset = UNSET, dex_id: str | Unset = UNSET, dex_slug: str | Unset = UNSET, base_asset_id: str | Unset = UNSET, base_asset_symbol: str | Unset = UNSET, base_asset_contract_address: str | Unset = UNSET, base_asset_ucid: str | Unset = UNSET, quote_asset_id: str | Unset = UNSET, quote_asset_symbol: str | Unset = UNSET, quote_asset_contract_address: str | Unset = UNSET, quote_asset_ucid: str | Unset = UNSET, scroll_id: str | Unset = UNSET, limit: str | Unset = UNSET, liquidity_min: str | Unset = UNSET, liquidity_max: str | Unset = UNSET, volume_24h_min: str | Unset = UNSET, volume_24h_max: str | Unset = UNSET, no_of_transactions_24h_min: str | Unset = UNSET, no_of_transactions_24h_max: str | Unset = UNSET, percent_change_24h_min: str | Unset = UNSET, percent_change_24h_max: str | Unset = UNSET, sort: str | Unset = UNSET, sort_dir: str | Unset = UNSET, aux: str | Unset = UNSET, reverse_order: str | Unset = UNSET, convert_id: str | Unset = UNSET) -> V4DEXSpotPairsLatestResponseModel:
         """Pairs Listings Latest (async)"""
         return await wrap_call_async(_async_token_get_spot_pairs_latest, client=self._client._gen_client, network_id=network_id, network_slug=network_slug, dex_id=dex_id, dex_slug=dex_slug, base_asset_id=base_asset_id, base_asset_symbol=base_asset_symbol, base_asset_contract_address=base_asset_contract_address, base_asset_ucid=base_asset_ucid, quote_asset_id=quote_asset_id, quote_asset_symbol=quote_asset_symbol, quote_asset_contract_address=quote_asset_contract_address, quote_asset_ucid=quote_asset_ucid, scroll_id=scroll_id, limit=limit, liquidity_min=liquidity_min, liquidity_max=liquidity_max, volume_24h_min=volume_24h_min, volume_24h_max=volume_24h_max, no_of_transactions_24h_min=no_of_transactions_24h_min, no_of_transactions_24h_max=no_of_transactions_24h_max, percent_change_24h_min=percent_change_24h_min, percent_change_24h_max=percent_change_24h_max, sort=sort, sort_dir=sort_dir, aux=aux, reverse_order=reverse_order, convert_id=convert_id)
 
-    def swap_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, types: list[str] | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET, version: str | Unset = UNSET) -> SwapListResponseDTO:
+    def swap_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, types: list[str] | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET, version: str | Unset = UNSET) -> V1DEXTokensTransactionsResponseModel:
         """Get swap list"""
         return wrap_call(_sync_token_get_swap_list, client=self._client._gen_client, platform=platform, address=address, type_=type_, types=types, maker=maker, sort_by=sort_by, sort_type=sort_type, start_time=start_time, end_time=end_time, min_volume=min_volume, max_volume=max_volume, last_id=last_id, limit=limit, version=version)
 
-    async def async_swap_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, types: list[str] | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET, version: str | Unset = UNSET) -> SwapListResponseDTO:
+    async def async_swap_list(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, type_: int | Unset = UNSET, types: list[str] | Unset = UNSET, maker: str | Unset = UNSET, sort_by: str | Unset = UNSET, sort_type: str | Unset = UNSET, start_time: int | Unset = UNSET, end_time: int | Unset = UNSET, min_volume: float | Unset = UNSET, max_volume: float | Unset = UNSET, last_id: str | Unset = UNSET, limit: int | Unset = UNSET, version: str | Unset = UNSET) -> V1DEXTokensTransactionsResponseModel:
         """Get swap list (async)"""
         return await wrap_call_async(_async_token_get_swap_list, client=self._client._gen_client, platform=platform, address=address, type_=type_, types=types, maker=maker, sort_by=sort_by, sort_type=sort_type, start_time=start_time, end_time=end_time, min_volume=min_volume, max_volume=max_volume, last_id=last_id, limit=limit, version=version)
 
-    def token(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> TokenDetailDTO:
+    def token(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> V1DEXTokenResponseModel:
         """Get token detail"""
         return wrap_call(_sync_token_get_token, client=self._client._gen_client, platform=platform, address=address)
 
-    async def async_token(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> TokenDetailDTO:
+    async def async_token(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> V1DEXTokenResponseModel:
         """Get token detail (async)"""
         return await wrap_call_async(_async_token_get_token, client=self._client._gen_client, platform=platform, address=address)
 
-    def pools(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, size: int | Unset = 20) -> list[TokenTopPoolDTO]:
+    def pools(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, size: int | Unset = 20) -> V1DEXTokenPoolsResponseModel:
         """Get token pools"""
         return wrap_call(_sync_token_get_token_pools, client=self._client._gen_client, platform=platform, address=address, size=size)
 
-    async def async_pools(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, size: int | Unset = 20) -> list[TokenTopPoolDTO]:
+    async def async_pools(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, size: int | Unset = 20) -> V1DEXTokenPoolsResponseModel:
         """Get token pools (async)"""
         return await wrap_call_async(_async_token_get_token_pools, client=self._client._gen_client, platform=platform, address=address, size=size)
 
-    def price(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> TokenPriceDTO:
+    def price(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> V1DEXTokenPriceResponseModel:
         """Get token price"""
         return wrap_call(_sync_token_get_token_price, client=self._client._gen_client, platform=platform, address=address)
 
-    async def async_price(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> TokenPriceDTO:
+    async def async_price(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET) -> V1DEXTokenPriceResponseModel:
         """Get token price (async)"""
         return await wrap_call_async(_async_token_get_token_price, client=self._client._gen_client, platform=platform, address=address)
 
-    def trending_list(self, *, body: DqueryMarketRequestDTO) -> TrendingTokensResponseDTO:
+    def trending_list(self, *, body: DqueryMarketRequestDTO) -> V1DEXTokensTrendingListResponseModel:
         """Get trending tokens"""
         return wrap_call(_sync_token_get_trending_list, client=self._client._gen_client, body=body)
 
-    async def async_trending_list(self, *, body: DqueryMarketRequestDTO) -> TrendingTokensResponseDTO:
+    async def async_trending_list(self, *, body: DqueryMarketRequestDTO) -> V1DEXTokensTrendingListResponseModel:
         """Get trending tokens (async)"""
         return await wrap_call_async(_async_token_get_trending_list, client=self._client._gen_client, body=body)
 
-    def query_token_liquidity(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, limit: int | Unset = UNSET, to: int | Unset = UNSET, need_latest: bool | Unset = UNSET) -> list[TokenLiquiditySnapshotDTO]:
+    def query_token_liquidity(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, limit: int | Unset = UNSET, to: int | Unset = UNSET, need_latest: bool | Unset = UNSET) -> V1DEXTokenLiquidityQueryResponseModel:
         """Query token liquidity"""
         return wrap_call(_sync_token_query_token_liquidity, client=self._client._gen_client, platform=platform, address=address, interval=interval, limit=limit, to=to, need_latest=need_latest)
 
-    async def async_query_token_liquidity(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, limit: int | Unset = UNSET, to: int | Unset = UNSET, need_latest: bool | Unset = UNSET) -> list[TokenLiquiditySnapshotDTO]:
+    async def async_query_token_liquidity(self, *, platform: str | Unset = UNSET, address: str | Unset = UNSET, interval: str | Unset = UNSET, limit: int | Unset = UNSET, to: int | Unset = UNSET, need_latest: bool | Unset = UNSET) -> V1DEXTokenLiquidityQueryResponseModel:
         """Query token liquidity (async)"""
         return await wrap_call_async(_async_token_query_token_liquidity, client=self._client._gen_client, platform=platform, address=address, interval=interval, limit=limit, to=to, need_latest=need_latest)
 
-    def search(self, *, q: str | Unset = UNSET, platform: str | Unset = UNSET, sort: str | Unset = UNSET, limit: int | Unset = UNSET, code: str | Unset = UNSET) -> SearchResponseDTO:
+    def search(self, *, q: str | Unset = UNSET, platform: str | Unset = UNSET, sort: str | Unset = UNSET, limit: int | Unset = UNSET, code: str | Unset = UNSET) -> V1DEXSearchResponseModel:
         """Search tokens"""
         return wrap_call(_sync_token_search, client=self._client._gen_client, q=q, platform=platform, sort=sort, limit=limit, code=code)
 
-    async def async_search(self, *, q: str | Unset = UNSET, platform: str | Unset = UNSET, sort: str | Unset = UNSET, limit: int | Unset = UNSET, code: str | Unset = UNSET) -> SearchResponseDTO:
+    async def async_search(self, *, q: str | Unset = UNSET, platform: str | Unset = UNSET, sort: str | Unset = UNSET, limit: int | Unset = UNSET, code: str | Unset = UNSET) -> V1DEXSearchResponseModel:
         """Search tokens (async)"""
         return await wrap_call_async(_async_token_search, client=self._client._gen_client, q=q, platform=platform, sort=sort, limit=limit, code=code)
 

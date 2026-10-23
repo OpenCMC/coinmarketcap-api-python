@@ -24,11 +24,11 @@ class RWAMarketPairsResponseModel:
             'NVIDIA', 'symbol': 'NVDA', 'num_market_pairs': 1, 'market_pairs': [{'exchange': {'exchange_id': 270, 'name':
             'Binance', 'slug': 'binance'}, 'market_id': 99001, 'market_pair': 'NVDAX/USDT', 'category': 'spot', 'fee_type':
             'percentage', 'market_pair_base': {'crypto_id': 36992, 'symbol': 'NVDAX', 'exchange_symbol': 'NVDAX',
-            'currency_type': 'cryptocurrency'}, 'market_pair_quote': {'crypto_id': 825, 'symbol': 'USDT', 'exchange_symbol':
-            'USDT', 'currency_type': 'cryptocurrency'}, 'exchange_reported_quotes': [{'crypto_id': 2781, 'symbol': 'USD',
-            'price': 211.33, 'volume_24h_base': 39290.12, 'volume_24h_quote': 8302814.85, 'last_updated':
-            '2026-07-15T10:45:05.000Z'}], 'quotes': [{'crypto_id': 2781, 'symbol': 'USD', 'price': 211.33, 'volume_24h':
-            8302814.85, 'last_updated': '2026-07-15T10:45:05.000Z'}]}], 'total_size': 1, 'has_more': False}.
+            'currency_type': 'cryptocurrency'}, 'market_pair_quotes': {'crypto_id': 825, 'symbol': 'USDT',
+            'exchange_symbol': 'USDT', 'currency_type': 'cryptocurrency'}, 'exchange_reported_quotes': {'price': 211.33,
+            'volume_24h_base': 39290.12, 'volume_24h_quote': 8302814.85, 'last_updated': '2026-07-15T10:45:05.000Z'},
+            'quotes': [{'crypto_id': 2781, 'symbol': 'USD', 'price': 211.33, 'volume_24h': 8302814.85, 'last_updated':
+            '2026-07-15T10:45:05.000Z'}]}], 'total_size': 1, 'has_more': False}.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 

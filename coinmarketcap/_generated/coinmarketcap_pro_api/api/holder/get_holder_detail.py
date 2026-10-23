@@ -6,7 +6,7 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.dquery_holders_detail_request_dto import DqueryHoldersDetailRequestDTO
-from ...models.holder_detail_vo import HolderDetailVO
+from ...models.v1dex_holders_detail_response_model import V1DEXHoldersDetailResponseModel
 from ...types import Response
 
 
@@ -29,9 +29,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> HolderDetailVO | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXHoldersDetailResponseModel | None:
     if response.status_code == 200:
-        response_200 = HolderDetailVO.from_dict(response.json())
+        response_200 = V1DEXHoldersDetailResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -41,7 +43,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[HolderDetailVO]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXHoldersDetailResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -54,7 +58,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryHoldersDetailRequestDTO,
-) -> Response[HolderDetailVO]:
+) -> Response[V1DEXHoldersDetailResponseModel]:
     r"""Get holder detail
 
      Get detailed information for holders detail
@@ -73,7 +77,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HolderDetailVO]
+        Response[V1DEXHoldersDetailResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -91,7 +95,7 @@ def sync(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryHoldersDetailRequestDTO,
-) -> HolderDetailVO | None:
+) -> V1DEXHoldersDetailResponseModel | None:
     r"""Get holder detail
 
      Get detailed information for holders detail
@@ -110,7 +114,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HolderDetailVO
+        V1DEXHoldersDetailResponseModel
     """
 
     return sync_detailed(
@@ -123,7 +127,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryHoldersDetailRequestDTO,
-) -> Response[HolderDetailVO]:
+) -> Response[V1DEXHoldersDetailResponseModel]:
     r"""Get holder detail
 
      Get detailed information for holders detail
@@ -142,7 +146,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HolderDetailVO]
+        Response[V1DEXHoldersDetailResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -158,7 +162,7 @@ async def asyncio(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryHoldersDetailRequestDTO,
-) -> HolderDetailVO | None:
+) -> V1DEXHoldersDetailResponseModel | None:
     r"""Get holder detail
 
      Get detailed information for holders detail
@@ -177,7 +181,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HolderDetailVO
+        V1DEXHoldersDetailResponseModel
     """
 
     return (

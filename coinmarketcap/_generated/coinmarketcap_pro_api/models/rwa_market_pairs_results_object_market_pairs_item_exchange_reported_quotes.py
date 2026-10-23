@@ -10,23 +10,20 @@ from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotesItem")
+T = TypeVar("T", bound="RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotes")
 
 
 @_attrs_define
-class RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotesItem:
-    """
+class RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotes:
+    """Price and volume as reported directly by the exchange, in the pair's quote currency.
+
     Attributes:
-        crypto_id (int | Unset): CoinMarketCap ID of the quote currency. Example: 2781.
-        symbol (str | Unset): Symbol of the quote currency. Example: USD.
         price (float | Unset): Reported price. Example: 211.33.
         volume_24h_base (float | Unset): 24h volume in base units.
         volume_24h_quote (float | Unset): 24h volume in quote units.
         last_updated (datetime.datetime | Unset): ISO 8601 timestamp.
     """
 
-    crypto_id: int | Unset = UNSET
-    symbol: str | Unset = UNSET
     price: float | Unset = UNSET
     volume_24h_base: float | Unset = UNSET
     volume_24h_quote: float | Unset = UNSET
@@ -34,10 +31,6 @@ class RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotesItem:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        crypto_id = self.crypto_id
-
-        symbol = self.symbol
-
         price = self.price
 
         volume_24h_base = self.volume_24h_base
@@ -51,10 +44,6 @@ class RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotesItem:
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if crypto_id is not UNSET:
-            field_dict["crypto_id"] = crypto_id
-        if symbol is not UNSET:
-            field_dict["symbol"] = symbol
         if price is not UNSET:
             field_dict["price"] = price
         if volume_24h_base is not UNSET:
@@ -69,10 +58,6 @@ class RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotesItem:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        crypto_id = d.pop("crypto_id", UNSET)
-
-        symbol = d.pop("symbol", UNSET)
-
         price = d.pop("price", UNSET)
 
         volume_24h_base = d.pop("volume_24h_base", UNSET)
@@ -86,17 +71,15 @@ class RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotesItem:
         else:
             last_updated = isoparse(_last_updated)
 
-        rwa_market_pairs_results_object_market_pairs_item_exchange_reported_quotes_item = cls(
-            crypto_id=crypto_id,
-            symbol=symbol,
+        rwa_market_pairs_results_object_market_pairs_item_exchange_reported_quotes = cls(
             price=price,
             volume_24h_base=volume_24h_base,
             volume_24h_quote=volume_24h_quote,
             last_updated=last_updated,
         )
 
-        rwa_market_pairs_results_object_market_pairs_item_exchange_reported_quotes_item.additional_properties = d
-        return rwa_market_pairs_results_object_market_pairs_item_exchange_reported_quotes_item
+        rwa_market_pairs_results_object_market_pairs_item_exchange_reported_quotes.additional_properties = d
+        return rwa_market_pairs_results_object_market_pairs_item_exchange_reported_quotes
 
     @property
     def additional_keys(self) -> list[str]:

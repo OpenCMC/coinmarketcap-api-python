@@ -33,6 +33,8 @@ class ExchangeMapExchangeObject:
         last_historical_data (str | Unset): Timestamp (ISO 8601) of the latest market data record available to query
             using our historical endpoints. `null` if there is no historical data currently available for this exchange.
             Example: 2019-06-02T21:25:00.000Z.
+        is_listed (int | Unset): 1 if this exchange is currently listed on CoinMarketCap, otherwise 0.
+        is_redistributable (int | Unset): 1 if this exchange's data can be redistributed, otherwise 0.
     """
 
     id: int
@@ -42,6 +44,8 @@ class ExchangeMapExchangeObject:
     status: ExchangeMapExchangeObjectStatus | Unset = UNSET
     first_historical_data: str | Unset = UNSET
     last_historical_data: str | Unset = UNSET
+    is_listed: int | Unset = UNSET
+    is_redistributable: int | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -61,6 +65,10 @@ class ExchangeMapExchangeObject:
 
         last_historical_data = self.last_historical_data
 
+        is_listed = self.is_listed
+
+        is_redistributable = self.is_redistributable
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -78,6 +86,10 @@ class ExchangeMapExchangeObject:
             field_dict["first_historical_data"] = first_historical_data
         if last_historical_data is not UNSET:
             field_dict["last_historical_data"] = last_historical_data
+        if is_listed is not UNSET:
+            field_dict["is_listed"] = is_listed
+        if is_redistributable is not UNSET:
+            field_dict["is_redistributable"] = is_redistributable
 
         return field_dict
 
@@ -103,6 +115,10 @@ class ExchangeMapExchangeObject:
 
         last_historical_data = d.pop("last_historical_data", UNSET)
 
+        is_listed = d.pop("is_listed", UNSET)
+
+        is_redistributable = d.pop("is_redistributable", UNSET)
+
         exchange_map_exchange_object = cls(
             id=id,
             name=name,
@@ -111,6 +127,8 @@ class ExchangeMapExchangeObject:
             status=status,
             first_historical_data=first_historical_data,
             last_historical_data=last_historical_data,
+            is_listed=is_listed,
+            is_redistributable=is_redistributable,
         )
 
         exchange_map_exchange_object.additional_properties = d

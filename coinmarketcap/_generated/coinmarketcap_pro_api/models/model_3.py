@@ -18,11 +18,13 @@ class Model3:
         id (float | Unset):
         symbol (str | Unset):
         slug (str | Unset):
+        asset_type (str | Unset): Type of this asset, for example `crypto`.
     """
 
     id: float | Unset = UNSET
     symbol: str | Unset = UNSET
     slug: str | Unset = UNSET
+    asset_type: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -31,6 +33,8 @@ class Model3:
         symbol = self.symbol
 
         slug = self.slug
+
+        asset_type = self.asset_type
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -41,6 +45,8 @@ class Model3:
             field_dict["symbol"] = symbol
         if slug is not UNSET:
             field_dict["slug"] = slug
+        if asset_type is not UNSET:
+            field_dict["assetType"] = asset_type
 
         return field_dict
 
@@ -53,10 +59,13 @@ class Model3:
 
         slug = d.pop("slug", UNSET)
 
+        asset_type = d.pop("assetType", UNSET)
+
         model_3 = cls(
             id=id,
             symbol=symbol,
             slug=slug,
+            asset_type=asset_type,
         )
 
         model_3.additional_properties = d

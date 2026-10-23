@@ -16,7 +16,7 @@ class LiquidityChangeDTO:
     """List of liquidity change transactions
 
     Attributes:
-        ts (int | Unset):
+        ts (str | Unset):
         tp (str | Unset):
         eid (int | Unset): exchange id
         en (str | Unset): exchange name
@@ -30,12 +30,12 @@ class LiquidityChangeDTO:
         tu (float | Unset):
         m (str | Unset):
         txn (str | Unset):
-        h (int | Unset):
-        tx_id (int | Unset):
-        lgid (int | Unset):
+        h (str | Unset):
+        tx_id (str | Unset):
+        lgid (str | Unset):
     """
 
-    ts: int | Unset = UNSET
+    ts: str | Unset = UNSET
     tp: str | Unset = UNSET
     eid: int | Unset = UNSET
     en: str | Unset = UNSET
@@ -49,9 +49,9 @@ class LiquidityChangeDTO:
     tu: float | Unset = UNSET
     m: str | Unset = UNSET
     txn: str | Unset = UNSET
-    h: int | Unset = UNSET
-    tx_id: int | Unset = UNSET
-    lgid: int | Unset = UNSET
+    h: str | Unset = UNSET
+    tx_id: str | Unset = UNSET
+    lgid: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:

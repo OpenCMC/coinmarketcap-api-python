@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.dex_paris_quotes_dto import DexParisQuotesDTO
+from ...models.v4dex_pairs_quotes_latest_response_model import V4DEXPairsQuotesLatestResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -49,14 +49,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> list[DexParisQuotesDTO] | None:
+) -> V4DEXPairsQuotesLatestResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = DexParisQuotesDTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V4DEXPairsQuotesLatestResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -68,7 +63,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[list[DexParisQuotesDTO]]:
+) -> Response[V4DEXPairsQuotesLatestResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -87,7 +82,7 @@ def sync_detailed(
     convert_id: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
     reverse_order: str | Unset = UNSET,
-) -> Response[list[DexParisQuotesDTO]]:
+) -> Response[V4DEXPairsQuotesLatestResponseModel]:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
@@ -113,7 +108,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[DexParisQuotesDTO]]
+        Response[V4DEXPairsQuotesLatestResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -143,7 +138,7 @@ def sync(
     convert_id: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
     reverse_order: str | Unset = UNSET,
-) -> list[DexParisQuotesDTO] | None:
+) -> V4DEXPairsQuotesLatestResponseModel | None:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
@@ -169,7 +164,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[DexParisQuotesDTO]
+        V4DEXPairsQuotesLatestResponseModel
     """
 
     return sync_detailed(
@@ -194,7 +189,7 @@ async def asyncio_detailed(
     convert_id: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
     reverse_order: str | Unset = UNSET,
-) -> Response[list[DexParisQuotesDTO]]:
+) -> Response[V4DEXPairsQuotesLatestResponseModel]:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
@@ -220,7 +215,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[DexParisQuotesDTO]]
+        Response[V4DEXPairsQuotesLatestResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -248,7 +243,7 @@ async def asyncio(
     convert_id: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
     reverse_order: str | Unset = UNSET,
-) -> list[DexParisQuotesDTO] | None:
+) -> V4DEXPairsQuotesLatestResponseModel | None:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
@@ -274,7 +269,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[DexParisQuotesDTO]
+        V4DEXPairsQuotesLatestResponseModel
     """
 
     return (

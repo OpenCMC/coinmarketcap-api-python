@@ -64,7 +64,7 @@ def test_response_type_not_any():
     sig = inspect.signature(cmc.cryptocurrency.quotes_latest)
     assert sig.return_annotation is not inspect.Signature.empty
     ret = str(sig.return_annotation)
-    assert "CryptoQuoteV3DTO" in ret
+    assert "V3CryptocurrencyQuotesLatestResponseModel" in ret
     assert "HTTPStatus" not in ret
 
 

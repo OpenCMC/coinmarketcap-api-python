@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.holder_trend_vo import HolderTrendVO
+from ...models.v1dex_holders_trend_list_response_model import V1DEXHoldersTrendListResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -44,14 +44,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[HolderTrendVO] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXHoldersTrendListResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = HolderTrendVO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V1DEXHoldersTrendListResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -61,7 +58,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[list[HolderTrendVO]]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXHoldersTrendListResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -79,7 +78,7 @@ def sync_detailed(
     from_: int | Unset = UNSET,
     to: int | Unset = UNSET,
     limit: int | Unset = UNSET,
-) -> Response[list[HolderTrendVO]]:
+) -> Response[V1DEXHoldersTrendListResponseModel]:
     """Get holder trend list
 
      Get detailed information for holders trend list
@@ -97,7 +96,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[HolderTrendVO]]
+        Response[V1DEXHoldersTrendListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -125,7 +124,7 @@ def sync(
     from_: int | Unset = UNSET,
     to: int | Unset = UNSET,
     limit: int | Unset = UNSET,
-) -> list[HolderTrendVO] | None:
+) -> V1DEXHoldersTrendListResponseModel | None:
     """Get holder trend list
 
      Get detailed information for holders trend list
@@ -143,7 +142,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[HolderTrendVO]
+        V1DEXHoldersTrendListResponseModel
     """
 
     return sync_detailed(
@@ -166,7 +165,7 @@ async def asyncio_detailed(
     from_: int | Unset = UNSET,
     to: int | Unset = UNSET,
     limit: int | Unset = UNSET,
-) -> Response[list[HolderTrendVO]]:
+) -> Response[V1DEXHoldersTrendListResponseModel]:
     """Get holder trend list
 
      Get detailed information for holders trend list
@@ -184,7 +183,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[HolderTrendVO]]
+        Response[V1DEXHoldersTrendListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -210,7 +209,7 @@ async def asyncio(
     from_: int | Unset = UNSET,
     to: int | Unset = UNSET,
     limit: int | Unset = UNSET,
-) -> list[HolderTrendVO] | None:
+) -> V1DEXHoldersTrendListResponseModel | None:
     """Get holder trend list
 
      Get detailed information for holders trend list
@@ -228,7 +227,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[HolderTrendVO]
+        V1DEXHoldersTrendListResponseModel
     """
 
     return (

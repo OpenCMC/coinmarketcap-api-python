@@ -6,6 +6,8 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 T = TypeVar("T", bound="CurrentDay")
 
 
@@ -15,12 +17,13 @@ class CurrentDay:
 
     Attributes:
         credits_used (float): The number of API credits used during the current daily period. Example: 1.
-        credits_left (float): The number of remaining API credits that can be used during the current daily period
-            before receiving a HTTP 429 rate limit error. This limit resets at the end of each daily period. Example: 3999.
+        credits_left (float | Unset): The number of remaining API credits that can be used during the current daily
+            period before receiving a HTTP 429 rate limit error. This limit resets at the end of each daily period. Example:
+            3999.
     """
 
     credits_used: float
-    credits_left: float
+    credits_left: float | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -33,9 +36,10 @@ class CurrentDay:
         field_dict.update(
             {
                 "credits_used": credits_used,
-                "credits_left": credits_left,
             }
         )
+        if credits_left is not UNSET:
+            field_dict["credits_left"] = credits_left
 
         return field_dict
 
@@ -44,7 +48,7 @@ class CurrentDay:
         d = dict(src_dict)
         credits_used = d.pop("credits_used")
 
-        credits_left = d.pop("credits_left")
+        credits_left = d.pop("credits_left", UNSET)
 
         current_day = cls(
             credits_used=credits_used,

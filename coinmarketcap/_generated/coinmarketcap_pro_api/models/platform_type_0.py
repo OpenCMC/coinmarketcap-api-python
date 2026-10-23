@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any, TypeVar
+from typing import Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -14,7 +14,7 @@ class PlatformType0:
     """Metadata about the parent cryptocurrency platform this cryptocurrency belongs to if it is a token, otherwise null.
 
     Attributes:
-        id (int): The unique CoinMarketCap ID for the parent platform cryptocurrency. Example: 1.
+        id (int | str): The unique CoinMarketCap ID for the parent platform cryptocurrency. Example: 1.
         name (str): The name of the parent platform cryptocurrency. Example: Ethereum.
         symbol (str): The ticker symbol for the parent platform cryptocurrency. Example: ETH.
         slug (str): The web URL friendly shorthand version of the parent platform cryptocurrency name. Example:
@@ -23,7 +23,7 @@ class PlatformType0:
             0xe41d2489571d322189246dafa5ebde1f4699f498.
     """
 
-    id: int
+    id: int | str
     name: str
     symbol: str
     slug: str
@@ -31,6 +31,7 @@ class PlatformType0:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        id: int | str
         id = self.id
 
         name = self.name
@@ -58,7 +59,11 @@ class PlatformType0:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        id = d.pop("id")
+
+        def _parse_id(data: object) -> int | str:
+            return cast(int | str, data)
+
+        id = _parse_id(d.pop("id"))
 
         name = d.pop("name")
 

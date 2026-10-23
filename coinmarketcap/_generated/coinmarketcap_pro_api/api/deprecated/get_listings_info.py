@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.dex_common_info_dto import DexCommonInfoDTO
+from ...models.v4dex_listings_info_response_model import V4DEXListingsInfoResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -32,14 +32,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[DexCommonInfoDTO] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V4DEXListingsInfoResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = DexCommonInfoDTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V4DEXListingsInfoResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -51,7 +48,7 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[list[DexCommonInfoDTO]]:
+) -> Response[V4DEXListingsInfoResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -65,7 +62,7 @@ def sync_detailed(
     client: AuthenticatedClient | Client,
     id: str | Unset = UNSET,
     aux: str | Unset = "",
-) -> Response[list[DexCommonInfoDTO]]:
+) -> Response[V4DEXListingsInfoResponseModel]:
     """DEX Metadata
 
      Returns all static metadata for one or more decentralised exchanges. This information includes
@@ -81,7 +78,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[DexCommonInfoDTO]]
+        Response[V4DEXListingsInfoResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -101,7 +98,7 @@ def sync(
     client: AuthenticatedClient | Client,
     id: str | Unset = UNSET,
     aux: str | Unset = "",
-) -> list[DexCommonInfoDTO] | None:
+) -> V4DEXListingsInfoResponseModel | None:
     """DEX Metadata
 
      Returns all static metadata for one or more decentralised exchanges. This information includes
@@ -117,7 +114,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[DexCommonInfoDTO]
+        V4DEXListingsInfoResponseModel
     """
 
     return sync_detailed(
@@ -132,7 +129,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient | Client,
     id: str | Unset = UNSET,
     aux: str | Unset = "",
-) -> Response[list[DexCommonInfoDTO]]:
+) -> Response[V4DEXListingsInfoResponseModel]:
     """DEX Metadata
 
      Returns all static metadata for one or more decentralised exchanges. This information includes
@@ -148,7 +145,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[DexCommonInfoDTO]]
+        Response[V4DEXListingsInfoResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -166,7 +163,7 @@ async def asyncio(
     client: AuthenticatedClient | Client,
     id: str | Unset = UNSET,
     aux: str | Unset = "",
-) -> list[DexCommonInfoDTO] | None:
+) -> V4DEXListingsInfoResponseModel | None:
     """DEX Metadata
 
      Returns all static metadata for one or more decentralised exchanges. This information includes
@@ -182,7 +179,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[DexCommonInfoDTO]
+        V4DEXListingsInfoResponseModel
     """
 
     return (

@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.crypto_quote_v3dto import CryptoQuoteV3DTO
+from ...models.v3_cryptocurrency_quotes_latest_response_model import V3CryptocurrencyQuotesLatestResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -47,14 +47,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[CryptoQuoteV3DTO] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V3CryptocurrencyQuotesLatestResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = CryptoQuoteV3DTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V3CryptocurrencyQuotesLatestResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -66,7 +63,7 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[list[CryptoQuoteV3DTO]]:
+) -> Response[V3CryptocurrencyQuotesLatestResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -85,7 +82,7 @@ def sync_detailed(
     convert_id: str | Unset = UNSET,
     aux: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
-) -> Response[list[CryptoQuoteV3DTO]]:
+) -> Response[V3CryptocurrencyQuotesLatestResponseModel]:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more cryptocurrencies. Use the \"convert\" option to return
@@ -134,7 +131,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[CryptoQuoteV3DTO]]
+        Response[V3CryptocurrencyQuotesLatestResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -164,7 +161,7 @@ def sync(
     convert_id: str | Unset = UNSET,
     aux: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
-) -> list[CryptoQuoteV3DTO] | None:
+) -> V3CryptocurrencyQuotesLatestResponseModel | None:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more cryptocurrencies. Use the \"convert\" option to return
@@ -213,7 +210,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[CryptoQuoteV3DTO]
+        V3CryptocurrencyQuotesLatestResponseModel
     """
 
     return sync_detailed(
@@ -238,7 +235,7 @@ async def asyncio_detailed(
     convert_id: str | Unset = UNSET,
     aux: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
-) -> Response[list[CryptoQuoteV3DTO]]:
+) -> Response[V3CryptocurrencyQuotesLatestResponseModel]:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more cryptocurrencies. Use the \"convert\" option to return
@@ -287,7 +284,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[CryptoQuoteV3DTO]]
+        Response[V3CryptocurrencyQuotesLatestResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -315,7 +312,7 @@ async def asyncio(
     convert_id: str | Unset = UNSET,
     aux: str | Unset = UNSET,
     skip_invalid: str | Unset = UNSET,
-) -> list[CryptoQuoteV3DTO] | None:
+) -> V3CryptocurrencyQuotesLatestResponseModel | None:
     r"""Quotes Latest
 
      Returns the latest market quote for 1 or more cryptocurrencies. Use the \"convert\" option to return
@@ -364,7 +361,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[CryptoQuoteV3DTO]
+        V3CryptocurrencyQuotesLatestResponseModel
     """
 
     return (

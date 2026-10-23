@@ -27,7 +27,7 @@ T = TypeVar("T", bound="RWAAssetListResultsObjectRwaAssetsItem")
 class RWAAssetListResultsObjectRwaAssetsItem:
     """
     Attributes:
-        rwa_id (int | Unset): RWA asset ID; the stable identifier to use across the RWA family. Example: 2.
+        rwa_id (int | None | Unset): RWA asset ID; the stable identifier to use across the RWA family. Example: 2.
         name (str | Unset): Asset display name. Example: NVIDIA.
         symbol (str | Unset): Asset symbol / ticker. Example: NVDA.
         slug (str | Unset): URL-friendly lowercase slug. Example: nvidia.
@@ -35,8 +35,8 @@ class RWAAssetListResultsObjectRwaAssetsItem:
             `currency`, `government_security`, `etf`, `real_estate`. Example: stock.
         rwa_rank (int | Unset): RWA market-cap rank (1 = highest). RWA-specific ranking, distinct from `cmc_rank`.
             Example: 2.
-        has_tokens (bool | Unset): `true` if at least one token exists for this asset; `false` if there are no tokenized
-            assets. Example: True.
+        has_tokens (bool | None | Unset): `true` if at least one token exists for this asset; `false` if there are no
+            tokenized assets. Example: True.
         average_tokenized_price (float | None | Unset): Aggregate price across the underlying tokens.
         tokenized_market_cap (float | None | Unset): Aggregate tokenized market cap.
         tokenized_volume_24h (float | None | Unset): Aggregate 24h tokenized volume.
@@ -45,13 +45,13 @@ class RWAAssetListResultsObjectRwaAssetsItem:
             object per `convert`/`convert_id` currency.
     """
 
-    rwa_id: int | Unset = UNSET
+    rwa_id: int | None | Unset = UNSET
     name: str | Unset = UNSET
     symbol: str | Unset = UNSET
     slug: str | Unset = UNSET
     asset_type: RWAAssetListResultsObjectRwaAssetsItemAssetType | Unset = UNSET
     rwa_rank: int | Unset = UNSET
-    has_tokens: bool | Unset = UNSET
+    has_tokens: bool | None | Unset = UNSET
     average_tokenized_price: float | None | Unset = UNSET
     tokenized_market_cap: float | None | Unset = UNSET
     tokenized_volume_24h: float | None | Unset = UNSET
@@ -60,7 +60,11 @@ class RWAAssetListResultsObjectRwaAssetsItem:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        rwa_id = self.rwa_id
+        rwa_id: int | None | Unset
+        if isinstance(self.rwa_id, Unset):
+            rwa_id = UNSET
+        else:
+            rwa_id = self.rwa_id
 
         name = self.name
 
@@ -74,7 +78,11 @@ class RWAAssetListResultsObjectRwaAssetsItem:
 
         rwa_rank = self.rwa_rank
 
-        has_tokens = self.has_tokens
+        has_tokens: bool | None | Unset
+        if isinstance(self.has_tokens, Unset):
+            has_tokens = UNSET
+        else:
+            has_tokens = self.has_tokens
 
         average_tokenized_price: float | None | Unset
         if isinstance(self.average_tokenized_price, Unset):
@@ -142,7 +150,15 @@ class RWAAssetListResultsObjectRwaAssetsItem:
         )
 
         d = dict(src_dict)
-        rwa_id = d.pop("rwa_id", UNSET)
+
+        def _parse_rwa_id(data: object) -> int | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(int | None | Unset, data)
+
+        rwa_id = _parse_rwa_id(d.pop("rwa_id", UNSET))
 
         name = d.pop("name", UNSET)
 
@@ -159,7 +175,14 @@ class RWAAssetListResultsObjectRwaAssetsItem:
 
         rwa_rank = d.pop("rwa_rank", UNSET)
 
-        has_tokens = d.pop("has_tokens", UNSET)
+        def _parse_has_tokens(data: object) -> bool | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(bool | None | Unset, data)
+
+        has_tokens = _parse_has_tokens(d.pop("has_tokens", UNSET))
 
         def _parse_average_tokenized_price(data: object) -> float | None | Unset:
             if data is None:

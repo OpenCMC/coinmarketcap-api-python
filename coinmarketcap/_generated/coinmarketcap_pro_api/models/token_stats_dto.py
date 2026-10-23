@@ -18,28 +18,28 @@ class TokenStatsDTO:
     Attributes:
         tp (str | Unset): Stat type, e.g., '1h', '24h', '7d' Example: 24h.
         vu (str | Unset): Total volume (string formatted) Example: 123456.789.
-        txs (int | Unset): Total number of transactions Example: 1024.
-        nb (int | Unset): Number of buy transactions Example: 678.
-        ns (int | Unset): Number of sell transactions Example: 346.
+        txs (str | Unset): Total number of transactions Example: 1024.
+        nb (str | Unset): Number of buy transactions Example: 678.
+        ns (str | Unset): Number of sell transactions Example: 346.
         bvu (str | Unset): Buy volume Example: 65432.12.
         svu (str | Unset): Sell volume Example: 58024.67.
-        but (int | Unset): Number of unique buyers Example: 431.
-        sut (int | Unset): Number of unique sellers Example: 398.
+        but (str | Unset): Number of unique buyers Example: 431.
+        sut (str | Unset): Number of unique sellers Example: 398.
         pc (float | Unset): Price change rate (e.g. 5.23 means +5.23%) Example: 3.51.
-        ut (int | Unset): Number of unique traders Example: 789.
+        ut (str | Unset): Number of unique traders Example: 789.
     """
 
     tp: str | Unset = UNSET
     vu: str | Unset = UNSET
-    txs: int | Unset = UNSET
-    nb: int | Unset = UNSET
-    ns: int | Unset = UNSET
+    txs: str | Unset = UNSET
+    nb: str | Unset = UNSET
+    ns: str | Unset = UNSET
     bvu: str | Unset = UNSET
     svu: str | Unset = UNSET
-    but: int | Unset = UNSET
-    sut: int | Unset = UNSET
+    but: str | Unset = UNSET
+    sut: str | Unset = UNSET
     pc: float | Unset = UNSET
-    ut: int | Unset = UNSET
+    ut: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:

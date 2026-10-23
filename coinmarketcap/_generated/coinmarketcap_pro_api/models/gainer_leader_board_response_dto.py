@@ -23,7 +23,7 @@ class GainerLeaderBoardResponseDTO:
         leaderboard_list (list[TokenLeaderboardDTO] | Unset): List of token leaderboard entries
         page_num (int | Unset): Current page number
         page_size (int | Unset): Number of entries per page
-        total (int | Unset): Total number of matching entries
+        total (str | Unset): Total number of matching entries
         has_next_page (bool | Unset): Whether there is another page after the current one
         last_update_time (int | Unset): Timestamp (in milliseconds) when the data was last updated
         next_page_index (str | Unset): Cursor to be used for fetching the next page
@@ -32,7 +32,7 @@ class GainerLeaderBoardResponseDTO:
     leaderboard_list: list[TokenLeaderboardDTO] | Unset = UNSET
     page_num: int | Unset = UNSET
     page_size: int | Unset = UNSET
-    total: int | Unset = UNSET
+    total: str | Unset = UNSET
     has_next_page: bool | Unset = UNSET
     last_update_time: int | Unset = UNSET
     next_page_index: str | Unset = UNSET

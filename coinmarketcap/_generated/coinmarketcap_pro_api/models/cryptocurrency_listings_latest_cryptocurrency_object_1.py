@@ -41,8 +41,8 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
             have been verifiably burned). Example: 16950100.
         market_cap_by_total_supply (float | Unset): The market cap by total supply. *This field is only returned if
             requested through the `aux` request parameter.* Example: 158055024432.
-        max_supply (float | Unset): The expected maximum limit of coins ever to be available for this cryptocurrency.
-            Example: 21000000.
+        max_supply (float | None | Unset): The expected maximum limit of coins ever to be available for this
+            cryptocurrency. Example: 21000000.
         infinite_supply (bool | Unset): The cryptocurrency is known to have an infinite supply.
         date_added (str | Unset): Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap. Example:
             2013-04-28T00:00:00.000Z.
@@ -53,7 +53,7 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
             cryptocurrency. Example: 16950100.
         self_reported_market_cap (float | None | Unset): The self reported market cap for this cryptocurrency. Example:
             16950100.
-        tvl_ratio (float | Unset): Percentage of Total Value Locked
+        tvl_ratio (float | None | Unset): Percentage of Total Value Locked
         platform (None | PlatformType0 | Unset): Metadata about the parent cryptocurrency platform this cryptocurrency
             belongs to if it is a token, otherwise null.
         minted_market_cap (float | Unset): The minted market cap for this cryptocurrency. Example: 1802955697670.94.
@@ -70,13 +70,13 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
     circulating_supply: float | Unset = UNSET
     total_supply: float | Unset = UNSET
     market_cap_by_total_supply: float | Unset = UNSET
-    max_supply: float | Unset = UNSET
+    max_supply: float | None | Unset = UNSET
     infinite_supply: bool | Unset = UNSET
     date_added: str | Unset = UNSET
     tags: list[str] | Unset = UNSET
     self_reported_circulating_supply: float | None | Unset = UNSET
     self_reported_market_cap: float | None | Unset = UNSET
-    tvl_ratio: float | Unset = UNSET
+    tvl_ratio: float | None | Unset = UNSET
     platform: None | PlatformType0 | Unset = UNSET
     minted_market_cap: float | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -106,7 +106,11 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
 
         market_cap_by_total_supply = self.market_cap_by_total_supply
 
-        max_supply = self.max_supply
+        max_supply: float | None | Unset
+        if isinstance(self.max_supply, Unset):
+            max_supply = UNSET
+        else:
+            max_supply = self.max_supply
 
         infinite_supply = self.infinite_supply
 
@@ -128,7 +132,11 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
         else:
             self_reported_market_cap = self.self_reported_market_cap
 
-        tvl_ratio = self.tvl_ratio
+        tvl_ratio: float | None | Unset
+        if isinstance(self.tvl_ratio, Unset):
+            tvl_ratio = UNSET
+        else:
+            tvl_ratio = self.tvl_ratio
 
         platform: dict[str, Any] | None | Unset
         if isinstance(self.platform, Unset):
@@ -211,7 +219,14 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
 
         market_cap_by_total_supply = d.pop("market_cap_by_total_supply", UNSET)
 
-        max_supply = d.pop("max_supply", UNSET)
+        def _parse_max_supply(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        max_supply = _parse_max_supply(d.pop("max_supply", UNSET))
 
         infinite_supply = d.pop("infinite_supply", UNSET)
 
@@ -239,7 +254,14 @@ class CryptocurrencyListingsLatestCryptocurrencyObject1:
 
         self_reported_market_cap = _parse_self_reported_market_cap(d.pop("self_reported_market_cap", UNSET))
 
-        tvl_ratio = d.pop("tvl_ratio", UNSET)
+        def _parse_tvl_ratio(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tvl_ratio = _parse_tvl_ratio(d.pop("tvl_ratio", UNSET))
 
         def _parse_platform(data: object) -> None | PlatformType0 | Unset:
             if data is None:

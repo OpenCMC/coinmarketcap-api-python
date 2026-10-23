@@ -32,15 +32,24 @@ class CryptocurrencyQuotesLatestCryptocurrencyResultsMap:
 
     """
 
-    additional_properties: dict[str, CryptocurrencyQuotesLatestCryptocurrencyObject] = _attrs_field(
-        init=False, factory=dict
-    )
+    additional_properties: dict[
+        str, CryptocurrencyQuotesLatestCryptocurrencyObject | list[CryptocurrencyQuotesLatestCryptocurrencyObject]
+    ] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object import (
+            CryptocurrencyQuotesLatestCryptocurrencyObject,
+        )
 
         field_dict: dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
-            field_dict[prop_name] = prop.to_dict()
+            if isinstance(prop, CryptocurrencyQuotesLatestCryptocurrencyObject):
+                field_dict[prop_name] = prop.to_dict()
+            else:
+                field_dict[prop_name] = []
+                for additional_property_type_1_item_data in prop:
+                    additional_property_type_1_item = additional_property_type_1_item_data.to_dict()
+                    field_dict[prop_name].append(additional_property_type_1_item)
 
         return field_dict
 
@@ -55,7 +64,32 @@ class CryptocurrencyQuotesLatestCryptocurrencyResultsMap:
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property = CryptocurrencyQuotesLatestCryptocurrencyObject.from_dict(prop_dict)
+
+            def _parse_additional_property(
+                data: object,
+            ) -> CryptocurrencyQuotesLatestCryptocurrencyObject | list[CryptocurrencyQuotesLatestCryptocurrencyObject]:
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    additional_property_type_0 = CryptocurrencyQuotesLatestCryptocurrencyObject.from_dict(data)
+
+                    return additional_property_type_0
+                except (TypeError, ValueError, AttributeError, KeyError):
+                    pass
+                if not isinstance(data, list):
+                    raise TypeError()
+                additional_property_type_1 = []
+                _additional_property_type_1 = data
+                for additional_property_type_1_item_data in _additional_property_type_1:
+                    additional_property_type_1_item = CryptocurrencyQuotesLatestCryptocurrencyObject.from_dict(
+                        additional_property_type_1_item_data
+                    )
+
+                    additional_property_type_1.append(additional_property_type_1_item)
+
+                return additional_property_type_1
+
+            additional_property = _parse_additional_property(prop_dict)
 
             additional_properties[prop_name] = additional_property
 
@@ -66,10 +100,16 @@ class CryptocurrencyQuotesLatestCryptocurrencyResultsMap:
     def additional_keys(self) -> list[str]:
         return list(self.additional_properties.keys())
 
-    def __getitem__(self, key: str) -> CryptocurrencyQuotesLatestCryptocurrencyObject:
+    def __getitem__(
+        self, key: str
+    ) -> CryptocurrencyQuotesLatestCryptocurrencyObject | list[CryptocurrencyQuotesLatestCryptocurrencyObject]:
         return self.additional_properties[key]
 
-    def __setitem__(self, key: str, value: CryptocurrencyQuotesLatestCryptocurrencyObject) -> None:
+    def __setitem__(
+        self,
+        key: str,
+        value: CryptocurrencyQuotesLatestCryptocurrencyObject | list[CryptocurrencyQuotesLatestCryptocurrencyObject],
+    ) -> None:
         self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:

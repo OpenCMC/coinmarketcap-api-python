@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.holder_tag_count_vo import HolderTagCountVO
+from ...models.v1dex_holders_tag_count_response_model import V1DEXHoldersTagCountResponseModel
 from ...types import UNSET, Response
 
 
@@ -32,9 +32,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> HolderTagCountVO | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXHoldersTagCountResponseModel | None:
     if response.status_code == 200:
-        response_200 = HolderTagCountVO.from_dict(response.json())
+        response_200 = V1DEXHoldersTagCountResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -44,7 +46,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[HolderTagCountVO]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXHoldersTagCountResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -58,7 +62,7 @@ def sync_detailed(
     client: AuthenticatedClient | Client,
     platform: str,
     token_address: str,
-) -> Response[HolderTagCountVO]:
+) -> Response[V1DEXHoldersTagCountResponseModel]:
     """Get holder tag count
 
      Get detailed information for holders tag count
@@ -72,7 +76,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HolderTagCountVO]
+        Response[V1DEXHoldersTagCountResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -92,7 +96,7 @@ def sync(
     client: AuthenticatedClient | Client,
     platform: str,
     token_address: str,
-) -> HolderTagCountVO | None:
+) -> V1DEXHoldersTagCountResponseModel | None:
     """Get holder tag count
 
      Get detailed information for holders tag count
@@ -106,7 +110,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HolderTagCountVO
+        V1DEXHoldersTagCountResponseModel
     """
 
     return sync_detailed(
@@ -121,7 +125,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient | Client,
     platform: str,
     token_address: str,
-) -> Response[HolderTagCountVO]:
+) -> Response[V1DEXHoldersTagCountResponseModel]:
     """Get holder tag count
 
      Get detailed information for holders tag count
@@ -135,7 +139,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[HolderTagCountVO]
+        Response[V1DEXHoldersTagCountResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -153,7 +157,7 @@ async def asyncio(
     client: AuthenticatedClient | Client,
     platform: str,
     token_address: str,
-) -> HolderTagCountVO | None:
+) -> V1DEXHoldersTagCountResponseModel | None:
     """Get holder tag count
 
      Get detailed information for holders tag count
@@ -167,7 +171,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        HolderTagCountVO
+        V1DEXHoldersTagCountResponseModel
     """
 
     return (

@@ -10,6 +10,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.api_status_object import APIStatusObject
+    from ..models.exchange_historical_quotes_exchange_object import ExchangeHistoricalQuotesExchangeObject
     from ..models.exchange_historical_quotes_results_map import ExchangeHistoricalQuotesResultsMap
 
 
@@ -20,21 +21,23 @@ T = TypeVar("T", bound="ExchangeHistoricalQuotesResponseModel")
 class ExchangeHistoricalQuotesResponseModel:
     """
     Attributes:
-        data (ExchangeHistoricalQuotesResultsMap): Results of your query returned as an object map. Example: {'1':
-            {'id': 270, 'name': 'Binance', 'slug': 'binance', 'quotes': [{'timestamp': '2018-06-03T00:00:00.000Z', 'quote':
-            {'USD': {'volume_24h': 1632390000, 'timestamp': '2018-06-03T00:00:00.000Z'}}, 'num_market_pairs': 338},
-            {'timestamp': '2018-06-10T00:00:00.000Z', 'quote': {'USD': {'volume_24h': 1034720000, 'timestamp':
-            '2018-06-10T00:00:00.000Z'}}, 'num_market_pairs': 349}, {'timestamp': '2018-06-17T00:00:00.000Z', 'quote':
-            {'USD': {'volume_24h': 883885000, 'timestamp': '2018-06-17T00:00:00.000Z'}}, 'num_market_pairs': 357}]}}.
+        data (ExchangeHistoricalQuotesExchangeObject | ExchangeHistoricalQuotesResultsMap): A single object when you
+            request one exchange, and an object map keyed by exchange ID when you request several.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
-    data: ExchangeHistoricalQuotesResultsMap
+    data: ExchangeHistoricalQuotesExchangeObject | ExchangeHistoricalQuotesResultsMap
     status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        data = self.data.to_dict()
+        from ..models.exchange_historical_quotes_results_map import ExchangeHistoricalQuotesResultsMap
+
+        data: dict[str, Any]
+        if isinstance(self.data, ExchangeHistoricalQuotesResultsMap):
+            data = self.data.to_dict()
+        else:
+            data = self.data.to_dict()
 
         status: dict[str, Any] | Unset = UNSET
         if not isinstance(self.status, Unset):
@@ -55,10 +58,27 @@ class ExchangeHistoricalQuotesResponseModel:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.api_status_object import APIStatusObject
+        from ..models.exchange_historical_quotes_exchange_object import ExchangeHistoricalQuotesExchangeObject
         from ..models.exchange_historical_quotes_results_map import ExchangeHistoricalQuotesResultsMap
 
         d = dict(src_dict)
-        data = ExchangeHistoricalQuotesResultsMap.from_dict(d.pop("data"))
+
+        def _parse_data(data: object) -> ExchangeHistoricalQuotesExchangeObject | ExchangeHistoricalQuotesResultsMap:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                data_type_0 = ExchangeHistoricalQuotesResultsMap.from_dict(data)
+
+                return data_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            data_type_1 = ExchangeHistoricalQuotesExchangeObject.from_dict(data)
+
+            return data_type_1
+
+        data = _parse_data(d.pop("data"))
 
         _status = d.pop("status", UNSET)
         status: APIStatusObject | Unset

@@ -24,14 +24,14 @@ class DerivativesCryptoMarketPairsListLatestResponseModel:
     Attributes:
         data (DerivativesCryptoMarketPairsListLatestResultsObject): Results of your query returned as an object.
             Example: {'crypto_id': 1, 'crypto_name': 'Bitcoin', 'symbol': 'BTC', 'num_market_pairs': 5, 'market_pairs':
-            [{'market_id': 79477, 'market_pair': 'BTC/USDT', 'category': 'perpetual', 'fee_type': 'percentage',
+            [{'market_id': 79477, 'market_pair_symbol': 'BTC/USDT', 'category': 'perpetual', 'fee_type': 'percentage',
             'outlier_detected': False, 'exclusions': None, 'exchange': {'exchange_id': 270, 'exchange_name': 'Binance',
             'exchange_slug': 'binance'}, 'market_pair_base': {'crypto_id': 1, 'symbol': 'BTC', 'exchange_symbol': 'BTC',
             'currency_type': 'cryptocurrency'}, 'market_pair_quote': {'crypto_id': 825, 'symbol': 'USDT', 'exchange_symbol':
-            'USDT', 'currency_type': 'cryptocurrency'}, 'exchange_reported_quotes': [{'crypto_id': 2781, 'symbol': 'USD',
-            'price': 80496.6, 'volume_24h_base': 686357.90331837, 'volume_24h_quote': 55249477600.25728, 'open_interest':
-            5000000, 'index_price': 80498.5, 'index_basis': 0.0023, 'funding_rate': 0.0001, 'last_updated':
-            '2026-05-15T06:36:15.586Z'}], 'quotes': [{'crypto_id': 2781, 'symbol': 'USD', 'price': 80470.69372308,
+            'USDT', 'currency_type': 'cryptocurrency'}, 'exchange_reported_quotes': [{'convert_id': 2781, 'convert_symbol':
+            'USD', 'price': 80496.6, 'volume_24h_base': 686357.90331837, 'volume_24h_quote': 55249477600.25728,
+            'open_interest': 5000000, 'index_price': 80498.5, 'index_basis': 0.0023, 'funding_rate': 0.0001, 'last_updated':
+            '2026-05-15T06:36:15.586Z'}], 'quotes': [{'convert_id': 2781, 'convert_symbol': 'USD', 'price': 80470.69372308,
             'volume_24h': 55231696622.35106, 'open_interest': 5000000, 'last_updated': '2026-05-15T06:36:15.586Z'}]}]}.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """

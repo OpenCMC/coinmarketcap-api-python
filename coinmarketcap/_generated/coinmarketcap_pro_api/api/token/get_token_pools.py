@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.token_top_pool_dto import TokenTopPoolDTO
+from ...models.v1dex_token_pools_response_model import V1DEXTokenPoolsResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -35,14 +35,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[TokenTopPoolDTO] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXTokenPoolsResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = TokenTopPoolDTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V1DEXTokenPoolsResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -54,7 +51,7 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[list[TokenTopPoolDTO]]:
+) -> Response[V1DEXTokenPoolsResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -69,7 +66,7 @@ def sync_detailed(
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
     size: int | Unset = 20,
-) -> Response[list[TokenTopPoolDTO]]:
+) -> Response[V1DEXTokenPoolsResponseModel]:
     r"""Get token pools
 
      Get all pools for a specific token
@@ -90,7 +87,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[TokenTopPoolDTO]]
+        Response[V1DEXTokenPoolsResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -112,7 +109,7 @@ def sync(
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
     size: int | Unset = 20,
-) -> list[TokenTopPoolDTO] | None:
+) -> V1DEXTokenPoolsResponseModel | None:
     r"""Get token pools
 
      Get all pools for a specific token
@@ -133,7 +130,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[TokenTopPoolDTO]
+        V1DEXTokenPoolsResponseModel
     """
 
     return sync_detailed(
@@ -150,7 +147,7 @@ async def asyncio_detailed(
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
     size: int | Unset = 20,
-) -> Response[list[TokenTopPoolDTO]]:
+) -> Response[V1DEXTokenPoolsResponseModel]:
     r"""Get token pools
 
      Get all pools for a specific token
@@ -171,7 +168,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[TokenTopPoolDTO]]
+        Response[V1DEXTokenPoolsResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -191,7 +188,7 @@ async def asyncio(
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
     size: int | Unset = 20,
-) -> list[TokenTopPoolDTO] | None:
+) -> V1DEXTokenPoolsResponseModel | None:
     r"""Get token pools
 
      Get all pools for a specific token
@@ -212,7 +209,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[TokenTopPoolDTO]
+        V1DEXTokenPoolsResponseModel
     """
 
     return (

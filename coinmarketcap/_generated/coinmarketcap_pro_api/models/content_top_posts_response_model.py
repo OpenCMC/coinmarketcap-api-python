@@ -32,7 +32,7 @@ class ContentTopPostsResponseModel:
             success and the failure are almost...', 'photos':
             ['https://s3.coinmarketcap.com/static/img/portraits/621c22097aafe46422aa1161.png'], 'comment_count': '6',
             'like_count': '60', 'post_time': '1662612816768', 'currencies': [{'id': 1027, 'symbol': 'ETH', 'slug':
-            'ethereum'}], 'repost_count': '0', 'language_code': 'en'}], 'last_score': '38507.8865'}, 'status': {'timestamp':
+            'ethereum'}], 'language_code': 'en'}], 'last_score': '38507.8865'}, 'status': {'timestamp':
             '2022-09-08T16:08:52.641Z', 'error_code': 0, 'error_message': 'SUCCESS', 'elapsed': 0, 'credit_count': 0}}
 
     Attributes:

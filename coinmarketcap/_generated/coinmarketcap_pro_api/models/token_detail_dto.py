@@ -38,8 +38,8 @@ class TokenDetailDTO:
         tw (str | Unset): Twitter URL
         tg (str | Unset): Telegram URL
         lg (str | Unset): Logo URL
-        pub_at (int | Unset): Token publish timestamp
-        lch_at (int | Unset): Token launched timestamp
+        pub_at (str | Unset): Token publish timestamp
+        lch_at (str | Unset): Token launched timestamp
         fdv (str | Unset): Fully Diluted Valuation
         mcap (str | Unset): Market capitalization
         ts (str | Unset): Total token supply
@@ -47,18 +47,18 @@ class TokenDetailDTO:
         cs (str | Unset): Circulating supply
         liq_usd (str | Unset): Liquidity (USD)
         liq (str | Unset): Liquidity (native)
-        hld (int | Unset): Holder count
+        hld (str | Unset): Holder count
         p (str | Unset): Token price in USD
         ph24h (str | Unset): 24h price high
         pl24h (str | Unset): 24h price low
-        pt (int | Unset): Price last updated timestamp
-        fpt (int | Unset): Timestamp of the first time this token had a price
-        fpct (int | Unset): Timestamp when the first pool for this token was created
+        pt (str | Unset): Price last updated timestamp
+        fpt (str | Unset): Timestamp of the first time this token had a price
+        fpct (str | Unset): Timestamp when the first pool for this token was created
         bcr (float | Unset): Bonding curve ratio
         sts (list[TokenStatsDTO] | Unset): Token statistics
         pls (list[TokenTopPoolDTO] | Unset): Top liquidity pools
         turl (str | Unset): DEX trading URL
-        nps (int | Unset): Number of top pools
+        nps (str | Unset): Number of top pools
         tsrc (str | Unset): Pool source
         rl (str | Unset): Token risk level
         lf (int | Unset): Listed flag (1 = listed, 0 = unlisted)
@@ -67,7 +67,7 @@ class TokenDetailDTO:
         lsmc (str | Unset): Listing self-reported market capitalization
         lsrcs (str | Unset): Listing self-reported circulating supply
         ltcs (str | Unset): Listing circulating supply
-        ltda (int | Unset): Listing token date added
+        ltda (str | Unset): Listing token date added
         cexs (list[CryptoCurrencyExchangeDTO] | Unset): Centralized exchange listings
         sig (DexTokenSignalDTO | Unset): Token signal
         ecs (int | Unset): Binance exclusive code, 1 - exclusive
@@ -89,8 +89,8 @@ class TokenDetailDTO:
     tw: str | Unset = UNSET
     tg: str | Unset = UNSET
     lg: str | Unset = UNSET
-    pub_at: int | Unset = UNSET
-    lch_at: int | Unset = UNSET
+    pub_at: str | Unset = UNSET
+    lch_at: str | Unset = UNSET
     fdv: str | Unset = UNSET
     mcap: str | Unset = UNSET
     ts: str | Unset = UNSET
@@ -98,18 +98,18 @@ class TokenDetailDTO:
     cs: str | Unset = UNSET
     liq_usd: str | Unset = UNSET
     liq: str | Unset = UNSET
-    hld: int | Unset = UNSET
+    hld: str | Unset = UNSET
     p: str | Unset = UNSET
     ph24h: str | Unset = UNSET
     pl24h: str | Unset = UNSET
-    pt: int | Unset = UNSET
-    fpt: int | Unset = UNSET
-    fpct: int | Unset = UNSET
+    pt: str | Unset = UNSET
+    fpt: str | Unset = UNSET
+    fpct: str | Unset = UNSET
     bcr: float | Unset = UNSET
     sts: list[TokenStatsDTO] | Unset = UNSET
     pls: list[TokenTopPoolDTO] | Unset = UNSET
     turl: str | Unset = UNSET
-    nps: int | Unset = UNSET
+    nps: str | Unset = UNSET
     tsrc: str | Unset = UNSET
     rl: str | Unset = UNSET
     lf: int | Unset = UNSET
@@ -118,7 +118,7 @@ class TokenDetailDTO:
     lsmc: str | Unset = UNSET
     lsrcs: str | Unset = UNSET
     ltcs: str | Unset = UNSET
-    ltda: int | Unset = UNSET
+    ltda: str | Unset = UNSET
     cexs: list[CryptoCurrencyExchangeDTO] | Unset = UNSET
     sig: DexTokenSignalDTO | Unset = UNSET
     ecs: int | Unset = UNSET

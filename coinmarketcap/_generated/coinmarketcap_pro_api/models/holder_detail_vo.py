@@ -15,8 +15,8 @@ T = TypeVar("T", bound="HolderDetailVO")
 class HolderDetailVO:
     """
     Attributes:
-        block_height (int | Unset):
-        first_active_time (int | Unset):
+        block_height (str | Unset):
+        first_active_time (str | Unset):
         net_buy_amount (str | Unset):
         realized_pnl_percent (str | Unset):
         spot_position (str | Unset):
@@ -46,11 +46,11 @@ class HolderDetailVO:
         symbol (str | Unset):
         native_balance (str | Unset):
         funding_source (str | Unset):
-        funding_time (int | Unset):
-        last_active_time (int | Unset):
+        funding_time (str | Unset):
+        last_active_time (str | Unset):
         wallet_create_time (int | Unset):
-        spot_open_ts (int | Unset):
-        spot_clearance_ts (int | Unset):
+        spot_open_ts (str | Unset):
+        spot_clearance_ts (str | Unset):
         token_logo (str | Unset):
         token_symbol (str | Unset):
         platform_crypto_id (int | Unset):
@@ -62,8 +62,8 @@ class HolderDetailVO:
         risk_level_flag (int | Unset):
     """
 
-    block_height: int | Unset = UNSET
-    first_active_time: int | Unset = UNSET
+    block_height: str | Unset = UNSET
+    first_active_time: str | Unset = UNSET
     net_buy_amount: str | Unset = UNSET
     realized_pnl_percent: str | Unset = UNSET
     spot_position: str | Unset = UNSET
@@ -93,11 +93,11 @@ class HolderDetailVO:
     symbol: str | Unset = UNSET
     native_balance: str | Unset = UNSET
     funding_source: str | Unset = UNSET
-    funding_time: int | Unset = UNSET
-    last_active_time: int | Unset = UNSET
+    funding_time: str | Unset = UNSET
+    last_active_time: str | Unset = UNSET
     wallet_create_time: int | Unset = UNSET
-    spot_open_ts: int | Unset = UNSET
-    spot_clearance_ts: int | Unset = UNSET
+    spot_open_ts: str | Unset = UNSET
+    spot_clearance_ts: str | Unset = UNSET
     token_logo: str | Unset = UNSET
     token_symbol: str | Unset = UNSET
     platform_crypto_id: int | Unset = UNSET

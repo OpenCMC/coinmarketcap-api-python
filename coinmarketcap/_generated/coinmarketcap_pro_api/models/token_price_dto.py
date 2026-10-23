@@ -29,8 +29,10 @@ class TokenPriceDTO:
         pc7d (float | Unset): Price change in last 7 days (percentage)
         v24h (float | Unset): 24-hour trading volume (USD)
         l (float | Unset): Liquidity (USD)
-        ts (int | Unset): Timestamp of price data
+        ts (str | Unset): Timestamp of price data
         mc (float | Unset): Market cap
+        fpt (str | Unset): Timestamp (Unix milliseconds) of the first time this token had a price.
+        fpct (str | Unset): Timestamp (Unix milliseconds) when the first pool for this token was created.
     """
 
     pid: int | Unset = UNSET
@@ -46,8 +48,10 @@ class TokenPriceDTO:
     pc7d: float | Unset = UNSET
     v24h: float | Unset = UNSET
     l: float | Unset = UNSET
-    ts: int | Unset = UNSET
+    ts: str | Unset = UNSET
     mc: float | Unset = UNSET
+    fpt: str | Unset = UNSET
+    fpct: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -80,6 +84,10 @@ class TokenPriceDTO:
         ts = self.ts
 
         mc = self.mc
+
+        fpt = self.fpt
+
+        fpct = self.fpct
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -114,6 +122,10 @@ class TokenPriceDTO:
             field_dict["ts"] = ts
         if mc is not UNSET:
             field_dict["mc"] = mc
+        if fpt is not UNSET:
+            field_dict["fpt"] = fpt
+        if fpct is not UNSET:
+            field_dict["fpct"] = fpct
 
         return field_dict
 
@@ -150,6 +162,10 @@ class TokenPriceDTO:
 
         mc = d.pop("mc", UNSET)
 
+        fpt = d.pop("fpt", UNSET)
+
+        fpct = d.pop("fpct", UNSET)
+
         token_price_dto = cls(
             pid=pid,
             pdex=pdex,
@@ -166,6 +182,8 @@ class TokenPriceDTO:
             l=l,
             ts=ts,
             mc=mc,
+            fpt=fpt,
+            fpct=fpct,
         )
 
         token_price_dto.additional_properties = d

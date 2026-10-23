@@ -33,6 +33,8 @@ class ExchangeListingsLatestQuoteObject:
             768478308.529847.
         spot_volume_usd (float | Unset): Reported all time spot volume in the specified currency. Example:
             768478308.529847.
+        spot_volume (float | Unset): Reported 24 hour spot volume in the specified currency. Example: 768478308.529847.
+        derivative_volume_usd (float | Unset): Aggregate 24h derivative trade volume in USD. Example: 62828618628.85901.
     """
 
     last_updated: str
@@ -47,6 +49,8 @@ class ExchangeListingsLatestQuoteObject:
     derivative_volume: float | Unset = UNSET
     open_interest: float | Unset = UNSET
     spot_volume_usd: float | Unset = UNSET
+    spot_volume: float | Unset = UNSET
+    derivative_volume_usd: float | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -74,6 +78,10 @@ class ExchangeListingsLatestQuoteObject:
 
         spot_volume_usd = self.spot_volume_usd
 
+        spot_volume = self.spot_volume
+
+        derivative_volume_usd = self.derivative_volume_usd
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -96,6 +104,10 @@ class ExchangeListingsLatestQuoteObject:
             field_dict["open_interest"] = open_interest
         if spot_volume_usd is not UNSET:
             field_dict["spot_volume_usd"] = spot_volume_usd
+        if spot_volume is not UNSET:
+            field_dict["spot_volume"] = spot_volume
+        if derivative_volume_usd is not UNSET:
+            field_dict["derivative_volume_usd"] = derivative_volume_usd
 
         return field_dict
 
@@ -126,6 +138,10 @@ class ExchangeListingsLatestQuoteObject:
 
         spot_volume_usd = d.pop("spot_volume_usd", UNSET)
 
+        spot_volume = d.pop("spot_volume", UNSET)
+
+        derivative_volume_usd = d.pop("derivative_volume_usd", UNSET)
+
         exchange_listings_latest_quote_object = cls(
             last_updated=last_updated,
             volume_24h=volume_24h,
@@ -139,6 +155,8 @@ class ExchangeListingsLatestQuoteObject:
             derivative_volume=derivative_volume,
             open_interest=open_interest,
             spot_volume_usd=spot_volume_usd,
+            spot_volume=spot_volume,
+            derivative_volume_usd=derivative_volume_usd,
         )
 
         exchange_listings_latest_quote_object.additional_properties = d

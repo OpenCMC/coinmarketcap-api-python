@@ -10,6 +10,9 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.global_metrics_quotes_latest_quote_map import GlobalMetricsQuotesLatestQuoteMap
+    from ..models.global_metrics_quotes_latest_results_object_tracked_yearly_number import (
+        GlobalMetricsQuotesLatestResultsObjectTrackedYearlyNumber,
+    )
 
 
 T = TypeVar("T", bound="GlobalMetricsQuotesLatestResultsObject")
@@ -39,6 +42,42 @@ class GlobalMetricsQuotesLatestResultsObject:
             '2018-06-02T23:46:14.000Z'}}.
         btc_dominance (float | Unset): Bitcoin's market dominance percentage by market cap. Example: 67.0057.
         eth_dominance (float | Unset): Ethereum's market dominance percentage by market cap. Example: 9.02205.
+        eth_dominance_yesterday (float | Unset): Ethereum's market dominance percentage by market cap as of yesterday.
+        btc_dominance_yesterday (float | Unset): Bitcoin's market dominance percentage by market cap as of yesterday.
+        eth_dominance_24h_percentage_change (float | Unset): Change in Ethereum's market dominance since yesterday, in
+            percentage points.
+        btc_dominance_24h_percentage_change (float | Unset): Change in Bitcoin's market dominance since yesterday, in
+            percentage points.
+        defi_volume_24h (float | Unset): The sum of rolling 24 hour adjusted volume for all DeFi cryptocurrencies in
+            USD.
+        defi_volume_24h_reported (float | Unset): The sum of rolling 24 hour reported volume for all DeFi
+            cryptocurrencies in USD.
+        defi_market_cap (float | Unset): The sum of market caps for all DeFi cryptocurrencies in USD.
+        defi_24h_percentage_change (float | Unset): Percentage change in 24 hour DeFi volume compared with the previous
+            24 hours.
+        stablecoin_volume_24h (float | Unset): The sum of rolling 24 hour adjusted volume for all stablecoins in USD.
+        stablecoin_volume_24h_reported (float | Unset): The sum of rolling 24 hour reported volume for all stablecoins
+            in USD.
+        stablecoin_market_cap (float | Unset): The sum of market caps for all stablecoins in USD.
+        stablecoin_24h_percentage_change (float | Unset): Percentage change in 24 hour stablecoin volume compared with
+            the previous 24 hours.
+        derivatives_volume_24h (float | Unset): The sum of rolling 24 hour adjusted volume for all derivatives markets
+            in USD.
+        derivatives_volume_24h_reported (float | Unset): The sum of rolling 24 hour reported volume for all derivatives
+            markets in USD.
+        derivatives_24h_percentage_change (float | Unset): Percentage change in 24 hour derivatives volume compared with
+            the previous 24 hours.
+        total_crypto_dex_currencies (int | Unset): Total number of DEX tokens tracked by CoinMarketCap.
+        today_incremental_crypto_number (int | Unset): Number of new cryptocurrencies and DEX tokens tracked so far
+            today (UTC).
+        past_24h_incremental_crypto_number (int | Unset): Number of new cryptocurrencies and DEX tokens tracked in the
+            past 24 hours.
+        past_7d_incremental_crypto_number (int | Unset): Number of new cryptocurrencies and DEX tokens tracked in the
+            past 7 days.
+        past_30d_incremental_crypto_number (int | Unset): Number of new cryptocurrencies and DEX tokens tracked in the
+            past 30 days.
+        tracked_yearly_number (GlobalMetricsQuotesLatestResultsObjectTrackedYearlyNumber | Unset): The highest and
+            lowest number of new cryptocurrencies and DEX tokens tracked in a single day over the past year.
     """
 
     active_cryptocurrencies: float
@@ -50,6 +89,27 @@ class GlobalMetricsQuotesLatestResultsObject:
     quote: GlobalMetricsQuotesLatestQuoteMap
     btc_dominance: float | Unset = UNSET
     eth_dominance: float | Unset = UNSET
+    eth_dominance_yesterday: float | Unset = UNSET
+    btc_dominance_yesterday: float | Unset = UNSET
+    eth_dominance_24h_percentage_change: float | Unset = UNSET
+    btc_dominance_24h_percentage_change: float | Unset = UNSET
+    defi_volume_24h: float | Unset = UNSET
+    defi_volume_24h_reported: float | Unset = UNSET
+    defi_market_cap: float | Unset = UNSET
+    defi_24h_percentage_change: float | Unset = UNSET
+    stablecoin_volume_24h: float | Unset = UNSET
+    stablecoin_volume_24h_reported: float | Unset = UNSET
+    stablecoin_market_cap: float | Unset = UNSET
+    stablecoin_24h_percentage_change: float | Unset = UNSET
+    derivatives_volume_24h: float | Unset = UNSET
+    derivatives_volume_24h_reported: float | Unset = UNSET
+    derivatives_24h_percentage_change: float | Unset = UNSET
+    total_crypto_dex_currencies: int | Unset = UNSET
+    today_incremental_crypto_number: int | Unset = UNSET
+    past_24h_incremental_crypto_number: int | Unset = UNSET
+    past_7d_incremental_crypto_number: int | Unset = UNSET
+    past_30d_incremental_crypto_number: int | Unset = UNSET
+    tracked_yearly_number: GlobalMetricsQuotesLatestResultsObjectTrackedYearlyNumber | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -71,6 +131,50 @@ class GlobalMetricsQuotesLatestResultsObject:
 
         eth_dominance = self.eth_dominance
 
+        eth_dominance_yesterday = self.eth_dominance_yesterday
+
+        btc_dominance_yesterday = self.btc_dominance_yesterday
+
+        eth_dominance_24h_percentage_change = self.eth_dominance_24h_percentage_change
+
+        btc_dominance_24h_percentage_change = self.btc_dominance_24h_percentage_change
+
+        defi_volume_24h = self.defi_volume_24h
+
+        defi_volume_24h_reported = self.defi_volume_24h_reported
+
+        defi_market_cap = self.defi_market_cap
+
+        defi_24h_percentage_change = self.defi_24h_percentage_change
+
+        stablecoin_volume_24h = self.stablecoin_volume_24h
+
+        stablecoin_volume_24h_reported = self.stablecoin_volume_24h_reported
+
+        stablecoin_market_cap = self.stablecoin_market_cap
+
+        stablecoin_24h_percentage_change = self.stablecoin_24h_percentage_change
+
+        derivatives_volume_24h = self.derivatives_volume_24h
+
+        derivatives_volume_24h_reported = self.derivatives_volume_24h_reported
+
+        derivatives_24h_percentage_change = self.derivatives_24h_percentage_change
+
+        total_crypto_dex_currencies = self.total_crypto_dex_currencies
+
+        today_incremental_crypto_number = self.today_incremental_crypto_number
+
+        past_24h_incremental_crypto_number = self.past_24h_incremental_crypto_number
+
+        past_7d_incremental_crypto_number = self.past_7d_incremental_crypto_number
+
+        past_30d_incremental_crypto_number = self.past_30d_incremental_crypto_number
+
+        tracked_yearly_number: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.tracked_yearly_number, Unset):
+            tracked_yearly_number = self.tracked_yearly_number.to_dict()
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -88,12 +192,57 @@ class GlobalMetricsQuotesLatestResultsObject:
             field_dict["btc_dominance"] = btc_dominance
         if eth_dominance is not UNSET:
             field_dict["eth_dominance"] = eth_dominance
+        if eth_dominance_yesterday is not UNSET:
+            field_dict["eth_dominance_yesterday"] = eth_dominance_yesterday
+        if btc_dominance_yesterday is not UNSET:
+            field_dict["btc_dominance_yesterday"] = btc_dominance_yesterday
+        if eth_dominance_24h_percentage_change is not UNSET:
+            field_dict["eth_dominance_24h_percentage_change"] = eth_dominance_24h_percentage_change
+        if btc_dominance_24h_percentage_change is not UNSET:
+            field_dict["btc_dominance_24h_percentage_change"] = btc_dominance_24h_percentage_change
+        if defi_volume_24h is not UNSET:
+            field_dict["defi_volume_24h"] = defi_volume_24h
+        if defi_volume_24h_reported is not UNSET:
+            field_dict["defi_volume_24h_reported"] = defi_volume_24h_reported
+        if defi_market_cap is not UNSET:
+            field_dict["defi_market_cap"] = defi_market_cap
+        if defi_24h_percentage_change is not UNSET:
+            field_dict["defi_24h_percentage_change"] = defi_24h_percentage_change
+        if stablecoin_volume_24h is not UNSET:
+            field_dict["stablecoin_volume_24h"] = stablecoin_volume_24h
+        if stablecoin_volume_24h_reported is not UNSET:
+            field_dict["stablecoin_volume_24h_reported"] = stablecoin_volume_24h_reported
+        if stablecoin_market_cap is not UNSET:
+            field_dict["stablecoin_market_cap"] = stablecoin_market_cap
+        if stablecoin_24h_percentage_change is not UNSET:
+            field_dict["stablecoin_24h_percentage_change"] = stablecoin_24h_percentage_change
+        if derivatives_volume_24h is not UNSET:
+            field_dict["derivatives_volume_24h"] = derivatives_volume_24h
+        if derivatives_volume_24h_reported is not UNSET:
+            field_dict["derivatives_volume_24h_reported"] = derivatives_volume_24h_reported
+        if derivatives_24h_percentage_change is not UNSET:
+            field_dict["derivatives_24h_percentage_change"] = derivatives_24h_percentage_change
+        if total_crypto_dex_currencies is not UNSET:
+            field_dict["total_crypto_dex_currencies"] = total_crypto_dex_currencies
+        if today_incremental_crypto_number is not UNSET:
+            field_dict["today_incremental_crypto_number"] = today_incremental_crypto_number
+        if past_24h_incremental_crypto_number is not UNSET:
+            field_dict["past_24h_incremental_crypto_number"] = past_24h_incremental_crypto_number
+        if past_7d_incremental_crypto_number is not UNSET:
+            field_dict["past_7d_incremental_crypto_number"] = past_7d_incremental_crypto_number
+        if past_30d_incremental_crypto_number is not UNSET:
+            field_dict["past_30d_incremental_crypto_number"] = past_30d_incremental_crypto_number
+        if tracked_yearly_number is not UNSET:
+            field_dict["tracked_yearly_number"] = tracked_yearly_number
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.global_metrics_quotes_latest_quote_map import GlobalMetricsQuotesLatestQuoteMap
+        from ..models.global_metrics_quotes_latest_results_object_tracked_yearly_number import (
+            GlobalMetricsQuotesLatestResultsObjectTrackedYearlyNumber,
+        )
 
         d = dict(src_dict)
         active_cryptocurrencies = d.pop("active_cryptocurrencies")
@@ -114,6 +263,55 @@ class GlobalMetricsQuotesLatestResultsObject:
 
         eth_dominance = d.pop("eth_dominance", UNSET)
 
+        eth_dominance_yesterday = d.pop("eth_dominance_yesterday", UNSET)
+
+        btc_dominance_yesterday = d.pop("btc_dominance_yesterday", UNSET)
+
+        eth_dominance_24h_percentage_change = d.pop("eth_dominance_24h_percentage_change", UNSET)
+
+        btc_dominance_24h_percentage_change = d.pop("btc_dominance_24h_percentage_change", UNSET)
+
+        defi_volume_24h = d.pop("defi_volume_24h", UNSET)
+
+        defi_volume_24h_reported = d.pop("defi_volume_24h_reported", UNSET)
+
+        defi_market_cap = d.pop("defi_market_cap", UNSET)
+
+        defi_24h_percentage_change = d.pop("defi_24h_percentage_change", UNSET)
+
+        stablecoin_volume_24h = d.pop("stablecoin_volume_24h", UNSET)
+
+        stablecoin_volume_24h_reported = d.pop("stablecoin_volume_24h_reported", UNSET)
+
+        stablecoin_market_cap = d.pop("stablecoin_market_cap", UNSET)
+
+        stablecoin_24h_percentage_change = d.pop("stablecoin_24h_percentage_change", UNSET)
+
+        derivatives_volume_24h = d.pop("derivatives_volume_24h", UNSET)
+
+        derivatives_volume_24h_reported = d.pop("derivatives_volume_24h_reported", UNSET)
+
+        derivatives_24h_percentage_change = d.pop("derivatives_24h_percentage_change", UNSET)
+
+        total_crypto_dex_currencies = d.pop("total_crypto_dex_currencies", UNSET)
+
+        today_incremental_crypto_number = d.pop("today_incremental_crypto_number", UNSET)
+
+        past_24h_incremental_crypto_number = d.pop("past_24h_incremental_crypto_number", UNSET)
+
+        past_7d_incremental_crypto_number = d.pop("past_7d_incremental_crypto_number", UNSET)
+
+        past_30d_incremental_crypto_number = d.pop("past_30d_incremental_crypto_number", UNSET)
+
+        _tracked_yearly_number = d.pop("tracked_yearly_number", UNSET)
+        tracked_yearly_number: GlobalMetricsQuotesLatestResultsObjectTrackedYearlyNumber | Unset
+        if isinstance(_tracked_yearly_number, Unset):
+            tracked_yearly_number = UNSET
+        else:
+            tracked_yearly_number = GlobalMetricsQuotesLatestResultsObjectTrackedYearlyNumber.from_dict(
+                _tracked_yearly_number
+            )
+
         global_metrics_quotes_latest_results_object = cls(
             active_cryptocurrencies=active_cryptocurrencies,
             total_cryptocurrencies=total_cryptocurrencies,
@@ -124,6 +322,27 @@ class GlobalMetricsQuotesLatestResultsObject:
             quote=quote,
             btc_dominance=btc_dominance,
             eth_dominance=eth_dominance,
+            eth_dominance_yesterday=eth_dominance_yesterday,
+            btc_dominance_yesterday=btc_dominance_yesterday,
+            eth_dominance_24h_percentage_change=eth_dominance_24h_percentage_change,
+            btc_dominance_24h_percentage_change=btc_dominance_24h_percentage_change,
+            defi_volume_24h=defi_volume_24h,
+            defi_volume_24h_reported=defi_volume_24h_reported,
+            defi_market_cap=defi_market_cap,
+            defi_24h_percentage_change=defi_24h_percentage_change,
+            stablecoin_volume_24h=stablecoin_volume_24h,
+            stablecoin_volume_24h_reported=stablecoin_volume_24h_reported,
+            stablecoin_market_cap=stablecoin_market_cap,
+            stablecoin_24h_percentage_change=stablecoin_24h_percentage_change,
+            derivatives_volume_24h=derivatives_volume_24h,
+            derivatives_volume_24h_reported=derivatives_volume_24h_reported,
+            derivatives_24h_percentage_change=derivatives_24h_percentage_change,
+            total_crypto_dex_currencies=total_crypto_dex_currencies,
+            today_incremental_crypto_number=today_incremental_crypto_number,
+            past_24h_incremental_crypto_number=past_24h_incremental_crypto_number,
+            past_7d_incremental_crypto_number=past_7d_incremental_crypto_number,
+            past_30d_incremental_crypto_number=past_30d_incremental_crypto_number,
+            tracked_yearly_number=tracked_yearly_number,
         )
 
         global_metrics_quotes_latest_results_object.additional_properties = d

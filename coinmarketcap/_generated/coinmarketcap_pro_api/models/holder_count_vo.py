@@ -16,12 +16,12 @@ class HolderCountVO:
     """
     Attributes:
         platform_id (int | Unset):
-        count (int | Unset):
+        count (str | Unset):
         token_address (str | Unset):
     """
 
     platform_id: int | Unset = UNSET
-    count: int | Unset = UNSET
+    count: str | Unset = UNSET
     token_address: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

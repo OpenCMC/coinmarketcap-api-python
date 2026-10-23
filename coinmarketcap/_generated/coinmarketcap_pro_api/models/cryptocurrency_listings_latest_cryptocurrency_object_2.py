@@ -41,8 +41,8 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
             have been verifiably burned). Example: 16950100.
         market_cap_by_total_supply (float | Unset): The market cap by total supply. *This field is only returned if
             requested through the `aux` request parameter.* Example: 158055024432.
-        max_supply (float | Unset): The expected maximum limit of coins ever to be available for this cryptocurrency.
-            Example: 21000000.
+        max_supply (float | None | Unset): The expected maximum limit of coins ever to be available for this
+            cryptocurrency. Example: 21000000.
         date_added (str | Unset): Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap. Example:
             2013-04-28T00:00:00.000Z.
         tags (list[str] | Unset): Array of tags associated with this cryptocurrency. Currently only a mineable tag will
@@ -51,6 +51,15 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
         platform (None | PlatformType0 | Unset): Metadata about the parent cryptocurrency platform this cryptocurrency
             belongs to if it is a token, otherwise null.
         minted_market_cap (float | Unset): The minted market cap for this cryptocurrency. Example: 1802955697670.94.
+        is_active (int | Unset): 1 if this cryptocurrency has at least 1 active market currently being tracked by the
+            platform, otherwise 0.
+        infinite_supply (bool | Unset): Whether this cryptocurrency is known to have an infinite supply.
+        is_fiat (int | Unset): 1 if this is a fiat currency, otherwise 0.
+        tvl_ratio (float | None | Unset): Ratio of total value locked to market cap. `null` when TVL is not available.
+        self_reported_circulating_supply (float | None | Unset): The circulating supply reported by the project team.
+            `null` when not reported.
+        self_reported_market_cap (float | None | Unset): The market cap based on the self-reported circulating supply.
+            `null` when not reported.
     """
 
     id: int
@@ -64,11 +73,17 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
     circulating_supply: float | Unset = UNSET
     total_supply: float | Unset = UNSET
     market_cap_by_total_supply: float | Unset = UNSET
-    max_supply: float | Unset = UNSET
+    max_supply: float | None | Unset = UNSET
     date_added: str | Unset = UNSET
     tags: list[str] | Unset = UNSET
     platform: None | PlatformType0 | Unset = UNSET
     minted_market_cap: float | Unset = UNSET
+    is_active: int | Unset = UNSET
+    infinite_supply: bool | Unset = UNSET
+    is_fiat: int | Unset = UNSET
+    tvl_ratio: float | None | Unset = UNSET
+    self_reported_circulating_supply: float | None | Unset = UNSET
+    self_reported_market_cap: float | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -96,7 +111,11 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
 
         market_cap_by_total_supply = self.market_cap_by_total_supply
 
-        max_supply = self.max_supply
+        max_supply: float | None | Unset
+        if isinstance(self.max_supply, Unset):
+            max_supply = UNSET
+        else:
+            max_supply = self.max_supply
 
         date_added = self.date_added
 
@@ -113,6 +132,30 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
             platform = self.platform
 
         minted_market_cap = self.minted_market_cap
+
+        is_active = self.is_active
+
+        infinite_supply = self.infinite_supply
+
+        is_fiat = self.is_fiat
+
+        tvl_ratio: float | None | Unset
+        if isinstance(self.tvl_ratio, Unset):
+            tvl_ratio = UNSET
+        else:
+            tvl_ratio = self.tvl_ratio
+
+        self_reported_circulating_supply: float | None | Unset
+        if isinstance(self.self_reported_circulating_supply, Unset):
+            self_reported_circulating_supply = UNSET
+        else:
+            self_reported_circulating_supply = self.self_reported_circulating_supply
+
+        self_reported_market_cap: float | None | Unset
+        if isinstance(self.self_reported_market_cap, Unset):
+            self_reported_market_cap = UNSET
+        else:
+            self_reported_market_cap = self.self_reported_market_cap
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -146,6 +189,18 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
             field_dict["platform"] = platform
         if minted_market_cap is not UNSET:
             field_dict["minted_market_cap"] = minted_market_cap
+        if is_active is not UNSET:
+            field_dict["is_active"] = is_active
+        if infinite_supply is not UNSET:
+            field_dict["infinite_supply"] = infinite_supply
+        if is_fiat is not UNSET:
+            field_dict["is_fiat"] = is_fiat
+        if tvl_ratio is not UNSET:
+            field_dict["tvl_ratio"] = tvl_ratio
+        if self_reported_circulating_supply is not UNSET:
+            field_dict["self_reported_circulating_supply"] = self_reported_circulating_supply
+        if self_reported_market_cap is not UNSET:
+            field_dict["self_reported_market_cap"] = self_reported_market_cap
 
         return field_dict
 
@@ -177,7 +232,14 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
 
         market_cap_by_total_supply = d.pop("market_cap_by_total_supply", UNSET)
 
-        max_supply = d.pop("max_supply", UNSET)
+        def _parse_max_supply(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        max_supply = _parse_max_supply(d.pop("max_supply", UNSET))
 
         date_added = d.pop("date_added", UNSET)
 
@@ -202,6 +264,41 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
 
         minted_market_cap = d.pop("minted_market_cap", UNSET)
 
+        is_active = d.pop("is_active", UNSET)
+
+        infinite_supply = d.pop("infinite_supply", UNSET)
+
+        is_fiat = d.pop("is_fiat", UNSET)
+
+        def _parse_tvl_ratio(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tvl_ratio = _parse_tvl_ratio(d.pop("tvl_ratio", UNSET))
+
+        def _parse_self_reported_circulating_supply(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        self_reported_circulating_supply = _parse_self_reported_circulating_supply(
+            d.pop("self_reported_circulating_supply", UNSET)
+        )
+
+        def _parse_self_reported_market_cap(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        self_reported_market_cap = _parse_self_reported_market_cap(d.pop("self_reported_market_cap", UNSET))
+
         cryptocurrency_listings_latest_cryptocurrency_object_2 = cls(
             id=id,
             name=name,
@@ -219,6 +316,12 @@ class CryptocurrencyListingsLatestCryptocurrencyObject2:
             tags=tags,
             platform=platform,
             minted_market_cap=minted_market_cap,
+            is_active=is_active,
+            infinite_supply=infinite_supply,
+            is_fiat=is_fiat,
+            tvl_ratio=tvl_ratio,
+            self_reported_circulating_supply=self_reported_circulating_supply,
+            self_reported_market_cap=self_reported_market_cap,
         )
 
         cryptocurrency_listings_latest_cryptocurrency_object_2.additional_properties = d

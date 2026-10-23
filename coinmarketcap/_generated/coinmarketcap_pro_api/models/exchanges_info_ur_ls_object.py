@@ -6,6 +6,8 @@ from typing import Any, TypeVar, cast
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 T = TypeVar("T", bound="ExchangesInfoURLsObject")
 
 
@@ -19,6 +21,8 @@ class ExchangesInfoURLsObject:
         chat (list[str]): Official chat URLs. Example: ['https://t.me/coinbene'].
         fee (list[str]): Official web URLs covering exchange fees. Example: ['https://www.gdax.com/fees'].
         twitter (list[str]): Official twitter profile URLs. Example: ['https://twitter.com/Bitcoin'].
+        actual (list[str] | Unset): Links to the exchange's main trading website.
+        register (list[str] | Unset): Links to the exchange's sign-up page.
     """
 
     website: list[str]
@@ -26,6 +30,8 @@ class ExchangesInfoURLsObject:
     chat: list[str]
     fee: list[str]
     twitter: list[str]
+    actual: list[str] | Unset = UNSET
+    register: list[str] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -39,6 +45,14 @@ class ExchangesInfoURLsObject:
 
         twitter = self.twitter
 
+        actual: list[str] | Unset = UNSET
+        if not isinstance(self.actual, Unset):
+            actual = self.actual
+
+        register: list[str] | Unset = UNSET
+        if not isinstance(self.register, Unset):
+            register = self.register
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -50,6 +64,10 @@ class ExchangesInfoURLsObject:
                 "twitter": twitter,
             }
         )
+        if actual is not UNSET:
+            field_dict["actual"] = actual
+        if register is not UNSET:
+            field_dict["register"] = register
 
         return field_dict
 
@@ -66,12 +84,18 @@ class ExchangesInfoURLsObject:
 
         twitter = cast(list[str], d.pop("twitter"))
 
+        actual = cast(list[str], d.pop("actual", UNSET))
+
+        register = cast(list[str], d.pop("register", UNSET))
+
         exchanges_info_ur_ls_object = cls(
             website=website,
             blog=blog,
             chat=chat,
             fee=fee,
             twitter=twitter,
+            actual=actual,
+            register=register,
         )
 
         exchanges_info_ur_ls_object.additional_properties = d

@@ -29,6 +29,8 @@ class Model1:
         created_at (str | Unset): Timestamp (ISO 8601) of the time this was created. Example: 2018-06-02T23:59:59.999Z.
         released_at (str | Unset): Timestamp (ISO 8601) of the time this was released. Example:
             2018-06-02T23:59:59.999Z.
+        language (str | Unset): Language code of this content item, for example `en`.
+        news_type (str | Unset): Type of this content item, for example `news`. Matches the `news_type` filter.
     """
 
     cover: str | Unset = UNSET
@@ -40,6 +42,8 @@ class Model1:
     assets: list[Assets] | Unset = UNSET
     created_at: str | Unset = UNSET
     released_at: str | Unset = UNSET
+    language: str | Unset = UNSET
+    news_type: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -66,6 +70,10 @@ class Model1:
 
         released_at = self.released_at
 
+        language = self.language
+
+        news_type = self.news_type
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
@@ -87,6 +95,10 @@ class Model1:
             field_dict["created_at"] = created_at
         if released_at is not UNSET:
             field_dict["released_at"] = released_at
+        if language is not UNSET:
+            field_dict["language"] = language
+        if news_type is not UNSET:
+            field_dict["news_type"] = news_type
 
         return field_dict
 
@@ -120,6 +132,10 @@ class Model1:
 
         released_at = d.pop("released_at", UNSET)
 
+        language = d.pop("language", UNSET)
+
+        news_type = d.pop("news_type", UNSET)
+
         model_1 = cls(
             cover=cover,
             title=title,
@@ -130,6 +146,8 @@ class Model1:
             assets=assets,
             created_at=created_at,
             released_at=released_at,
+            language=language,
+            news_type=news_type,
         )
 
         model_1.additional_properties = d

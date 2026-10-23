@@ -6,7 +6,10 @@ from typing import TYPE_CHECKING, Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
+from ..types import UNSET, Unset
+
 if TYPE_CHECKING:
+    from ..models.api_status_object import APIStatusObject
     from ..models.community_trending_token_results_object import CommunityTrendingTokenResultsObject
 
 
@@ -25,9 +28,11 @@ class CommunityTrendingTokenResponseModel:
 
     Attributes:
         data (list[CommunityTrendingTokenResultsObject]): Cntent objects.
+        status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
     data: list[CommunityTrendingTokenResultsObject]
+    status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -38,6 +43,10 @@ class CommunityTrendingTokenResponseModel:
             )
             data.append(componentsschemas_community_trending_token_results_item)
 
+        status: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.status, Unset):
+            status = self.status.to_dict()
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -45,11 +54,14 @@ class CommunityTrendingTokenResponseModel:
                 "data": data,
             }
         )
+        if status is not UNSET:
+            field_dict["status"] = status
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.api_status_object import APIStatusObject
         from ..models.community_trending_token_results_object import CommunityTrendingTokenResultsObject
 
         d = dict(src_dict)
@@ -62,8 +74,16 @@ class CommunityTrendingTokenResponseModel:
 
             data.append(componentsschemas_community_trending_token_results_item)
 
+        _status = d.pop("status", UNSET)
+        status: APIStatusObject | Unset
+        if isinstance(_status, Unset):
+            status = UNSET
+        else:
+            status = APIStatusObject.from_dict(_status)
+
         community_trending_token_response_model = cls(
             data=data,
+            status=status,
         )
 
         community_trending_token_response_model.additional_properties = d

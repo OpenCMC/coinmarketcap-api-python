@@ -13,6 +13,9 @@ from ..models.cryptocurrencies_info_cryptocurrency_object_please_note_this_will_
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.cryptocurrencies_info_cryptocurrency_object_please_note_this_will_be_wrapped_in_an_array_if_you_request_by_symbol_using_the_v2_endpoint_contract_address_item import (
+        CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2EndpointContractAddressItem,
+    )
     from ..models.cryptocurrencies_info_ur_ls_object import CryptocurrenciesInfoURLsObject
     from ..models.platform_type_0 import PlatformType0
 
@@ -43,12 +46,12 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
             requires no central authority to operate..
         date_added (str): Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap. Example:
             2013-04-28T00:00:00.000Z.
-        date_launched (str): Timestamp (ISO 8601) of when this cryptocurrency was launched. Example:
-            2013-04-28T00:00:00.000Z.
-        tags (list[str]): Tags associated with this cryptocurrency. Example: ['mineable'].
+        tags (list[str] | None):
         platform (None | PlatformType0): Metadata about the parent cryptocurrency platform this cryptocurrency belongs
             to if it is a token, otherwise null.
         urls (CryptocurrenciesInfoURLsObject): An object containing various resource URLs for this cryptocurrency.
+        date_launched (str | Unset): Timestamp (ISO 8601) of when this cryptocurrency was launched. Example:
+            2013-04-28T00:00:00.000Z.
         notice (str | Unset): A [Markdown](https://commonmark.org/help/) formatted notice that may highlight a
             significant event or condition that is impacting the cryptocurrency or how it is displayed, otherwise null. A
             notice may highlight a recent or upcoming mainnet swap, symbol change, exploit event, or known issue with a
@@ -61,6 +64,14 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
         self_reported_tags (list[str] | Unset): Array of self reported tags associated with this cryptocurrency.
             Example: ['Store Of Value', 'Play To Earn'].
         infinite_supply (bool | Unset): The cryptocurrency is known to have an infinite supply.
+        subreddit (str | Unset): Name of the project's subreddit, if any.
+        twitter_username (str | Unset): The project's X (Twitter) username, if any.
+        tag_names (list[str] | None | Unset): Names of the tags in `tags`, in the same order.
+        tag_groups (list[str] | None | Unset): Group of each tag in `tags`, in the same order. For example `ALGORITHM`,
+            `CATEGORY` or `PLATFORM`.
+        contract_address (list[CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestB
+            ySymbolUsingTheV2EndpointContractAddressItem] | Unset): Contract addresses of this cryptocurrency on each
+            platform it is deployed on.
     """
 
     id: int
@@ -71,15 +82,25 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
     logo: str
     description: str
     date_added: str
-    date_launched: str
-    tags: list[str]
+    tags: list[str] | None
     platform: None | PlatformType0
     urls: CryptocurrenciesInfoURLsObject
+    date_launched: str | Unset = UNSET
     notice: str | Unset = UNSET
     self_reported_circulating_supply: float | None | Unset = UNSET
     self_reported_market_cap: float | None | Unset = UNSET
     self_reported_tags: list[str] | Unset = UNSET
     infinite_supply: bool | Unset = UNSET
+    subreddit: str | Unset = UNSET
+    twitter_username: str | Unset = UNSET
+    tag_names: list[str] | None | Unset = UNSET
+    tag_groups: list[str] | None | Unset = UNSET
+    contract_address: (
+        list[
+            CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2EndpointContractAddressItem
+        ]
+        | Unset
+    ) = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -101,9 +122,12 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
 
         date_added = self.date_added
 
-        date_launched = self.date_launched
+        tags: list[str] | None
+        if isinstance(self.tags, list):
+            tags = self.tags
 
-        tags = self.tags
+        else:
+            tags = self.tags
 
         platform: dict[str, Any] | None
         if isinstance(self.platform, PlatformType0):
@@ -112,6 +136,8 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
             platform = self.platform
 
         urls = self.urls.to_dict()
+
+        date_launched = self.date_launched
 
         notice = self.notice
 
@@ -133,6 +159,35 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
 
         infinite_supply = self.infinite_supply
 
+        subreddit = self.subreddit
+
+        twitter_username = self.twitter_username
+
+        tag_names: list[str] | None | Unset
+        if isinstance(self.tag_names, Unset):
+            tag_names = UNSET
+        elif isinstance(self.tag_names, list):
+            tag_names = self.tag_names
+
+        else:
+            tag_names = self.tag_names
+
+        tag_groups: list[str] | None | Unset
+        if isinstance(self.tag_groups, Unset):
+            tag_groups = UNSET
+        elif isinstance(self.tag_groups, list):
+            tag_groups = self.tag_groups
+
+        else:
+            tag_groups = self.tag_groups
+
+        contract_address: list[dict[str, Any]] | Unset = UNSET
+        if not isinstance(self.contract_address, Unset):
+            contract_address = []
+            for contract_address_item_data in self.contract_address:
+                contract_address_item = contract_address_item_data.to_dict()
+                contract_address.append(contract_address_item)
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -145,12 +200,13 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
                 "logo": logo,
                 "description": description,
                 "date_added": date_added,
-                "date_launched": date_launched,
                 "tags": tags,
                 "platform": platform,
                 "urls": urls,
             }
         )
+        if date_launched is not UNSET:
+            field_dict["date_launched"] = date_launched
         if notice is not UNSET:
             field_dict["notice"] = notice
         if self_reported_circulating_supply is not UNSET:
@@ -161,11 +217,24 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
             field_dict["self_reported_tags"] = self_reported_tags
         if infinite_supply is not UNSET:
             field_dict["infinite_supply"] = infinite_supply
+        if subreddit is not UNSET:
+            field_dict["subreddit"] = subreddit
+        if twitter_username is not UNSET:
+            field_dict["twitter_username"] = twitter_username
+        if tag_names is not UNSET:
+            field_dict["tag-names"] = tag_names
+        if tag_groups is not UNSET:
+            field_dict["tag-groups"] = tag_groups
+        if contract_address is not UNSET:
+            field_dict["contract_address"] = contract_address
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.cryptocurrencies_info_cryptocurrency_object_please_note_this_will_be_wrapped_in_an_array_if_you_request_by_symbol_using_the_v2_endpoint_contract_address_item import (
+            CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2EndpointContractAddressItem,
+        )
         from ..models.cryptocurrencies_info_ur_ls_object import CryptocurrenciesInfoURLsObject
         from ..models.platform_type_0 import PlatformType0
 
@@ -188,9 +257,20 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
 
         date_added = d.pop("date_added")
 
-        date_launched = d.pop("date_launched")
+        def _parse_tags(data: object) -> list[str] | None:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                tags_type_0 = cast(list[str], data)
 
-        tags = cast(list[str], d.pop("tags"))
+                return tags_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[str] | None, data)
+
+        tags = _parse_tags(d.pop("tags"))
 
         def _parse_platform(data: object) -> None | PlatformType0:
             if data is None:
@@ -208,6 +288,8 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
         platform = _parse_platform(d.pop("platform"))
 
         urls = CryptocurrenciesInfoURLsObject.from_dict(d.pop("urls"))
+
+        date_launched = d.pop("date_launched", UNSET)
 
         notice = d.pop("notice", UNSET)
 
@@ -235,6 +317,60 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
 
         infinite_supply = d.pop("infinite_supply", UNSET)
 
+        subreddit = d.pop("subreddit", UNSET)
+
+        twitter_username = d.pop("twitter_username", UNSET)
+
+        def _parse_tag_names(data: object) -> list[str] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                tag_names_type_0 = cast(list[str], data)
+
+                return tag_names_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[str] | None | Unset, data)
+
+        tag_names = _parse_tag_names(d.pop("tag-names", UNSET))
+
+        def _parse_tag_groups(data: object) -> list[str] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                tag_groups_type_0 = cast(list[str], data)
+
+                return tag_groups_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[str] | None | Unset, data)
+
+        tag_groups = _parse_tag_groups(d.pop("tag-groups", UNSET))
+
+        _contract_address = d.pop("contract_address", UNSET)
+        contract_address: (
+            list[
+                CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2EndpointContractAddressItem
+            ]
+            | Unset
+        ) = UNSET
+        if _contract_address is not UNSET:
+            contract_address = []
+            for contract_address_item_data in _contract_address:
+                contract_address_item = CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2EndpointContractAddressItem.from_dict(
+                    contract_address_item_data
+                )
+
+                contract_address.append(contract_address_item)
+
         cryptocurrencies_info_cryptocurrency_object_please_note_this_will_be_wrapped_in_an_array_if_you_request_by_symbol_using_the_v2_endpoint = cls(
             id=id,
             name=name,
@@ -244,15 +380,20 @@ class CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArr
             logo=logo,
             description=description,
             date_added=date_added,
-            date_launched=date_launched,
             tags=tags,
             platform=platform,
             urls=urls,
+            date_launched=date_launched,
             notice=notice,
             self_reported_circulating_supply=self_reported_circulating_supply,
             self_reported_market_cap=self_reported_market_cap,
             self_reported_tags=self_reported_tags,
             infinite_supply=infinite_supply,
+            subreddit=subreddit,
+            twitter_username=twitter_username,
+            tag_names=tag_names,
+            tag_groups=tag_groups,
+            contract_address=contract_address,
         )
 
         cryptocurrencies_info_cryptocurrency_object_please_note_this_will_be_wrapped_in_an_array_if_you_request_by_symbol_using_the_v2_endpoint.additional_properties = d

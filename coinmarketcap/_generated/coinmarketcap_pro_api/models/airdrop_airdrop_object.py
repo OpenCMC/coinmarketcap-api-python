@@ -30,7 +30,7 @@ class AirdropAirdropObject:
             CoinMarketCap will host an Airdrop event....
         status (str | Unset): The current status of the airdrop. Example: UPCOMING.
         coin (Coin | Unset):
-        total_prize (int | Unset):  Example: 10000.
+        total_prize (str | Unset):  Example: 10000.
         winner_count (int | Unset):  Example: 55.
         link (str | Unset): A link to the airdrop information. Example:
             https://coinmarketcap.com/currencies/derace/airdrop.
@@ -43,7 +43,7 @@ class AirdropAirdropObject:
     description: str | Unset = UNSET
     status: str | Unset = UNSET
     coin: Coin | Unset = UNSET
-    total_prize: int | Unset = UNSET
+    total_prize: str | Unset = UNSET
     winner_count: int | Unset = UNSET
     link: str | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)

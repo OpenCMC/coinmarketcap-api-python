@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import datetime
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -27,12 +27,12 @@ class DexParisQuotesDTO:
             included is USD.
         contract_address (str | Unset): The unique contract address for this spot pair.
         name (str | Unset): The name of this spot pair.
-        base_asset_id (str | Unset): The id of this base asset in the spot pair.
+        base_asset_id (None | str | Unset): The id of this base asset in the spot pair.
         base_asset_ucid (str | Unset): The ucid of this base asset in the spot pair.
         base_asset_name (str | Unset): The name of this base asset in the spot pair.
         base_asset_symbol (str | Unset): The symbol of this base asset in the spot pair.
         base_asset_contract_address (str | Unset): The contract addres of this base asset in the spot pair.
-        quote_asset_id (str | Unset): The id of this quote asset in the spot pair.
+        quote_asset_id (None | str | Unset): The id of this quote asset in the spot pair.
         quote_asset_ucid (str | Unset): The ucid of this quote asset in the spot pair.
         quote_asset_name (str | Unset): The name of this quote asset in the spot pair.
         quote_asset_symbol (str | Unset): The symbol of this quote asset in the spot pair.
@@ -42,15 +42,15 @@ class DexParisQuotesDTO:
         network_id (str | Unset): The id of the network the spot pair is on.
         network_slug (str | Unset): The slug of the network the spot pair is on.
         last_updated (datetime.datetime | Unset): Timestamp (ISO 8601) of the last time this record was updated.
-        created_at (datetime.datetime | Unset): Timestamp (ISO 8601) when we started tracking this asset.
+        created_at (datetime.datetime | None | Unset): Timestamp (ISO 8601) when we started tracking this asset.
         num_transactions_24h (int | Unset): Number of transactions in past 24 hours
-        holders (int | Unset): Number of holders of the asset
+        holders (int | None | Unset): Number of holders of the asset
         field_24h_no_of_buys (int | Unset): Number of asset buys in the past 24 hours
         field_24h_no_of_sells (int | Unset): Number of asset sells in the past 24 hours
-        pool_created (datetime.datetime | Unset): When the pool of the asset was created
-        buy_tax (float | Unset): Buy tax on the asset
-        sell_tax (float | Unset): Sell tax on the asset
-        security_scan (list[SecurityScanResult] | Unset): Security scan by Go+.
+        pool_created (datetime.datetime | None | Unset): When the pool of the asset was created
+        buy_tax (float | None | Unset): Buy tax on the asset
+        sell_tax (float | None | Unset): Sell tax on the asset
+        security_scan (list[SecurityScanResult] | None | Unset): Security scan by Go+.
 
 
             All infomation and data relating to contract detection are based on public third party information.
@@ -63,22 +63,22 @@ class DexParisQuotesDTO:
             Only returned if passed in aux.
         pool_base_asset (float | Unset): Base asset in the pool
         pool_quote_asset (float | Unset): Quote asset in the pool
-        percent_pooled_base_asset (float | Unset): Percentage of the base asset in the pool
+        percent_pooled_base_asset (float | None | Unset): Percentage of the base asset in the pool
         field_24h_volume_quote_asset (float | Unset): 24 hours volume of the quote asset
-        total_supply_quote_asset (float | Unset): Total supply of the quote asset
-        total_supply_base_asset (float | Unset): Total supply of the quote asset
+        total_supply_quote_asset (float | None | Unset): Total supply of the quote asset
+        total_supply_base_asset (float | None | Unset): Total supply of the quote asset
         date_launched (datetime.datetime | Unset): Timestamp (ISO 8601) of the launch date for this exchange.
     """
 
     quote: list[DexQuoteDTO] | Unset = UNSET
     contract_address: str | Unset = UNSET
     name: str | Unset = UNSET
-    base_asset_id: str | Unset = UNSET
+    base_asset_id: None | str | Unset = UNSET
     base_asset_ucid: str | Unset = UNSET
     base_asset_name: str | Unset = UNSET
     base_asset_symbol: str | Unset = UNSET
     base_asset_contract_address: str | Unset = UNSET
-    quote_asset_id: str | Unset = UNSET
+    quote_asset_id: None | str | Unset = UNSET
     quote_asset_ucid: str | Unset = UNSET
     quote_asset_name: str | Unset = UNSET
     quote_asset_symbol: str | Unset = UNSET
@@ -88,21 +88,21 @@ class DexParisQuotesDTO:
     network_id: str | Unset = UNSET
     network_slug: str | Unset = UNSET
     last_updated: datetime.datetime | Unset = UNSET
-    created_at: datetime.datetime | Unset = UNSET
+    created_at: datetime.datetime | None | Unset = UNSET
     num_transactions_24h: int | Unset = UNSET
-    holders: int | Unset = UNSET
+    holders: int | None | Unset = UNSET
     field_24h_no_of_buys: int | Unset = UNSET
     field_24h_no_of_sells: int | Unset = UNSET
-    pool_created: datetime.datetime | Unset = UNSET
-    buy_tax: float | Unset = UNSET
-    sell_tax: float | Unset = UNSET
-    security_scan: list[SecurityScanResult] | Unset = UNSET
+    pool_created: datetime.datetime | None | Unset = UNSET
+    buy_tax: float | None | Unset = UNSET
+    sell_tax: float | None | Unset = UNSET
+    security_scan: list[SecurityScanResult] | None | Unset = UNSET
     pool_base_asset: float | Unset = UNSET
     pool_quote_asset: float | Unset = UNSET
-    percent_pooled_base_asset: float | Unset = UNSET
+    percent_pooled_base_asset: float | None | Unset = UNSET
     field_24h_volume_quote_asset: float | Unset = UNSET
-    total_supply_quote_asset: float | Unset = UNSET
-    total_supply_base_asset: float | Unset = UNSET
+    total_supply_quote_asset: float | None | Unset = UNSET
+    total_supply_base_asset: float | None | Unset = UNSET
     date_launched: datetime.datetime | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -118,7 +118,11 @@ class DexParisQuotesDTO:
 
         name = self.name
 
-        base_asset_id = self.base_asset_id
+        base_asset_id: None | str | Unset
+        if isinstance(self.base_asset_id, Unset):
+            base_asset_id = UNSET
+        else:
+            base_asset_id = self.base_asset_id
 
         base_asset_ucid = self.base_asset_ucid
 
@@ -128,7 +132,11 @@ class DexParisQuotesDTO:
 
         base_asset_contract_address = self.base_asset_contract_address
 
-        quote_asset_id = self.quote_asset_id
+        quote_asset_id: None | str | Unset
+        if isinstance(self.quote_asset_id, Unset):
+            quote_asset_id = UNSET
+        else:
+            quote_asset_id = self.quote_asset_id
 
         quote_asset_ucid = self.quote_asset_ucid
 
@@ -150,44 +158,81 @@ class DexParisQuotesDTO:
         if not isinstance(self.last_updated, Unset):
             last_updated = self.last_updated.isoformat()
 
-        created_at: str | Unset = UNSET
-        if not isinstance(self.created_at, Unset):
+        created_at: None | str | Unset
+        if isinstance(self.created_at, Unset):
+            created_at = UNSET
+        elif isinstance(self.created_at, datetime.datetime):
             created_at = self.created_at.isoformat()
+        else:
+            created_at = self.created_at
 
         num_transactions_24h = self.num_transactions_24h
 
-        holders = self.holders
+        holders: int | None | Unset
+        if isinstance(self.holders, Unset):
+            holders = UNSET
+        else:
+            holders = self.holders
 
         field_24h_no_of_buys = self.field_24h_no_of_buys
 
         field_24h_no_of_sells = self.field_24h_no_of_sells
 
-        pool_created: str | Unset = UNSET
-        if not isinstance(self.pool_created, Unset):
+        pool_created: None | str | Unset
+        if isinstance(self.pool_created, Unset):
+            pool_created = UNSET
+        elif isinstance(self.pool_created, datetime.datetime):
             pool_created = self.pool_created.isoformat()
+        else:
+            pool_created = self.pool_created
 
-        buy_tax = self.buy_tax
+        buy_tax: float | None | Unset
+        if isinstance(self.buy_tax, Unset):
+            buy_tax = UNSET
+        else:
+            buy_tax = self.buy_tax
 
-        sell_tax = self.sell_tax
+        sell_tax: float | None | Unset
+        if isinstance(self.sell_tax, Unset):
+            sell_tax = UNSET
+        else:
+            sell_tax = self.sell_tax
 
-        security_scan: list[dict[str, Any]] | Unset = UNSET
-        if not isinstance(self.security_scan, Unset):
+        security_scan: list[dict[str, Any]] | None | Unset
+        if isinstance(self.security_scan, Unset):
+            security_scan = UNSET
+        elif isinstance(self.security_scan, list):
             security_scan = []
-            for security_scan_item_data in self.security_scan:
-                security_scan_item = security_scan_item_data.to_dict()
-                security_scan.append(security_scan_item)
+            for security_scan_type_0_item_data in self.security_scan:
+                security_scan_type_0_item = security_scan_type_0_item_data.to_dict()
+                security_scan.append(security_scan_type_0_item)
+
+        else:
+            security_scan = self.security_scan
 
         pool_base_asset = self.pool_base_asset
 
         pool_quote_asset = self.pool_quote_asset
 
-        percent_pooled_base_asset = self.percent_pooled_base_asset
+        percent_pooled_base_asset: float | None | Unset
+        if isinstance(self.percent_pooled_base_asset, Unset):
+            percent_pooled_base_asset = UNSET
+        else:
+            percent_pooled_base_asset = self.percent_pooled_base_asset
 
         field_24h_volume_quote_asset = self.field_24h_volume_quote_asset
 
-        total_supply_quote_asset = self.total_supply_quote_asset
+        total_supply_quote_asset: float | None | Unset
+        if isinstance(self.total_supply_quote_asset, Unset):
+            total_supply_quote_asset = UNSET
+        else:
+            total_supply_quote_asset = self.total_supply_quote_asset
 
-        total_supply_base_asset = self.total_supply_base_asset
+        total_supply_base_asset: float | None | Unset
+        if isinstance(self.total_supply_base_asset, Unset):
+            total_supply_base_asset = UNSET
+        else:
+            total_supply_base_asset = self.total_supply_base_asset
 
         date_launched: str | Unset = UNSET
         if not isinstance(self.date_launched, Unset):
@@ -286,7 +331,14 @@ class DexParisQuotesDTO:
 
         name = d.pop("name", UNSET)
 
-        base_asset_id = d.pop("base_asset_id", UNSET)
+        def _parse_base_asset_id(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        base_asset_id = _parse_base_asset_id(d.pop("base_asset_id", UNSET))
 
         base_asset_ucid = d.pop("base_asset_ucid", UNSET)
 
@@ -296,7 +348,14 @@ class DexParisQuotesDTO:
 
         base_asset_contract_address = d.pop("base_asset_contract_address", UNSET)
 
-        quote_asset_id = d.pop("quote_asset_id", UNSET)
+        def _parse_quote_asset_id(data: object) -> None | str | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(None | str | Unset, data)
+
+        quote_asset_id = _parse_quote_asset_id(d.pop("quote_asset_id", UNSET))
 
         quote_asset_ucid = d.pop("quote_asset_ucid", UNSET)
 
@@ -321,52 +380,127 @@ class DexParisQuotesDTO:
         else:
             last_updated = isoparse(_last_updated)
 
-        _created_at = d.pop("created_at", UNSET)
-        created_at: datetime.datetime | Unset
-        if isinstance(_created_at, Unset):
-            created_at = UNSET
-        else:
-            created_at = isoparse(_created_at)
+        def _parse_created_at(data: object) -> datetime.datetime | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                created_at_type_0 = isoparse(data)
+
+                return created_at_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(datetime.datetime | None | Unset, data)
+
+        created_at = _parse_created_at(d.pop("created_at", UNSET))
 
         num_transactions_24h = d.pop("num_transactions_24h", UNSET)
 
-        holders = d.pop("holders", UNSET)
+        def _parse_holders(data: object) -> int | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(int | None | Unset, data)
+
+        holders = _parse_holders(d.pop("holders", UNSET))
 
         field_24h_no_of_buys = d.pop("24h_no_of_buys", UNSET)
 
         field_24h_no_of_sells = d.pop("24h_no_of_sells", UNSET)
 
-        _pool_created = d.pop("pool_created", UNSET)
-        pool_created: datetime.datetime | Unset
-        if isinstance(_pool_created, Unset):
-            pool_created = UNSET
-        else:
-            pool_created = isoparse(_pool_created)
+        def _parse_pool_created(data: object) -> datetime.datetime | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, str):
+                    raise TypeError()
+                pool_created_type_0 = isoparse(data)
 
-        buy_tax = d.pop("buy_tax", UNSET)
+                return pool_created_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(datetime.datetime | None | Unset, data)
 
-        sell_tax = d.pop("sell_tax", UNSET)
+        pool_created = _parse_pool_created(d.pop("pool_created", UNSET))
 
-        _security_scan = d.pop("security_scan", UNSET)
-        security_scan: list[SecurityScanResult] | Unset = UNSET
-        if _security_scan is not UNSET:
-            security_scan = []
-            for security_scan_item_data in _security_scan:
-                security_scan_item = SecurityScanResult.from_dict(security_scan_item_data)
+        def _parse_buy_tax(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
 
-                security_scan.append(security_scan_item)
+        buy_tax = _parse_buy_tax(d.pop("buy_tax", UNSET))
+
+        def _parse_sell_tax(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        sell_tax = _parse_sell_tax(d.pop("sell_tax", UNSET))
+
+        def _parse_security_scan(data: object) -> list[SecurityScanResult] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                security_scan_type_0 = []
+                _security_scan_type_0 = data
+                for security_scan_type_0_item_data in _security_scan_type_0:
+                    security_scan_type_0_item = SecurityScanResult.from_dict(security_scan_type_0_item_data)
+
+                    security_scan_type_0.append(security_scan_type_0_item)
+
+                return security_scan_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[SecurityScanResult] | None | Unset, data)
+
+        security_scan = _parse_security_scan(d.pop("security_scan", UNSET))
 
         pool_base_asset = d.pop("pool_base_asset", UNSET)
 
         pool_quote_asset = d.pop("pool_quote_asset", UNSET)
 
-        percent_pooled_base_asset = d.pop("percent_pooled_base_asset", UNSET)
+        def _parse_percent_pooled_base_asset(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        percent_pooled_base_asset = _parse_percent_pooled_base_asset(d.pop("percent_pooled_base_asset", UNSET))
 
         field_24h_volume_quote_asset = d.pop("24h_volume_quote_asset", UNSET)
 
-        total_supply_quote_asset = d.pop("total_supply_quote_asset", UNSET)
+        def _parse_total_supply_quote_asset(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
 
-        total_supply_base_asset = d.pop("total_supply_base_asset", UNSET)
+        total_supply_quote_asset = _parse_total_supply_quote_asset(d.pop("total_supply_quote_asset", UNSET))
+
+        def _parse_total_supply_base_asset(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        total_supply_base_asset = _parse_total_supply_base_asset(d.pop("total_supply_base_asset", UNSET))
 
         _date_launched = d.pop("date_launched", UNSET)
         date_launched: datetime.datetime | Unset

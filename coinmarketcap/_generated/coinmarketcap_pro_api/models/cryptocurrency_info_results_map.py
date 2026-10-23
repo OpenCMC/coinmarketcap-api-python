@@ -37,14 +37,29 @@ class CryptocurrencyInfoResultsMap:
 
     additional_properties: dict[
         str,
-        CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint,
+        CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+        | list[
+            CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+        ],
     ] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.cryptocurrencies_info_cryptocurrency_object_please_note_this_will_be_wrapped_in_an_array_if_you_request_by_symbol_using_the_v2_endpoint import (
+            CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint,
+        )
 
         field_dict: dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
-            field_dict[prop_name] = prop.to_dict()
+            if isinstance(
+                prop,
+                CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint,
+            ):
+                field_dict[prop_name] = prop.to_dict()
+            else:
+                field_dict[prop_name] = []
+                for additional_property_type_1_item_data in prop:
+                    additional_property_type_1_item = additional_property_type_1_item_data.to_dict()
+                    field_dict[prop_name].append(additional_property_type_1_item)
 
         return field_dict
 
@@ -59,9 +74,39 @@ class CryptocurrencyInfoResultsMap:
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property = CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint.from_dict(
-                prop_dict
-            )
+
+            def _parse_additional_property(
+                data: object,
+            ) -> (
+                CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+                | list[
+                    CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+                ]
+            ):
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    additional_property_type_0 = CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint.from_dict(
+                        data
+                    )
+
+                    return additional_property_type_0
+                except (TypeError, ValueError, AttributeError, KeyError):
+                    pass
+                if not isinstance(data, list):
+                    raise TypeError()
+                additional_property_type_1 = []
+                _additional_property_type_1 = data
+                for additional_property_type_1_item_data in _additional_property_type_1:
+                    additional_property_type_1_item = CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint.from_dict(
+                        additional_property_type_1_item_data
+                    )
+
+                    additional_property_type_1.append(additional_property_type_1_item)
+
+                return additional_property_type_1
+
+            additional_property = _parse_additional_property(prop_dict)
 
             additional_properties[prop_name] = additional_property
 
@@ -74,13 +119,21 @@ class CryptocurrencyInfoResultsMap:
 
     def __getitem__(
         self, key: str
-    ) -> CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint:
+    ) -> (
+        CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+        | list[
+            CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+        ]
+    ):
         return self.additional_properties[key]
 
     def __setitem__(
         self,
         key: str,
-        value: CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint,
+        value: CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+        | list[
+            CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint
+        ],
     ) -> None:
         self.additional_properties[key] = value
 

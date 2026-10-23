@@ -9,29 +9,30 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.api_response_object_data import ApiResponseObjectData
-    from ..models.response_status import ResponseStatus
+    from ..models.api_status_object import APIStatusObject
+    from ..models.token_top_pool_dto import TokenTopPoolDTO
 
 
-T = TypeVar("T", bound="ApiResponseObject")
+T = TypeVar("T", bound="V1DEXTokenPoolsResponseModel")
 
 
 @_attrs_define
-class ApiResponseObject:
+class V1DEXTokenPoolsResponseModel:
     """
     Attributes:
-        data (ApiResponseObjectData | Unset):
-        status (ResponseStatus | Unset):
+        data (list[TokenTopPoolDTO]):
+        status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
-    data: ApiResponseObjectData | Unset = UNSET
-    status: ResponseStatus | Unset = UNSET
+    data: list[TokenTopPoolDTO]
+    status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        data: dict[str, Any] | Unset = UNSET
-        if not isinstance(self.data, Unset):
-            data = self.data.to_dict()
+        data = []
+        for data_item_data in self.data:
+            data_item = data_item_data.to_dict()
+            data.append(data_item)
 
         status: dict[str, Any] | Unset = UNSET
         if not isinstance(self.status, Unset):
@@ -39,9 +40,11 @@ class ApiResponseObject:
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update({})
-        if data is not UNSET:
-            field_dict["data"] = data
+        field_dict.update(
+            {
+                "data": data,
+            }
+        )
         if status is not UNSET:
             field_dict["status"] = status
 
@@ -49,31 +52,31 @@ class ApiResponseObject:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.api_response_object_data import ApiResponseObjectData
-        from ..models.response_status import ResponseStatus
+        from ..models.api_status_object import APIStatusObject
+        from ..models.token_top_pool_dto import TokenTopPoolDTO
 
         d = dict(src_dict)
-        _data = d.pop("data", UNSET)
-        data: ApiResponseObjectData | Unset
-        if isinstance(_data, Unset):
-            data = UNSET
-        else:
-            data = ApiResponseObjectData.from_dict(_data)
+        data = []
+        _data = d.pop("data")
+        for data_item_data in _data:
+            data_item = TokenTopPoolDTO.from_dict(data_item_data)
+
+            data.append(data_item)
 
         _status = d.pop("status", UNSET)
-        status: ResponseStatus | Unset
+        status: APIStatusObject | Unset
         if isinstance(_status, Unset):
             status = UNSET
         else:
-            status = ResponseStatus.from_dict(_status)
+            status = APIStatusObject.from_dict(_status)
 
-        api_response_object = cls(
+        v1dex_token_pools_response_model = cls(
             data=data,
             status=status,
         )
 
-        api_response_object.additional_properties = d
-        return api_response_object
+        v1dex_token_pools_response_model.additional_properties = d
+        return v1dex_token_pools_response_model
 
     @property
     def additional_keys(self) -> list[str]:

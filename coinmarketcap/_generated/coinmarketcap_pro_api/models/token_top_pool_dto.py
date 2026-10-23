@@ -22,7 +22,7 @@ class TokenTopPoolDTO:
     Attributes:
         addr (str | Unset): Pool address
         v24 (str | Unset): 24-hour trading volume
-        pub_at (int | Unset): Publish timestamp
+        pub_at (str | Unset): Publish timestamp
         t0 (Token | Unset): Basic token info in the pool
         t1 (Token | Unset): Basic token info in the pool
         bidx (int | Unset): Index of the base token in the pool (0 or 1)
@@ -38,7 +38,7 @@ class TokenTopPoolDTO:
 
     addr: str | Unset = UNSET
     v24: str | Unset = UNSET
-    pub_at: int | Unset = UNSET
+    pub_at: str | Unset = UNSET
     t0: Token | Unset = UNSET
     t1: Token | Unset = UNSET
     bidx: int | Unset = UNSET

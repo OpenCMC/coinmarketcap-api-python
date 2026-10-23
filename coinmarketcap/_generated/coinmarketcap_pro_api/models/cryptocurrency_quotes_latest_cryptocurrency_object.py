@@ -9,6 +9,9 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
+        CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+    )
     from ..models.cryptocurrency_quotes_latest_quote_map import CryptocurrencyQuotesLatestQuoteMap
     from ..models.platform_type_0 import PlatformType0
 
@@ -32,7 +35,7 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
         is_active (int | Unset): 1 if this cryptocurrency has at least 1 active market currently being tracked by the
             platform, otherwise 0. A value of 1 is analogous with `listing_status=active`. Example: 1.
         is_fiat (int | Unset): 1 if this is a fiat Example: 1.
-        cmc_rank (int | Unset): The cryptocurrency's CoinMarketCap rank by market cap. Example: 5.
+        cmc_rank (int | None | Unset): The cryptocurrency's CoinMarketCap rank by market cap. Example: 5.
         num_market_pairs (int | Unset): The number of active trading pairs available for this cryptocurrency across
             supported exchanges. Example: 500.
         circulating_supply (float | Unset): The approximate number of coins circulating for this cryptocurrency.
@@ -41,13 +44,13 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
             have been verifiably burned). Example: 16950100.
         market_cap_by_total_supply (float | Unset): The market cap by total supply. *This field is only returned if
             requested through the `aux` request parameter.* Example: 158055024432.
-        max_supply (float | Unset): The expected maximum limit of coins ever to be available for this cryptocurrency.
-            Example: 21000000.
+        max_supply (float | None | Unset): The expected maximum limit of coins ever to be available for this
+            cryptocurrency. Example: 21000000.
         date_added (str | Unset): Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap. Example:
             2013-04-28T00:00:00.000Z.
-        tags (list[str] | Unset): Array of tags associated with this cryptocurrency. Currently only a mineable tag will
-            be returned if the cryptocurrency is mineable. Additional tags will be returned in the future. Example:
-            ['mineable'].
+        tags (list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str] | Unset): Tags associated with
+            this cryptocurrency. The v1 endpoint returns tag slugs as strings. The v2 endpoint returns tag objects with
+            `slug`, `name` and `category`.
         platform (None | PlatformType0 | Unset): Metadata about the parent cryptocurrency platform this cryptocurrency
             belongs to if it is a token, otherwise null.
         self_reported_circulating_supply (float | None | Unset): The self reported number of coins circulating for this
@@ -55,6 +58,8 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
         self_reported_market_cap (float | None | Unset): The self reported market cap for this cryptocurrency. Example:
             16950100.
         minted_market_cap (float | Unset): The minted market cap for this cryptocurrency. Example: 1802955697670.94.
+        infinite_supply (bool | Unset): Whether this cryptocurrency is known to have an infinite supply.
+        tvl_ratio (float | None | Unset): Ratio of total value locked to market cap. `null` when TVL is not available.
     """
 
     id: int
@@ -65,21 +70,26 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
     quote: CryptocurrencyQuotesLatestQuoteMap
     is_active: int | Unset = UNSET
     is_fiat: int | Unset = UNSET
-    cmc_rank: int | Unset = UNSET
+    cmc_rank: int | None | Unset = UNSET
     num_market_pairs: int | Unset = UNSET
     circulating_supply: float | Unset = UNSET
     total_supply: float | Unset = UNSET
     market_cap_by_total_supply: float | Unset = UNSET
-    max_supply: float | Unset = UNSET
+    max_supply: float | None | Unset = UNSET
     date_added: str | Unset = UNSET
-    tags: list[str] | Unset = UNSET
+    tags: list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str] | Unset = UNSET
     platform: None | PlatformType0 | Unset = UNSET
     self_reported_circulating_supply: float | None | Unset = UNSET
     self_reported_market_cap: float | None | Unset = UNSET
     minted_market_cap: float | Unset = UNSET
+    infinite_supply: bool | Unset = UNSET
+    tvl_ratio: float | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
+            CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+        )
         from ..models.platform_type_0 import PlatformType0
 
         id = self.id
@@ -98,7 +108,11 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
 
         is_fiat = self.is_fiat
 
-        cmc_rank = self.cmc_rank
+        cmc_rank: int | None | Unset
+        if isinstance(self.cmc_rank, Unset):
+            cmc_rank = UNSET
+        else:
+            cmc_rank = self.cmc_rank
 
         num_market_pairs = self.num_market_pairs
 
@@ -108,13 +122,24 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
 
         market_cap_by_total_supply = self.market_cap_by_total_supply
 
-        max_supply = self.max_supply
+        max_supply: float | None | Unset
+        if isinstance(self.max_supply, Unset):
+            max_supply = UNSET
+        else:
+            max_supply = self.max_supply
 
         date_added = self.date_added
 
-        tags: list[str] | Unset = UNSET
+        tags: list[dict[str, Any] | str] | Unset = UNSET
         if not isinstance(self.tags, Unset):
-            tags = self.tags
+            tags = []
+            for tags_item_data in self.tags:
+                tags_item: dict[str, Any] | str
+                if isinstance(tags_item_data, CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1):
+                    tags_item = tags_item_data.to_dict()
+                else:
+                    tags_item = tags_item_data
+                tags.append(tags_item)
 
         platform: dict[str, Any] | None | Unset
         if isinstance(self.platform, Unset):
@@ -137,6 +162,14 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
             self_reported_market_cap = self.self_reported_market_cap
 
         minted_market_cap = self.minted_market_cap
+
+        infinite_supply = self.infinite_supply
+
+        tvl_ratio: float | None | Unset
+        if isinstance(self.tvl_ratio, Unset):
+            tvl_ratio = UNSET
+        else:
+            tvl_ratio = self.tvl_ratio
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -178,11 +211,18 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
             field_dict["self_reported_market_cap"] = self_reported_market_cap
         if minted_market_cap is not UNSET:
             field_dict["minted_market_cap"] = minted_market_cap
+        if infinite_supply is not UNSET:
+            field_dict["infinite_supply"] = infinite_supply
+        if tvl_ratio is not UNSET:
+            field_dict["tvl_ratio"] = tvl_ratio
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
+            CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+        )
         from ..models.cryptocurrency_quotes_latest_quote_map import CryptocurrencyQuotesLatestQuoteMap
         from ..models.platform_type_0 import PlatformType0
 
@@ -203,7 +243,14 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
 
         is_fiat = d.pop("is_fiat", UNSET)
 
-        cmc_rank = d.pop("cmc_rank", UNSET)
+        def _parse_cmc_rank(data: object) -> int | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(int | None | Unset, data)
+
+        cmc_rank = _parse_cmc_rank(d.pop("cmc_rank", UNSET))
 
         num_market_pairs = d.pop("num_market_pairs", UNSET)
 
@@ -213,11 +260,37 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
 
         market_cap_by_total_supply = d.pop("market_cap_by_total_supply", UNSET)
 
-        max_supply = d.pop("max_supply", UNSET)
+        def _parse_max_supply(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        max_supply = _parse_max_supply(d.pop("max_supply", UNSET))
 
         date_added = d.pop("date_added", UNSET)
 
-        tags = cast(list[str], d.pop("tags", UNSET))
+        _tags = d.pop("tags", UNSET)
+        tags: list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str] | Unset = UNSET
+        if _tags is not UNSET:
+            tags = []
+            for tags_item_data in _tags:
+
+                def _parse_tags_item(data: object) -> CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str:
+                    try:
+                        if not isinstance(data, dict):
+                            raise TypeError()
+                        tags_item_type_1 = CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1.from_dict(data)
+
+                        return tags_item_type_1
+                    except (TypeError, ValueError, AttributeError, KeyError):
+                        pass
+                    return cast(CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str, data)
+
+                tags_item = _parse_tags_item(tags_item_data)
+
+                tags.append(tags_item)
 
         def _parse_platform(data: object) -> None | PlatformType0 | Unset:
             if data is None:
@@ -258,6 +331,17 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
 
         minted_market_cap = d.pop("minted_market_cap", UNSET)
 
+        infinite_supply = d.pop("infinite_supply", UNSET)
+
+        def _parse_tvl_ratio(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        tvl_ratio = _parse_tvl_ratio(d.pop("tvl_ratio", UNSET))
+
         cryptocurrency_quotes_latest_cryptocurrency_object = cls(
             id=id,
             name=name,
@@ -279,6 +363,8 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
             self_reported_circulating_supply=self_reported_circulating_supply,
             self_reported_market_cap=self_reported_market_cap,
             minted_market_cap=minted_market_cap,
+            infinite_supply=infinite_supply,
+            tvl_ratio=tvl_ratio,
         )
 
         cryptocurrency_quotes_latest_cryptocurrency_object.additional_properties = d

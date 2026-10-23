@@ -9,8 +9,8 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.api_status_object import APIStatusObject
     from ..models.cmc20_index_latest_dto import CMC20IndexLatestDTO
-    from ..models.pro_api_response_status import ProApiResponseStatus
 
 
 T = TypeVar("T", bound="ApiResponseOfCMC20IndexLatestResponseDTO")
@@ -21,11 +21,11 @@ class ApiResponseOfCMC20IndexLatestResponseDTO:
     """
     Attributes:
         data (CMC20IndexLatestDTO): The latest CoinMarketCap 20 Index value is returned in this object.
-        status (ProApiResponseStatus | Unset):
+        status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
     data: CMC20IndexLatestDTO
-    status: ProApiResponseStatus | Unset = UNSET
+    status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -49,18 +49,18 @@ class ApiResponseOfCMC20IndexLatestResponseDTO:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.api_status_object import APIStatusObject
         from ..models.cmc20_index_latest_dto import CMC20IndexLatestDTO
-        from ..models.pro_api_response_status import ProApiResponseStatus
 
         d = dict(src_dict)
         data = CMC20IndexLatestDTO.from_dict(d.pop("data"))
 
         _status = d.pop("status", UNSET)
-        status: ProApiResponseStatus | Unset
+        status: APIStatusObject | Unset
         if isinstance(_status, Unset):
             status = UNSET
         else:
-            status = ProApiResponseStatus.from_dict(_status)
+            status = APIStatusObject.from_dict(_status)
 
         api_response_of_cmc20_index_latest_response_dto = cls(
             data=data,

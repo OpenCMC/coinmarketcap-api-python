@@ -6,7 +6,7 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.dquery_meme_request_dto import DqueryMemeRequestDTO
-from ...models.meme_coin_response_dto import MemeCoinResponseDTO
+from ...models.v1dex_meme_list_response_model import V1DEXMemeListResponseModel
 from ...types import Response
 
 
@@ -29,9 +29,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> MemeCoinResponseDTO | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXMemeListResponseModel | None:
     if response.status_code == 200:
-        response_200 = MemeCoinResponseDTO.from_dict(response.json())
+        response_200 = V1DEXMemeListResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -41,7 +43,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[MemeCoinResponseDTO]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXMemeListResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -54,7 +58,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMemeRequestDTO,
-) -> Response[MemeCoinResponseDTO]:
+) -> Response[V1DEXMemeListResponseModel]:
     """Get meme tokens
 
      Get list of meme tokens
@@ -67,7 +71,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[MemeCoinResponseDTO]
+        Response[V1DEXMemeListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -85,7 +89,7 @@ def sync(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMemeRequestDTO,
-) -> MemeCoinResponseDTO | None:
+) -> V1DEXMemeListResponseModel | None:
     """Get meme tokens
 
      Get list of meme tokens
@@ -98,7 +102,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        MemeCoinResponseDTO
+        V1DEXMemeListResponseModel
     """
 
     return sync_detailed(
@@ -111,7 +115,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMemeRequestDTO,
-) -> Response[MemeCoinResponseDTO]:
+) -> Response[V1DEXMemeListResponseModel]:
     """Get meme tokens
 
      Get list of meme tokens
@@ -124,7 +128,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[MemeCoinResponseDTO]
+        Response[V1DEXMemeListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -140,7 +144,7 @@ async def asyncio(
     *,
     client: AuthenticatedClient | Client,
     body: DqueryMemeRequestDTO,
-) -> MemeCoinResponseDTO | None:
+) -> V1DEXMemeListResponseModel | None:
     """Get meme tokens
 
      Get list of meme tokens
@@ -153,7 +157,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        MemeCoinResponseDTO
+        V1DEXMemeListResponseModel
     """
 
     return (

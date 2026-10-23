@@ -9,8 +9,8 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
+    from ..models.api_status_object import APIStatusObject
     from ..models.index_historical_dto import IndexHistoricalDTO
-    from ..models.pro_api_response_status import ProApiResponseStatus
 
 
 T = TypeVar("T", bound="ApiResponseOfIndexHistoricalResponseDTO")
@@ -21,11 +21,11 @@ class ApiResponseOfIndexHistoricalResponseDTO:
     """
     Attributes:
         data (list[IndexHistoricalDTO] | Unset):
-        status (ProApiResponseStatus | Unset):
+        status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
     data: list[IndexHistoricalDTO] | Unset = UNSET
-    status: ProApiResponseStatus | Unset = UNSET
+    status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -54,8 +54,8 @@ class ApiResponseOfIndexHistoricalResponseDTO:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.api_status_object import APIStatusObject
         from ..models.index_historical_dto import IndexHistoricalDTO
-        from ..models.pro_api_response_status import ProApiResponseStatus
 
         d = dict(src_dict)
         _data = d.pop("data", UNSET)
@@ -70,11 +70,11 @@ class ApiResponseOfIndexHistoricalResponseDTO:
                 data.append(componentsschemas_index_historical_dps_dto_item)
 
         _status = d.pop("status", UNSET)
-        status: ProApiResponseStatus | Unset
+        status: APIStatusObject | Unset
         if isinstance(_status, Unset):
             status = UNSET
         else:
-            status = ProApiResponseStatus.from_dict(_status)
+            status = APIStatusObject.from_dict(_status)
 
         api_response_of_index_historical_response_dto = cls(
             data=data,

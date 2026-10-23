@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -56,6 +56,8 @@ class CryptocurrencyMarketPairsLatestMarketPairInfoObject:
         market_url (str | Unset): The URL to this market's trading page on the exchange if available. If not available
             the exchange's homepage URL is returned. *This field is only returned if requested through the `aux` request
             parameter.* Example: https://www.binance.com/en/trade/BTC_USDT.
+        outlier_detected (int | Unset): 1 if this market pair has been flagged as an outlier, otherwise 0.
+        exclusions (list[str] | None | Unset): Reasons this market pair is excluded from aggregate calculations, if any.
     """
 
     exchange: CryptocurrencyMarketPairsLatestExchangeInfoObject
@@ -67,6 +69,8 @@ class CryptocurrencyMarketPairsLatestMarketPairInfoObject:
     category: CryptocurrencyMarketPairsLatestMarketPairInfoObjectCategory | Unset = UNSET
     fee_type: CryptocurrencyMarketPairsLatestMarketPairInfoObjectFeeType | Unset = UNSET
     market_url: str | Unset = UNSET
+    outlier_detected: int | Unset = UNSET
+    exclusions: list[str] | None | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -92,6 +96,17 @@ class CryptocurrencyMarketPairsLatestMarketPairInfoObject:
 
         market_url = self.market_url
 
+        outlier_detected = self.outlier_detected
+
+        exclusions: list[str] | None | Unset
+        if isinstance(self.exclusions, Unset):
+            exclusions = UNSET
+        elif isinstance(self.exclusions, list):
+            exclusions = self.exclusions
+
+        else:
+            exclusions = self.exclusions
+
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
@@ -112,6 +127,10 @@ class CryptocurrencyMarketPairsLatestMarketPairInfoObject:
             field_dict["fee_type"] = fee_type
         if market_url is not UNSET:
             field_dict["market_url"] = market_url
+        if outlier_detected is not UNSET:
+            field_dict["outlier_detected"] = outlier_detected
+        if exclusions is not UNSET:
+            field_dict["exclusions"] = exclusions
 
         return field_dict
 
@@ -163,6 +182,25 @@ class CryptocurrencyMarketPairsLatestMarketPairInfoObject:
 
         market_url = d.pop("market_url", UNSET)
 
+        outlier_detected = d.pop("outlier_detected", UNSET)
+
+        def _parse_exclusions(data: object) -> list[str] | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                exclusions_type_0 = cast(list[str], data)
+
+                return exclusions_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[str] | None | Unset, data)
+
+        exclusions = _parse_exclusions(d.pop("exclusions", UNSET))
+
         cryptocurrency_market_pairs_latest_market_pair_info_object = cls(
             exchange=exchange,
             quote=quote,
@@ -173,6 +211,8 @@ class CryptocurrencyMarketPairsLatestMarketPairInfoObject:
             category=category,
             fee_type=fee_type,
             market_url=market_url,
+            outlier_detected=outlier_detected,
+            exclusions=exclusions,
         )
 
         cryptocurrency_market_pairs_latest_market_pair_info_object.additional_properties = d

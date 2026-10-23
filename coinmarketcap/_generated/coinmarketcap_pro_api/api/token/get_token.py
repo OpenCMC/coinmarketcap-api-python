@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.token_detail_dto import TokenDetailDTO
+from ...models.v1dex_token_response_model import V1DEXTokenResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -32,9 +32,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> TokenDetailDTO | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXTokenResponseModel | None:
     if response.status_code == 200:
-        response_200 = TokenDetailDTO.from_dict(response.json())
+        response_200 = V1DEXTokenResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -44,7 +46,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[TokenDetailDTO]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXTokenResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -58,7 +62,7 @@ def sync_detailed(
     client: AuthenticatedClient | Client,
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> Response[TokenDetailDTO]:
+) -> Response[V1DEXTokenResponseModel]:
     r"""Get token detail
 
      Get detailed information for a specific token
@@ -77,7 +81,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[TokenDetailDTO]
+        Response[V1DEXTokenResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -97,7 +101,7 @@ def sync(
     client: AuthenticatedClient | Client,
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> TokenDetailDTO | None:
+) -> V1DEXTokenResponseModel | None:
     r"""Get token detail
 
      Get detailed information for a specific token
@@ -116,7 +120,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        TokenDetailDTO
+        V1DEXTokenResponseModel
     """
 
     return sync_detailed(
@@ -131,7 +135,7 @@ async def asyncio_detailed(
     client: AuthenticatedClient | Client,
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> Response[TokenDetailDTO]:
+) -> Response[V1DEXTokenResponseModel]:
     r"""Get token detail
 
      Get detailed information for a specific token
@@ -150,7 +154,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[TokenDetailDTO]
+        Response[V1DEXTokenResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -168,7 +172,7 @@ async def asyncio(
     client: AuthenticatedClient | Client,
     platform: str | Unset = UNSET,
     address: str | Unset = UNSET,
-) -> TokenDetailDTO | None:
+) -> V1DEXTokenResponseModel | None:
     r"""Get token detail
 
      Get detailed information for a specific token
@@ -187,7 +191,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        TokenDetailDTO
+        V1DEXTokenResponseModel
     """
 
     return (

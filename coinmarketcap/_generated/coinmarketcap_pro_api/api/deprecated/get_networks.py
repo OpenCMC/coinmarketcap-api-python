@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.network_info_dto import NetworkInfoDTO
+from ...models.v4dex_networks_list_response_model import V4DEXNetworksListResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -41,14 +41,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[NetworkInfoDTO] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V4DEXNetworksListResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = NetworkInfoDTO.from_dict(response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V4DEXNetworksListResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -60,7 +57,7 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[list[NetworkInfoDTO]]:
+) -> Response[V4DEXNetworksListResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -77,7 +74,7 @@ def sync_detailed(
     sort: str | Unset = "id",
     sort_dir: str | Unset = "desc",
     aux: str | Unset = UNSET,
-) -> Response[list[NetworkInfoDTO]]:
+) -> Response[V4DEXNetworksListResponseModel]:
     """CoinMarketCap ID Map
 
      Returns a list of all networks to unique CoinMarketCap ids.Per our Best Practices we recommend
@@ -97,7 +94,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[NetworkInfoDTO]]
+        Response[V4DEXNetworksListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -123,7 +120,7 @@ def sync(
     sort: str | Unset = "id",
     sort_dir: str | Unset = "desc",
     aux: str | Unset = UNSET,
-) -> list[NetworkInfoDTO] | None:
+) -> V4DEXNetworksListResponseModel | None:
     """CoinMarketCap ID Map
 
      Returns a list of all networks to unique CoinMarketCap ids.Per our Best Practices we recommend
@@ -143,7 +140,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[NetworkInfoDTO]
+        V4DEXNetworksListResponseModel
     """
 
     return sync_detailed(
@@ -164,7 +161,7 @@ async def asyncio_detailed(
     sort: str | Unset = "id",
     sort_dir: str | Unset = "desc",
     aux: str | Unset = UNSET,
-) -> Response[list[NetworkInfoDTO]]:
+) -> Response[V4DEXNetworksListResponseModel]:
     """CoinMarketCap ID Map
 
      Returns a list of all networks to unique CoinMarketCap ids.Per our Best Practices we recommend
@@ -184,7 +181,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[NetworkInfoDTO]]
+        Response[V4DEXNetworksListResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -208,7 +205,7 @@ async def asyncio(
     sort: str | Unset = "id",
     sort_dir: str | Unset = "desc",
     aux: str | Unset = UNSET,
-) -> list[NetworkInfoDTO] | None:
+) -> V4DEXNetworksListResponseModel | None:
     """CoinMarketCap ID Map
 
      Returns a list of all networks to unique CoinMarketCap ids.Per our Best Practices we recommend
@@ -228,7 +225,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[NetworkInfoDTO]
+        V4DEXNetworksListResponseModel
     """
 
     return (

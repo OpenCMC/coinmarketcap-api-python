@@ -21,19 +21,18 @@ class ExchangeListingsLatestResponseModel:
     """
     Attributes:
         data (list[ExchangeListingsLatestExchangeObject]): Array of exchange objects matching the list options. Example:
-            [{'id': 270, 'name': 'Binance', 'slug': 'binance', 'num_market_pairs': 1214, 'fiats': ['AED', 'USD'],
-            'traffic_score': 1000, 'rank': 1, 'exchange_score': 9.8, 'liquidity_score': 9.8028, 'last_updated':
-            '2018-11-08T22:18:00.000Z', 'quote': {'USD': {'volume_24h': 769291636.239632, 'volume_24h_adjusted':
-            769291636.239632, 'volume_7d': 3666423776, 'volume_30d': 21338299776, 'percent_change_volume_24h': -11.6153,
-            'percent_change_volume_7d': 67.2055, 'percent_change_volume_30d': 0.00169339, 'effective_liquidity_24h':
-            629.9774, 'derivative_volume_usd': 62828618628.85901, 'spot_volume_usd': 39682580614.8572, 'last_updated':
-            '2018-11-08T22:18:00.000Z'}}}, {'id': 294, 'name': 'OKEx', 'slug': 'okex', 'num_market_pairs': 385, 'fiats':
-            ['AED', 'USD'], 'traffic_score': 845.1565, 'rank': 1, 'exchange_score': 8.5, 'liquidity_score': 9.8028,
-            'last_updated': '2018-11-08T22:18:00.000Z', 'quote': {'USD': {'volume_24h': 677439315.721563,
-            'volume_24h_adjusted': 677439315.721563, 'volume_7d': 3506137120, 'volume_30d': 14418225072,
-            'percent_change_volume_24h': -13.9256, 'percent_change_volume_7d': 60.0461, 'percent_change_volume_30d':
-            67.2225, 'effective_liquidity_24h': 629.9774, 'derivative_volume_usd': 62828618628.85901, 'spot_volume_usd':
-            39682580614.8572, 'last_updated': '2018-11-08T22:18:00.000Z'}}}].
+            [{'id': 270, 'name': 'Binance', 'slug': 'binance', 'num_market_pairs': 1214, 'traffic_score': 1000, 'rank': 1,
+            'exchange_score': 9.8, 'liquidity_score': 9.8028, 'last_updated': '2018-11-08T22:18:00.000Z', 'quote': {'USD':
+            {'volume_24h': 769291636.239632, 'volume_24h_adjusted': 769291636.239632, 'volume_7d': 3666423776, 'volume_30d':
+            21338299776, 'percent_change_volume_24h': -11.6153, 'percent_change_volume_7d': 67.2055,
+            'percent_change_volume_30d': 0.00169339, 'effective_liquidity_24h': 629.9774, 'derivative_volume_usd':
+            62828618628.85901, 'spot_volume_usd': 39682580614.8572, 'last_updated': '2018-11-08T22:18:00.000Z'}}}, {'id':
+            294, 'name': 'OKEx', 'slug': 'okex', 'num_market_pairs': 385, 'traffic_score': 845.1565, 'rank': 1,
+            'exchange_score': 8.5, 'liquidity_score': 9.8028, 'last_updated': '2018-11-08T22:18:00.000Z', 'quote': {'USD':
+            {'volume_24h': 677439315.721563, 'volume_24h_adjusted': 677439315.721563, 'volume_7d': 3506137120, 'volume_30d':
+            14418225072, 'percent_change_volume_24h': -13.9256, 'percent_change_volume_7d': 60.0461,
+            'percent_change_volume_30d': 67.2225, 'effective_liquidity_24h': 629.9774, 'derivative_volume_usd':
+            62828618628.85901, 'spot_volume_usd': 39682580614.8572, 'last_updated': '2018-11-08T22:18:00.000Z'}}}].
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 

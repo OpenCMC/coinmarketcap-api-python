@@ -1,10 +1,11 @@
 from http import HTTPStatus
-from typing import Any, cast
+from typing import Any
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
+from ...models.v1k_line_candles_response_model import V1KLineCandlesResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -49,14 +50,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> list[list[float]] | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1KLineCandlesResponseModel | None:
     if response.status_code == 200:
-        response_200 = []
-        _response_200 = response.json()
-        for response_200_item_data in _response_200:
-            response_200_item = cast(list[float], response_200_item_data)
-
-            response_200.append(response_200_item)
+        response_200 = V1KLineCandlesResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -66,7 +64,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[list[list[float]]]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1KLineCandlesResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -86,7 +86,7 @@ def sync_detailed(
     unit: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     pm: str | Unset = UNSET,
-) -> Response[list[list[float]]]:
+) -> Response[V1KLineCandlesResponseModel]:
     r"""Get K-line candles
 
      Get K-line candle (OHLCV) data for a token.
@@ -123,7 +123,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[list[float]]]
+        Response[V1KLineCandlesResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -155,7 +155,7 @@ def sync(
     unit: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     pm: str | Unset = UNSET,
-) -> list[list[float]] | None:
+) -> V1KLineCandlesResponseModel | None:
     r"""Get K-line candles
 
      Get K-line candle (OHLCV) data for a token.
@@ -192,7 +192,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[list[float]]
+        V1KLineCandlesResponseModel
     """
 
     return sync_detailed(
@@ -219,7 +219,7 @@ async def asyncio_detailed(
     unit: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     pm: str | Unset = UNSET,
-) -> Response[list[list[float]]]:
+) -> Response[V1KLineCandlesResponseModel]:
     r"""Get K-line candles
 
      Get K-line candle (OHLCV) data for a token.
@@ -256,7 +256,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[list[list[float]]]
+        Response[V1KLineCandlesResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -286,7 +286,7 @@ async def asyncio(
     unit: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     pm: str | Unset = UNSET,
-) -> list[list[float]] | None:
+) -> V1KLineCandlesResponseModel | None:
     r"""Get K-line candles
 
      Get K-line candle (OHLCV) data for a token.
@@ -323,7 +323,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        list[list[float]]
+        V1KLineCandlesResponseModel
     """
 
     return (

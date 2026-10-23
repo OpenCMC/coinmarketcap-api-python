@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import TYPE_CHECKING, Any, TypeVar
+from typing import TYPE_CHECKING, Any, TypeVar, cast
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
@@ -25,7 +25,7 @@ class CryptoQuoteV3DTO:
         name (str | Unset):
         symbol (str | Unset):
         slug (str | Unset):
-        platform (Platform | Unset):
+        platform (None | Platform | Unset):
         quote (list[Quote] | Unset):
         tags (list[CryptoTag] | Unset):
         is_active (int | Unset):
@@ -34,23 +34,24 @@ class CryptoQuoteV3DTO:
         is_fiat (int | Unset):
         circulating_supply (float | Unset): Circulating supply of the cryptocurrency
         total_supply (float | Unset): Total supply of the cryptocurrency
-        max_supply (float | Unset): Maximum supply of the cryptocurrency
+        max_supply (float | None | Unset): Maximum supply of the cryptocurrency
         date_added (str | Unset):
         num_market_pairs (int | Unset):
         cmc_rank (int | Unset):
         last_updated (str | Unset):
-        tvl_ratio (float | Unset): TVL to market cap ratio
-        self_reported_circulating_supply (float | Unset): Self-reported circulating supply
-        self_reported_market_cap (float | Unset): Self-reported market capitalization
+        tvl_ratio (float | None | Unset): TVL to market cap ratio
+        self_reported_circulating_supply (float | None | Unset): Self-reported circulating supply
+        self_reported_market_cap (float | None | Unset): Self-reported market capitalization
         unlocked_circulating_supply (float | Unset): Unlocked circulating supply
         unlocked_market_cap (float | Unset): Unlocked market capitalization
+        minted_market_cap (float | Unset): Market cap calculated from the minted supply, in the requested currency.
     """
 
     id: int | Unset = UNSET
     name: str | Unset = UNSET
     symbol: str | Unset = UNSET
     slug: str | Unset = UNSET
-    platform: Platform | Unset = UNSET
+    platform: None | Platform | Unset = UNSET
     quote: list[Quote] | Unset = UNSET
     tags: list[CryptoTag] | Unset = UNSET
     is_active: int | Unset = UNSET
@@ -59,19 +60,22 @@ class CryptoQuoteV3DTO:
     is_fiat: int | Unset = UNSET
     circulating_supply: float | Unset = UNSET
     total_supply: float | Unset = UNSET
-    max_supply: float | Unset = UNSET
+    max_supply: float | None | Unset = UNSET
     date_added: str | Unset = UNSET
     num_market_pairs: int | Unset = UNSET
     cmc_rank: int | Unset = UNSET
     last_updated: str | Unset = UNSET
-    tvl_ratio: float | Unset = UNSET
-    self_reported_circulating_supply: float | Unset = UNSET
-    self_reported_market_cap: float | Unset = UNSET
+    tvl_ratio: float | None | Unset = UNSET
+    self_reported_circulating_supply: float | None | Unset = UNSET
+    self_reported_market_cap: float | None | Unset = UNSET
     unlocked_circulating_supply: float | Unset = UNSET
     unlocked_market_cap: float | Unset = UNSET
+    minted_market_cap: float | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.platform import Platform
+
         id = self.id
 
         name = self.name
@@ -80,9 +84,13 @@ class CryptoQuoteV3DTO:
 
         slug = self.slug
 
-        platform: dict[str, Any] | Unset = UNSET
-        if not isinstance(self.platform, Unset):
+        platform: dict[str, Any] | None | Unset
+        if isinstance(self.platform, Unset):
+            platform = UNSET
+        elif isinstance(self.platform, Platform):
             platform = self.platform.to_dict()
+        else:
+            platform = self.platform
 
         quote: list[dict[str, Any]] | Unset = UNSET
         if not isinstance(self.quote, Unset):
@@ -110,7 +118,11 @@ class CryptoQuoteV3DTO:
 
         total_supply = self.total_supply
 
-        max_supply = self.max_supply
+        max_supply: float | None | Unset
+        if isinstance(self.max_supply, Unset):
+            max_supply = UNSET
+        else:
+            max_supply = self.max_supply
 
         date_added = self.date_added
 
@@ -120,15 +132,29 @@ class CryptoQuoteV3DTO:
 
         last_updated = self.last_updated
 
-        tvl_ratio = self.tvl_ratio
+        tvl_ratio: float | None | Unset
+        if isinstance(self.tvl_ratio, Unset):
+            tvl_ratio = UNSET
+        else:
+            tvl_ratio = self.tvl_ratio
 
-        self_reported_circulating_supply = self.self_reported_circulating_supply
+        self_reported_circulating_supply: float | None | Unset
+        if isinstance(self.self_reported_circulating_supply, Unset):
+            self_reported_circulating_supply = UNSET
+        else:
+            self_reported_circulating_supply = self.self_reported_circulating_supply
 
-        self_reported_market_cap = self.self_reported_market_cap
+        self_reported_market_cap: float | None | Unset
+        if isinstance(self.self_reported_market_cap, Unset):
+            self_reported_market_cap = UNSET
+        else:
+            self_reported_market_cap = self.self_reported_market_cap
 
         unlocked_circulating_supply = self.unlocked_circulating_supply
 
         unlocked_market_cap = self.unlocked_market_cap
+
+        minted_market_cap = self.minted_market_cap
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -179,6 +205,8 @@ class CryptoQuoteV3DTO:
             field_dict["unlocked_circulating_supply"] = unlocked_circulating_supply
         if unlocked_market_cap is not UNSET:
             field_dict["unlocked_market_cap"] = unlocked_market_cap
+        if minted_market_cap is not UNSET:
+            field_dict["minted_market_cap"] = minted_market_cap
 
         return field_dict
 
@@ -197,12 +225,22 @@ class CryptoQuoteV3DTO:
 
         slug = d.pop("slug", UNSET)
 
-        _platform = d.pop("platform", UNSET)
-        platform: Platform | Unset
-        if isinstance(_platform, Unset):
-            platform = UNSET
-        else:
-            platform = Platform.from_dict(_platform)
+        def _parse_platform(data: object) -> None | Platform | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                platform_type_0 = Platform.from_dict(data)
+
+                return platform_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(None | Platform | Unset, data)
+
+        platform = _parse_platform(d.pop("platform", UNSET))
 
         _quote = d.pop("quote", UNSET)
         quote: list[Quote] | Unset = UNSET
@@ -234,7 +272,14 @@ class CryptoQuoteV3DTO:
 
         total_supply = d.pop("total_supply", UNSET)
 
-        max_supply = d.pop("max_supply", UNSET)
+        def _parse_max_supply(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        max_supply = _parse_max_supply(d.pop("max_supply", UNSET))
 
         date_added = d.pop("date_added", UNSET)
 
@@ -244,15 +289,40 @@ class CryptoQuoteV3DTO:
 
         last_updated = d.pop("last_updated", UNSET)
 
-        tvl_ratio = d.pop("tvl_ratio", UNSET)
+        def _parse_tvl_ratio(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
 
-        self_reported_circulating_supply = d.pop("self_reported_circulating_supply", UNSET)
+        tvl_ratio = _parse_tvl_ratio(d.pop("tvl_ratio", UNSET))
 
-        self_reported_market_cap = d.pop("self_reported_market_cap", UNSET)
+        def _parse_self_reported_circulating_supply(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        self_reported_circulating_supply = _parse_self_reported_circulating_supply(
+            d.pop("self_reported_circulating_supply", UNSET)
+        )
+
+        def _parse_self_reported_market_cap(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        self_reported_market_cap = _parse_self_reported_market_cap(d.pop("self_reported_market_cap", UNSET))
 
         unlocked_circulating_supply = d.pop("unlocked_circulating_supply", UNSET)
 
         unlocked_market_cap = d.pop("unlocked_market_cap", UNSET)
+
+        minted_market_cap = d.pop("minted_market_cap", UNSET)
 
         crypto_quote_v3dto = cls(
             id=id,
@@ -278,6 +348,7 @@ class CryptoQuoteV3DTO:
             self_reported_market_cap=self_reported_market_cap,
             unlocked_circulating_supply=unlocked_circulating_supply,
             unlocked_market_cap=unlocked_market_cap,
+            minted_market_cap=minted_market_cap,
         )
 
         crypto_quote_v3dto.additional_properties = d

@@ -32,8 +32,8 @@ class TokenLeaderboardDTO:
         tw (str | Unset): Twitter (tw)
         tg (str | Unset): Telegram (tg)
         lg (str | Unset): Logo URL (lg)
-        pub_at (int | Unset): Publish timestamp in ms (pubAt)
-        lch_at (int | Unset): Launch timestamp in ms (lchAt)
+        pub_at (str | Unset): Publish timestamp in ms (pubAt)
+        lch_at (str | Unset): Launch timestamp in ms (lchAt)
         fdv (str | Unset): Fully Diluted Valuation (fdv)
         mcap (str | Unset): Market Cap (mcap)
         liq_usd (str | Unset): Liquidity USD (liqUsd)
@@ -41,7 +41,7 @@ class TokenLeaderboardDTO:
         hld (int | Unset): Holder count (hld)
         p (str | Unset): Price USD (p)
         np (str | Unset): native Price (np)
-        pt (int | Unset): Price timestamp (pt)
+        pt (str | Unset): Price timestamp (pt)
         v24h (str | Unset): 24h Volume USD (v24h)
         t24h (str | Unset): 24h Transactions (t24h)
         ch24h (str | Unset): 24h Price Change (ch24h)
@@ -74,8 +74,8 @@ class TokenLeaderboardDTO:
     tw: str | Unset = UNSET
     tg: str | Unset = UNSET
     lg: str | Unset = UNSET
-    pub_at: int | Unset = UNSET
-    lch_at: int | Unset = UNSET
+    pub_at: str | Unset = UNSET
+    lch_at: str | Unset = UNSET
     fdv: str | Unset = UNSET
     mcap: str | Unset = UNSET
     liq_usd: str | Unset = UNSET
@@ -83,7 +83,7 @@ class TokenLeaderboardDTO:
     hld: int | Unset = UNSET
     p: str | Unset = UNSET
     np: str | Unset = UNSET
-    pt: int | Unset = UNSET
+    pt: str | Unset = UNSET
     v24h: str | Unset = UNSET
     t24h: str | Unset = UNSET
     ch24h: str | Unset = UNSET

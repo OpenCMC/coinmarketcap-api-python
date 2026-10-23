@@ -5,7 +5,7 @@ import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
-from ...models.search_response_dto import SearchResponseDTO
+from ...models.v1dex_search_response_model import V1DEXSearchResponseModel
 from ...types import UNSET, Response, Unset
 
 
@@ -41,9 +41,11 @@ def _get_kwargs(
     return _kwargs
 
 
-def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> SearchResponseDTO | None:
+def _parse_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> V1DEXSearchResponseModel | None:
     if response.status_code == 200:
-        response_200 = SearchResponseDTO.from_dict(response.json())
+        response_200 = V1DEXSearchResponseModel.from_dict(response.json())
 
         return response_200
 
@@ -53,7 +55,9 @@ def _parse_response(*, client: AuthenticatedClient | Client, response: httpx.Res
         return None
 
 
-def _build_response(*, client: AuthenticatedClient | Client, response: httpx.Response) -> Response[SearchResponseDTO]:
+def _build_response(
+    *, client: AuthenticatedClient | Client, response: httpx.Response
+) -> Response[V1DEXSearchResponseModel]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -70,7 +74,7 @@ def sync_detailed(
     sort: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     code: str | Unset = UNSET,
-) -> Response[SearchResponseDTO]:
+) -> Response[V1DEXSearchResponseModel]:
     r"""Search tokens
 
      Search for tokens by keyword
@@ -92,7 +96,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[SearchResponseDTO]
+        Response[V1DEXSearchResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -118,7 +122,7 @@ def sync(
     sort: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     code: str | Unset = UNSET,
-) -> SearchResponseDTO | None:
+) -> V1DEXSearchResponseModel | None:
     r"""Search tokens
 
      Search for tokens by keyword
@@ -140,7 +144,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        SearchResponseDTO
+        V1DEXSearchResponseModel
     """
 
     return sync_detailed(
@@ -161,7 +165,7 @@ async def asyncio_detailed(
     sort: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     code: str | Unset = UNSET,
-) -> Response[SearchResponseDTO]:
+) -> Response[V1DEXSearchResponseModel]:
     r"""Search tokens
 
      Search for tokens by keyword
@@ -183,7 +187,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[SearchResponseDTO]
+        Response[V1DEXSearchResponseModel]
     """
 
     kwargs = _get_kwargs(
@@ -207,7 +211,7 @@ async def asyncio(
     sort: str | Unset = UNSET,
     limit: int | Unset = UNSET,
     code: str | Unset = UNSET,
-) -> SearchResponseDTO | None:
+) -> V1DEXSearchResponseModel | None:
     r"""Search tokens
 
      Search for tokens by keyword
@@ -229,7 +233,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        SearchResponseDTO
+        V1DEXSearchResponseModel
     """
 
     return (

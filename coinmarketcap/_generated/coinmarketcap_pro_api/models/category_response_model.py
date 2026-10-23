@@ -10,7 +10,7 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.api_status_object import APIStatusObject
-    from ..models.category_results_map import CategoryResultsMap
+    from ..models.category_cryptocurrency_object import CategoryCryptocurrencyObject
 
 
 T = TypeVar("T", bound="CategoryResponseModel")
@@ -20,25 +20,11 @@ T = TypeVar("T", bound="CategoryResponseModel")
 class CategoryResponseModel:
     """
     Attributes:
-        data (CategoryResultsMap): Results of your query returned as an object map. Example: {'1': {'id':
-            '605e2ce9d41eae1066535f7c', 'name': 'A16Z Portfolio', 'title': 'A16Z Portfolio', 'description': 'A16Z
-            Portfolio', 'num_tokens': 12, 'avg_price_change': 0.61305157, 'market_cap': 29429241867.031097,
-            'market_cap_change': 3.049044106496, 'volume': 4103706600.0391645, 'volume_change': -10.538325849854, 'coins':
-            [{'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'slug': 'bitcoin', 'cmc_rank': 5, 'num_market_pairs': 500,
-            'circulating_supply': 16950100, 'total_supply': 16950100, 'max_supply': 21000000, 'last_updated':
-            '2018-06-02T22:51:28.209Z', 'date_added': '2013-04-28T00:00:00.000Z', 'tags': ['mineable'], 'platform': None,
-            'quote': {'USD': {'price': 9283.92, 'volume_24h': 7155680000, 'percent_change_1h': -0.152774,
-            'percent_change_24h': 0.518894, 'percent_change_7d': 0.986573, 'market_cap': 158055024432, 'last_updated':
-            '2018-08-09T22:53:32.000Z'}}}, {'id': 1027, 'name': 'Ethereum', 'symbol': 'ETH', 'slug': 'ethereum',
-            'num_market_pairs': 6360, 'circulating_supply': 16950100, 'total_supply': 16950100, 'max_supply': 21000000,
-            'last_updated': '2018-06-02T22:51:28.209Z', 'date_added': '2013-04-28T00:00:00.000Z', 'tags': ['mineable'],
-            'platform': None, 'quote': {'USD': {'price': 1283.92, 'volume_24h': 7155680000, 'percent_change_1h': -0.152774,
-            'percent_change_24h': 0.518894, 'percent_change_7d': 0.986573, 'market_cap': 158055024432, 'last_updated':
-            '2018-08-09T22:53:32.000Z'}}}], 'last_updated': '2021-11-10T10:35:12.354Z'}}.
+        data (CategoryCryptocurrencyObject): A results object for each cryptocurrency found in the category.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
-    data: CategoryResultsMap
+    data: CategoryCryptocurrencyObject
     status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -64,10 +50,10 @@ class CategoryResponseModel:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.api_status_object import APIStatusObject
-        from ..models.category_results_map import CategoryResultsMap
+        from ..models.category_cryptocurrency_object import CategoryCryptocurrencyObject
 
         d = dict(src_dict)
-        data = CategoryResultsMap.from_dict(d.pop("data"))
+        data = CategoryCryptocurrencyObject.from_dict(d.pop("data"))
 
         _status = d.pop("status", UNSET)
         status: APIStatusObject | Unset
