@@ -6,13 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 The TypeScript and Python SDKs share one version number (see Versioning in the README).
 
-## [5.0.0] - Unreleased
+## [5.0.1] - 2026-10-30
+
+Rebuilt from the OpenAPI spec published at
+https://coinmarketcap.com/api/documentation/openapi.json (spec version `3.0.3`,
+sha256 `3e72a1c4…17c9`).
+
+### Fixed
+
+- `derivatives.liquidations_quotes_latest`, `derivatives.liquidations_exchange_list_latest`
+  and `derivatives.liquidations_cryptocurrency_list_latest` no longer send `convert_id=2781`
+  by default. They sent it along with the default `convert=USD`, and the API rejected every
+  call with `4001 Invalid parameter`. Pass `convert_id` yourself to convert by ID.
+- `cmc_index.index_cmc100_latest` and `cmc_index.index_cmc20_latest` return
+  `data.last_update` as a `datetime.datetime`, as the API sends it. It was a
+  `datetime.date`, which dropped the time of day.
+
+### Changed
+
+- Docstrings follow the updated endpoint descriptions, for example which API plans
+  include each endpoint.
+
+## [5.0.0] - 2026-10-23
 
 Rebuilt from the corrected OpenAPI spec published at
 https://coinmarketcap.com/api/documentation/openapi.json (spec version `3.0.3`,
 sha256 `855b21bb…3e0b`).
 
 ### Changed (breaking)
+
 - 32 methods now return a response model with `.status` and `.data` (for example
   `V3CryptocurrencyQuotesLatestResponseModel`) instead of the bare item or list. Read
   results from `.data`. Several of these methods raised a parse error before, because the
@@ -27,6 +49,7 @@ sha256 `855b21bb…3e0b`).
   `market_pair_quotes`.
 
 ### Fixed
+
 - `cryptocurrency.listings_latest` no longer fails on Bitcoin, whose `platform` is `null`.
   Other fields the API can return as `null` are typed as optional too.
 - DEX integer values that the API returns as strings (timestamps, counts) are typed as
@@ -34,12 +57,14 @@ sha256 `855b21bb…3e0b`).
 - Every endpoint uses the same `status` model.
 
 ### Added
+
 - 146 response fields that were missing from the models, including the DeFi, stablecoin,
   derivatives and dominance fields on `global_metrics.globalmetrics_quotes_latest`.
 
 ## [4.0.3] - 2026-09-18
 
 ### Added
+
 - `cmc_ai` namespace for the CMC AI endpoints: `cmc_ai.coins_map`
   (`GET /v5/cmc-ai/coins/map`), `cmc_ai.latest` (`GET /v5/cmc-ai/latest`) and
   `cmc_ai.coins_latest` (`GET /v5/cmc-ai/coins/latest`), each with an `async_` variant,
@@ -48,11 +73,13 @@ sha256 `855b21bb…3e0b`).
 ## [4.0.2] - 2026-08-11
 
 ### Changed
+
 - `APITimeoutError` takes a message instead of the timeout value and no longer has a
   `timeout` attribute. `APITimeoutError` and `APIConnectionError` accept the underlying
   `httpx` exception as the keyword argument `cause`.
 
 ### Fixed
+
 - `async_*` methods returned an un-awaited coroutine instead of the response. They now
   return the data and raise the same errors as the sync methods.
 - HTTP errors carry the response headers in `e.headers`, so a `RateLimitError` exposes
@@ -63,12 +90,14 @@ sha256 `855b21bb…3e0b`).
   timeouts.
 
 ### Added
+
 - `coinmarketcap.__version__`.
 - A `dev` extra with `pytest`, `ruff` and `mypy`.
 
 ## [4.0.1] - 2026-08-07
 
 ### Added
+
 - Initial release of the Python SDK wrapper
 - `CoinMarketCap` client class with authentication, retry, and timeout
 - Pro and Public (keyless) environment support
