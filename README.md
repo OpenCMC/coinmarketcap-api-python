@@ -151,6 +151,8 @@ Requests that fail with retryable status codes are automatically retried with ex
   errors, remote protocol errors, and proxy errors
 - **Default**: 2 retries with 500ms initial delay and exponential backoff, up to 8s max
 - **429 responses**: Respects the `Retry-After` header when present
+- **Final outcome**: Exhausted retries surface the last attempt's HTTP, network, or
+  timeout error, even when earlier attempts failed differently.
 
 Both sync and async calls share the same retry behavior.
 

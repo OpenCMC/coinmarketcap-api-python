@@ -172,3 +172,85 @@ def test_async_network_error_retried():
     with pytest.raises(httpx.RemoteProtocolError):
         asyncio.run(run())
     assert calls["n"] == 3
+
+
+# --------------------------------------------------------------------------- #
+# Mixed HTTP / transport outcomes must surface the final attempt
+# --------------------------------------------------------------------------- #
+
+@pytest.mark.parametrize("error_type", [httpx.ConnectError, httpx.ReadTimeout])
+def test_last_network_error_replaces_earlier_http_response(error_type):
+    calls = {"n": 0}
+    final_error = error_type("final attempt failed")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return httpx.Response(503, json={})
+        if calls["n"] == 2:
+            raise error_type("second attempt failed")
+        raise final_error
+
+    with _sync_client(handler) as client:
+        with pytest.raises(error_type) as ei:
+            client.get("/v1/x")
+
+    assert ei.value is final_error
+    assert calls["n"] == 3
+
+
+@pytest.mark.parametrize("error_type", [httpx.ConnectError, httpx.ReadTimeout])
+def test_async_last_network_error_replaces_earlier_http_response(error_type):
+    calls = {"n": 0}
+    final_error = error_type("final attempt failed")
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return httpx.Response(503, json={})
+        if calls["n"] == 2:
+            raise error_type("second attempt failed")
+        raise final_error
+
+    async def run():
+        async with _async_client(handler) as client:
+            await client.get("/v1/x")
+
+    with pytest.raises(error_type) as ei:
+        asyncio.run(run())
+    assert ei.value is final_error
+    assert calls["n"] == 3
+
+
+def test_last_http_response_replaces_earlier_network_error():
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise httpx.ConnectError("first attempt failed")
+        return httpx.Response(503 if calls["n"] == 2 else 502, json={})
+
+    with _sync_client(handler) as client:
+        response = client.get("/v1/x")
+
+    assert response.status_code == 502
+    assert calls["n"] == 3
+
+
+def test_async_last_http_response_replaces_earlier_network_error():
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise httpx.ConnectError("first attempt failed")
+        return httpx.Response(503 if calls["n"] == 2 else 502, json={})
+
+    async def run():
+        async with _async_client(handler) as client:
+            return await client.get("/v1/x")
+
+    response = asyncio.run(run())
+    assert response.status_code == 502
+    assert calls["n"] == 3

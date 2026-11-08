@@ -56,6 +56,7 @@ class RetryTransport(httpx.BaseTransport):
 
             except RETRYABLE_NETWORK_ERRORS as e:
                 last_error = e
+                last_response = None
                 if attempt < self._retry_config.max_retries:
                     delay = get_retry_delay(attempt, 0, self._retry_config)
                     sleep_sync(delay)
@@ -106,6 +107,7 @@ class AsyncRetryTransport(httpx.AsyncBaseTransport):
 
             except RETRYABLE_NETWORK_ERRORS as e:
                 last_error = e
+                last_response = None
                 if attempt < self._retry_config.max_retries:
                     delay = get_retry_delay(attempt, 0, self._retry_config)
                     await sleep_async(delay)
