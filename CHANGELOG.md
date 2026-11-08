@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 The TypeScript and Python SDKs share one version number (see Versioning in the README).
 
+## [Unreleased]
+
+### Fixed
+
+- Sync and async requests now surface the final connection or timeout error after
+  retries are exhausted instead of returning an earlier retryable HTTP response.
+
 ## [5.0.1] - 2026-10-30
 
 Rebuilt from the OpenAPI spec published at
