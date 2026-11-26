@@ -10,8 +10,8 @@ from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
     from ..models.api_status_object import APIStatusObject
-    from ..models.cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
-        CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+    from ..models.cryptocurrency_ohlcv_historical_response_model_object_map import (
+        CryptocurrencyOHLCVHistoricalResponseModelObjectMap,
     )
     from ..models.cryptocurrency_ohlcv_historical_results_object import CryptocurrencyOHLCVHistoricalResultsObject
 
@@ -23,23 +23,28 @@ T = TypeVar("T", bound="CryptocurrencyOHLCVHistoricalResponseModel")
 class CryptocurrencyOHLCVHistoricalResponseModel:
     """
     Attributes:
-        data (CryptocurrencyOHLCVHistoricalResponseModelDataType0 | CryptocurrencyOHLCVHistoricalResultsObject): A
-            single object when you request one cryptocurrency, and an object map keyed by cryptocurrency ID when you request
-            several.
+        data (CryptocurrencyOHLCVHistoricalResponseModelObjectMap | CryptocurrencyOHLCVHistoricalResultsObject): The
+            shape depends on the identifiers you send:
+
+            - **One cryptocurrency** - one `id` or `slug` (or one `symbol` on v1) returns the cryptocurrency object itself.
+            - **Object map** - several `id`, `slug` or `symbol` values return an object map keyed by the identifiers you
+            sent (IDs, slugs or symbols).
+            - **Symbol lookups (v2)** - every v2 `symbol` request returns an object map keyed by symbol, and each value is
+            an array of all cryptocurrencies that share the symbol, even when you send one symbol.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 
-    data: CryptocurrencyOHLCVHistoricalResponseModelDataType0 | CryptocurrencyOHLCVHistoricalResultsObject
+    data: CryptocurrencyOHLCVHistoricalResponseModelObjectMap | CryptocurrencyOHLCVHistoricalResultsObject
     status: APIStatusObject | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
-            CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+        from ..models.cryptocurrency_ohlcv_historical_response_model_object_map import (
+            CryptocurrencyOHLCVHistoricalResponseModelObjectMap,
         )
 
         data: dict[str, Any]
-        if isinstance(self.data, CryptocurrencyOHLCVHistoricalResponseModelDataType0):
+        if isinstance(self.data, CryptocurrencyOHLCVHistoricalResponseModelObjectMap):
             data = self.data.to_dict()
         else:
             data = self.data.to_dict()
@@ -63,8 +68,8 @@ class CryptocurrencyOHLCVHistoricalResponseModel:
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         from ..models.api_status_object import APIStatusObject
-        from ..models.cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
-            CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+        from ..models.cryptocurrency_ohlcv_historical_response_model_object_map import (
+            CryptocurrencyOHLCVHistoricalResponseModelObjectMap,
         )
         from ..models.cryptocurrency_ohlcv_historical_results_object import CryptocurrencyOHLCVHistoricalResultsObject
 
@@ -72,13 +77,13 @@ class CryptocurrencyOHLCVHistoricalResponseModel:
 
         def _parse_data(
             data: object,
-        ) -> CryptocurrencyOHLCVHistoricalResponseModelDataType0 | CryptocurrencyOHLCVHistoricalResultsObject:
+        ) -> CryptocurrencyOHLCVHistoricalResponseModelObjectMap | CryptocurrencyOHLCVHistoricalResultsObject:
             try:
                 if not isinstance(data, dict):
                     raise TypeError()
-                data_type_0 = CryptocurrencyOHLCVHistoricalResponseModelDataType0.from_dict(data)
+                data_object_map = CryptocurrencyOHLCVHistoricalResponseModelObjectMap.from_dict(data)
 
-                return data_type_0
+                return data_object_map
             except (TypeError, ValueError, AttributeError, KeyError):
                 pass
             if not isinstance(data, dict):

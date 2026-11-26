@@ -19,7 +19,7 @@ T = TypeVar("T", bound="CryptocurrencyQuotesHistoricalResultObject")
 
 @_attrs_define
 class CryptocurrencyQuotesHistoricalResultObject:
-    """A results object for each cryptocurrency requested. The map key being the id/symbol used in the request.
+    """A cryptocurrency and its historical quotes.
 
     Attributes:
         id (int): The CoinMarketCap cryptocurrency ID. Example: 1.

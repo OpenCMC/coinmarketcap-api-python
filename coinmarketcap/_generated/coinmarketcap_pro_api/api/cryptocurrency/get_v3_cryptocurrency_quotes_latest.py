@@ -107,7 +107,7 @@ def sync_detailed(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per \`convert\` option beyond the first.
     **CMC equivalent pages:** Latest market data pages for specific cryptocurrencies like
@@ -186,7 +186,7 @@ def sync(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per \`convert\` option beyond the first.
     **CMC equivalent pages:** Latest market data pages for specific cryptocurrencies like
@@ -260,7 +260,7 @@ async def asyncio_detailed(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per \`convert\` option beyond the first.
     **CMC equivalent pages:** Latest market data pages for specific cryptocurrencies like
@@ -337,7 +337,7 @@ async def asyncio(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per \`convert\` option beyond the first.
     **CMC equivalent pages:** Latest market data pages for specific cryptocurrencies like

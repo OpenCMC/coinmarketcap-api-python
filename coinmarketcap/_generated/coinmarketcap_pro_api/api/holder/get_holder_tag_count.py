@@ -67,6 +67,14 @@ def sync_detailed(
 
      Get detailed information for holders tag count
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         platform (str):
         token_address (str):
@@ -101,6 +109,14 @@ def sync(
 
      Get detailed information for holders tag count
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         platform (str):
         token_address (str):
@@ -129,6 +145,14 @@ async def asyncio_detailed(
     """Get holder tag count
 
      Get detailed information for holders tag count
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         platform (str):
@@ -161,6 +185,14 @@ async def asyncio(
     """Get holder tag count
 
      Get detailed information for holders tag count
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         platform (str):

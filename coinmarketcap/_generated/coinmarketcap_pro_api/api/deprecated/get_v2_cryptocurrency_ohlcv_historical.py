@@ -165,14 +165,18 @@ def sync_detailed(
     | HTTPStatus429ErrorObject
     | HTTPStatus500ErrorObject
 ]:
-    r"""OHLCV Historical
+    r"""OHLCV Historical v2 (deprecated)
 
-     Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
+     **Deprecated.** Use [/v5/cryptocurrency/ohlcv/historical](/pro-api-reference/cryptocurrency#ohlcv-
+    historical) instead. It returns the same candles as compact rows, one cryptocurrency per request,
+    with calendar-week (`1w`) and calendar-month (`1M`) intervals and a simpler time window.
+
+    Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
     cryptocurrency using time interval parameters. Currently daily and hourly OHLCV periods are
     supported. Volume is not currently supported for hourly OHLCV intervals before 2020-09-22.
 
     **Please note**: This documentation relates to our updated V2 endpoint, which may be incompatible
-    with our V1 versions. Documentation for deprecated endpoints can be found [the deprecated
+    with our earlier versions. Documentation for deprecated endpoints can be found [the deprecated
     section](/pro-api-reference/deprecated).
 
 
@@ -312,14 +316,18 @@ def sync(
     | HTTPStatus500ErrorObject
     | None
 ):
-    r"""OHLCV Historical
+    r"""OHLCV Historical v2 (deprecated)
 
-     Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
+     **Deprecated.** Use [/v5/cryptocurrency/ohlcv/historical](/pro-api-reference/cryptocurrency#ohlcv-
+    historical) instead. It returns the same candles as compact rows, one cryptocurrency per request,
+    with calendar-week (`1w`) and calendar-month (`1M`) intervals and a simpler time window.
+
+    Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
     cryptocurrency using time interval parameters. Currently daily and hourly OHLCV periods are
     supported. Volume is not currently supported for hourly OHLCV intervals before 2020-09-22.
 
     **Please note**: This documentation relates to our updated V2 endpoint, which may be incompatible
-    with our V1 versions. Documentation for deprecated endpoints can be found [the deprecated
+    with our earlier versions. Documentation for deprecated endpoints can be found [the deprecated
     section](/pro-api-reference/deprecated).
 
 
@@ -453,14 +461,18 @@ async def asyncio_detailed(
     | HTTPStatus429ErrorObject
     | HTTPStatus500ErrorObject
 ]:
-    r"""OHLCV Historical
+    r"""OHLCV Historical v2 (deprecated)
 
-     Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
+     **Deprecated.** Use [/v5/cryptocurrency/ohlcv/historical](/pro-api-reference/cryptocurrency#ohlcv-
+    historical) instead. It returns the same candles as compact rows, one cryptocurrency per request,
+    with calendar-week (`1w`) and calendar-month (`1M`) intervals and a simpler time window.
+
+    Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
     cryptocurrency using time interval parameters. Currently daily and hourly OHLCV periods are
     supported. Volume is not currently supported for hourly OHLCV intervals before 2020-09-22.
 
     **Please note**: This documentation relates to our updated V2 endpoint, which may be incompatible
-    with our V1 versions. Documentation for deprecated endpoints can be found [the deprecated
+    with our earlier versions. Documentation for deprecated endpoints can be found [the deprecated
     section](/pro-api-reference/deprecated).
 
 
@@ -598,14 +610,18 @@ async def asyncio(
     | HTTPStatus500ErrorObject
     | None
 ):
-    r"""OHLCV Historical
+    r"""OHLCV Historical v2 (deprecated)
 
-     Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
+     **Deprecated.** Use [/v5/cryptocurrency/ohlcv/historical](/pro-api-reference/cryptocurrency#ohlcv-
+    historical) instead. It returns the same candles as compact rows, one cryptocurrency per request,
+    with calendar-week (`1w`) and calendar-month (`1M`) intervals and a simpler time window.
+
+    Returns historical OHLCV (Open, High, Low, Close, Volume) data along with market cap for any
     cryptocurrency using time interval parameters. Currently daily and hourly OHLCV periods are
     supported. Volume is not currently supported for hourly OHLCV intervals before 2020-09-22.
 
     **Please note**: This documentation relates to our updated V2 endpoint, which may be incompatible
-    with our V1 versions. Documentation for deprecated endpoints can be found [the deprecated
+    with our earlier versions. Documentation for deprecated endpoints can be found [the deprecated
     section](/pro-api-reference/deprecated).
 
 

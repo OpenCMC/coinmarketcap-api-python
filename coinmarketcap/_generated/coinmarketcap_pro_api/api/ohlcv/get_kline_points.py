@@ -98,6 +98,15 @@ def sync_detailed(
 
     Example: ``[[1.23, 50000, 1705363200], ...]``
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v1/k-line/points`. See the [Keyless Public API](https://coinmarketcap.com/api/documentation/pro-
@@ -162,6 +171,15 @@ def sync(
 
     Example: ``[[1.23, 50000, 1705363200], ...]``
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v1/k-line/points`. See the [Keyless Public API](https://coinmarketcap.com/api/documentation/pro-
@@ -220,6 +238,15 @@ async def asyncio_detailed(
     - **[2]** timestamp: UNIX timestamp (seconds)
 
     Example: ``[[1.23, 50000, 1705363200], ...]``
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
@@ -282,6 +309,15 @@ async def asyncio(
     - **[2]** timestamp: UNIX timestamp (seconds)
 
     Example: ``[[1.23, 50000, 1705363200], ...]``
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-

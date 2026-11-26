@@ -23,14 +23,14 @@ class CMC20IndexLatestDTO:
 
     Attributes:
         constituents (list[CMC20IndexDetailDTO] | Unset): Array detailing the list of constituents and their weightage.
-        last_update (datetime.date | Unset): Timestamp (ISO 8601) of the last time this record was updated.
+        last_update (datetime.datetime | Unset): Timestamp (ISO 8601) of the last time this record was updated.
         next_update (str | Unset): Timestamp (ISO 8601) of the next time this record will be updated.
         value (float | Unset): Current value of CoinMarketCap 20 Index.
         value_24h_percentage_change (float | Unset): Percentage change of the CoinMarketCap 20 Index over the past 24h.
     """
 
     constituents: list[CMC20IndexDetailDTO] | Unset = UNSET
-    last_update: datetime.date | Unset = UNSET
+    last_update: datetime.datetime | Unset = UNSET
     next_update: str | Unset = UNSET
     value: float | Unset = UNSET
     value_24h_percentage_change: float | Unset = UNSET
@@ -85,11 +85,11 @@ class CMC20IndexLatestDTO:
                 constituents.append(constituents_item)
 
         _last_update = d.pop("last_update", UNSET)
-        last_update: datetime.date | Unset
+        last_update: datetime.datetime | Unset
         if isinstance(_last_update, Unset):
             last_update = UNSET
         else:
-            last_update = isoparse(_last_update).date()
+            last_update = isoparse(_last_update)
 
         next_update = d.pop("next_update", UNSET)
 

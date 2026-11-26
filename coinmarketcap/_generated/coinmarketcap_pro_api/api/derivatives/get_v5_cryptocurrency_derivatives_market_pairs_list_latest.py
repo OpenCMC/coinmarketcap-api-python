@@ -207,7 +207,7 @@ def sync_detailed(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -304,7 +304,7 @@ def sync(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -395,7 +395,7 @@ async def asyncio_detailed(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -490,7 +490,7 @@ async def asyncio(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth

@@ -21,9 +21,15 @@ T = TypeVar("T", bound="CryptocurrencyQuotesHistoricalResponseModel")
 class CryptocurrencyQuotesHistoricalResponseModel:
     """
     Attributes:
-        data (CryptocurrencyQuotesHistoricalResultObject | CryptocurrencyQuotesHistoricalResultsMap): The v3 endpoint
-            always returns an object map keyed by cryptocurrency ID. The v1 and v2 endpoints return a single object when you
-            request one cryptocurrency, and an object map keyed by ID when you request several.
+        data (CryptocurrencyQuotesHistoricalResultObject | CryptocurrencyQuotesHistoricalResultsMap): The shape depends
+            on the endpoint version and on the identifiers you send:
+
+            - **One cryptocurrency (v1 and v2)** - one `id`, or one `symbol` on v1, returns the cryptocurrency object
+            itself.
+            - **Object map** - several `id` or `symbol` values on v1 and v2, and every v3 request, return an object map
+            keyed by the identifiers you sent (IDs or symbols).
+            - **Symbol lookups (v2 and v3)** - each map value is an array of all cryptocurrencies that share the symbol,
+            even when you send one symbol.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 

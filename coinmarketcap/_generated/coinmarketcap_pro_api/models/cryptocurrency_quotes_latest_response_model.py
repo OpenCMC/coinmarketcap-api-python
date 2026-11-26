@@ -22,15 +22,16 @@ T = TypeVar("T", bound="CryptocurrencyQuotesLatestResponseModel")
 class CryptocurrencyQuotesLatestResponseModel:
     """
     Attributes:
-        data (CryptocurrencyQuotesLatestCryptocurrencyResultsMap): A map of cryptocurrency objects by ID, symbol, or
-            slug (as used in query parameters). Example: {'1': {'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'slug':
-            'bitcoin', 'is_active': 1, 'is_fiat': 0, 'circulating_supply': 17199862, 'total_supply': 17199862, 'max_supply':
-            21000000, 'date_added': '2013-04-28T00:00:00.000Z', 'num_market_pairs': 331, 'cmc_rank': 1, 'last_updated':
-            '2018-08-09T21:56:28.000Z', 'tags': ['mineable'], 'platform': None, 'self_reported_circulating_supply': None,
-            'self_reported_market_cap': None, 'minted_market_cap': 1802955697670.94, 'quote': {'USD': {'price':
-            6602.60701122, 'volume_24h': 4314444687.5194, 'volume_change_24h': -0.152774, 'percent_change_1h': 0.988615,
-            'percent_change_24h': 4.37185, 'percent_change_7d': -12.1352, 'percent_change_30d': -12.1352, 'market_cap':
-            852164659250.2758, 'market_cap_dominance': 51, 'fully_diluted_market_cap': 952835089431.14, 'last_updated':
+        data (CryptocurrencyQuotesLatestCryptocurrencyResultsMap): One entry per cryptocurrency requested. Requests by
+            `id` or `slug` are keyed by cryptocurrency ID, and requests by `symbol` are keyed by symbol. Example: {'1':
+            {'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'slug': 'bitcoin', 'is_active': 1, 'is_fiat': 0,
+            'circulating_supply': 17199862, 'total_supply': 17199862, 'max_supply': 21000000, 'date_added':
+            '2013-04-28T00:00:00.000Z', 'num_market_pairs': 331, 'cmc_rank': 1, 'last_updated': '2018-08-09T21:56:28.000Z',
+            'tags': ['mineable'], 'platform': None, 'self_reported_circulating_supply': None, 'self_reported_market_cap':
+            None, 'minted_market_cap': 1802955697670.94, 'quote': {'USD': {'price': 6602.60701122, 'volume_24h':
+            4314444687.5194, 'volume_change_24h': -0.152774, 'percent_change_1h': 0.988615, 'percent_change_24h': 4.37185,
+            'percent_change_7d': -12.1352, 'percent_change_30d': -12.1352, 'market_cap': 852164659250.2758,
+            'market_cap_dominance': 51, 'fully_diluted_market_cap': 952835089431.14, 'last_updated':
             '2018-08-09T21:56:28.000Z'}}}}.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """

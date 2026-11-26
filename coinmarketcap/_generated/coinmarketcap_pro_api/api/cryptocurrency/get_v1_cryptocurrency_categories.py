@@ -134,7 +134,7 @@ def sync_detailed(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -147,7 +147,7 @@ def sync_detailed(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Data is updated only as needed, every 30 seconds.
+    **Cache / Update frequency:** Every 5 to 15 minutes.
     **Plan credit use:** 1 API call credit per request + 1 call credit per 200 cryptocurrencies returned
     (rounded up) and 1 call credit per `convert` option beyond the first.
     **CMC equivalent pages:** Our free airdrops page [coinmarketcap.com/cryptocurrency-
@@ -207,7 +207,7 @@ def sync(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -220,7 +220,7 @@ def sync(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Data is updated only as needed, every 30 seconds.
+    **Cache / Update frequency:** Every 5 to 15 minutes.
     **Plan credit use:** 1 API call credit per request + 1 call credit per 200 cryptocurrencies returned
     (rounded up) and 1 call credit per `convert` option beyond the first.
     **CMC equivalent pages:** Our free airdrops page [coinmarketcap.com/cryptocurrency-
@@ -274,7 +274,7 @@ async def asyncio_detailed(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -287,7 +287,7 @@ async def asyncio_detailed(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Data is updated only as needed, every 30 seconds.
+    **Cache / Update frequency:** Every 5 to 15 minutes.
     **Plan credit use:** 1 API call credit per request + 1 call credit per 200 cryptocurrencies returned
     (rounded up) and 1 call credit per `convert` option beyond the first.
     **CMC equivalent pages:** Our free airdrops page [coinmarketcap.com/cryptocurrency-
@@ -345,7 +345,7 @@ async def asyncio(
 
       **This endpoint is available on the following [API
     plans](https://coinmarketcap.com/api/pricing/):**
-      - Free
+      - Basic
       - Builder
       - Startup
       - Growth
@@ -358,7 +358,7 @@ async def asyncio(
     API](https://coinmarketcap.com/api/documentation/pro-api-reference/keyless-public-api) for the full
     list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Data is updated only as needed, every 30 seconds.
+    **Cache / Update frequency:** Every 5 to 15 minutes.
     **Plan credit use:** 1 API call credit per request + 1 call credit per 200 cryptocurrencies returned
     (rounded up) and 1 call credit per `convert` option beyond the first.
     **CMC equivalent pages:** Our free airdrops page [coinmarketcap.com/cryptocurrency-

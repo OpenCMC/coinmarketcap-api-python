@@ -26,8 +26,8 @@ if TYPE_CHECKING:
     from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_base import (
         RWAMarketPairsResultsObjectMarketPairsItemMarketPairBase,
     )
-    from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes import (
-        RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes,
+    from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_quote import (
+        RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote,
     )
     from ..models.rwa_market_pairs_results_object_market_pairs_item_quotes_item import (
         RWAMarketPairsResultsObjectMarketPairsItemQuotesItem,
@@ -50,7 +50,7 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
             `transactional-mining`, `unknown`. Example: percentage.
         market_pair_base (RWAMarketPairsResultsObjectMarketPairsItemMarketPairBase | Unset): Base side of the pair (the
             RWA token).
-        market_pair_quotes (RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes | Unset): Quote side of the pair.
+        market_pair_quote (RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote | Unset): Quote side of the pair.
         exchange_reported_quotes (RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotes | Unset): Price and
             volume as reported directly by the exchange, in the pair's quote currency.
         quotes (list[RWAMarketPairsResultsObjectMarketPairsItemQuotesItem] | Unset): Converted price/volume; one object
@@ -63,7 +63,7 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
     category: RWAMarketPairsResultsObjectMarketPairsItemCategory | Unset = UNSET
     fee_type: RWAMarketPairsResultsObjectMarketPairsItemFeeType | Unset = UNSET
     market_pair_base: RWAMarketPairsResultsObjectMarketPairsItemMarketPairBase | Unset = UNSET
-    market_pair_quotes: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes | Unset = UNSET
+    market_pair_quote: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote | Unset = UNSET
     exchange_reported_quotes: RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotes | Unset = UNSET
     quotes: list[RWAMarketPairsResultsObjectMarketPairsItemQuotesItem] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
@@ -89,9 +89,9 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
         if not isinstance(self.market_pair_base, Unset):
             market_pair_base = self.market_pair_base.to_dict()
 
-        market_pair_quotes: dict[str, Any] | Unset = UNSET
-        if not isinstance(self.market_pair_quotes, Unset):
-            market_pair_quotes = self.market_pair_quotes.to_dict()
+        market_pair_quote: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.market_pair_quote, Unset):
+            market_pair_quote = self.market_pair_quote.to_dict()
 
         exchange_reported_quotes: dict[str, Any] | Unset = UNSET
         if not isinstance(self.exchange_reported_quotes, Unset):
@@ -119,8 +119,8 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
             field_dict["fee_type"] = fee_type
         if market_pair_base is not UNSET:
             field_dict["market_pair_base"] = market_pair_base
-        if market_pair_quotes is not UNSET:
-            field_dict["market_pair_quotes"] = market_pair_quotes
+        if market_pair_quote is not UNSET:
+            field_dict["market_pair_quote"] = market_pair_quote
         if exchange_reported_quotes is not UNSET:
             field_dict["exchange_reported_quotes"] = exchange_reported_quotes
         if quotes is not UNSET:
@@ -139,8 +139,8 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
         from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_base import (
             RWAMarketPairsResultsObjectMarketPairsItemMarketPairBase,
         )
-        from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes import (
-            RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes,
+        from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_quote import (
+            RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote,
         )
         from ..models.rwa_market_pairs_results_object_market_pairs_item_quotes_item import (
             RWAMarketPairsResultsObjectMarketPairsItemQuotesItem,
@@ -179,14 +179,12 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
         else:
             market_pair_base = RWAMarketPairsResultsObjectMarketPairsItemMarketPairBase.from_dict(_market_pair_base)
 
-        _market_pair_quotes = d.pop("market_pair_quotes", UNSET)
-        market_pair_quotes: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes | Unset
-        if isinstance(_market_pair_quotes, Unset):
-            market_pair_quotes = UNSET
+        _market_pair_quote = d.pop("market_pair_quote", UNSET)
+        market_pair_quote: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote | Unset
+        if isinstance(_market_pair_quote, Unset):
+            market_pair_quote = UNSET
         else:
-            market_pair_quotes = RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes.from_dict(
-                _market_pair_quotes
-            )
+            market_pair_quote = RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote.from_dict(_market_pair_quote)
 
         _exchange_reported_quotes = d.pop("exchange_reported_quotes", UNSET)
         exchange_reported_quotes: RWAMarketPairsResultsObjectMarketPairsItemExchangeReportedQuotes | Unset
@@ -213,7 +211,7 @@ class RWAMarketPairsResultsObjectMarketPairsItem:
             category=category,
             fee_type=fee_type,
             market_pair_base=market_pair_base,
-            market_pair_quotes=market_pair_quotes,
+            market_pair_quote=market_pair_quote,
             exchange_reported_quotes=exchange_reported_quotes,
             quotes=quotes,
         )

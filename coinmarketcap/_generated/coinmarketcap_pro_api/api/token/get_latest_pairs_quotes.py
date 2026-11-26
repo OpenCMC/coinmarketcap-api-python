@@ -88,6 +88,15 @@ def sync_detailed(
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
     market values in multiple fiat and cryptocurrency conversions in the same call.
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v4/dex/pairs/quotes/latest`. See the [Keyless Public
@@ -144,6 +153,15 @@ def sync(
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
     market values in multiple fiat and cryptocurrency conversions in the same call.
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v4/dex/pairs/quotes/latest`. See the [Keyless Public
@@ -194,6 +212,15 @@ async def asyncio_detailed(
 
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
     market values in multiple fiat and cryptocurrency conversions in the same call.
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
@@ -248,6 +275,15 @@ async def asyncio(
 
      Returns the latest market quote for 1 or more spot pairs. Use the \"convert\" option to return
     market values in multiple fiat and cryptocurrency conversions in the same call.
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-

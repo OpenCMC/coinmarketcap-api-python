@@ -119,6 +119,15 @@ def sync_detailed(
 
      Get swap/trade history for a token
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v1/dex/tokens/transactions`. See the [Keyless Public
@@ -195,6 +204,15 @@ def sync(
 
      Get swap/trade history for a token
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v1/dex/tokens/transactions`. See the [Keyless Public
@@ -265,6 +283,15 @@ async def asyncio_detailed(
     r"""Get swap list
 
      Get swap/trade history for a token
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
@@ -339,6 +366,15 @@ async def asyncio(
     r"""Get swap list
 
      Get swap/trade history for a token
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-

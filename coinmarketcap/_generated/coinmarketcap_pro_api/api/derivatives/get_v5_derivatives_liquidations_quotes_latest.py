@@ -17,7 +17,7 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> dict[str, Any]:
 
     params: dict[str, Any] = {}
@@ -106,7 +106,7 @@ def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> Response[
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -156,7 +156,7 @@ def sync_detailed(
 
     Args:
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -182,7 +182,7 @@ def sync(
     *,
     client: AuthenticatedClient | Client,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> (
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -233,7 +233,7 @@ def sync(
 
     Args:
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -254,7 +254,7 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> Response[
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -304,7 +304,7 @@ async def asyncio_detailed(
 
     Args:
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -328,7 +328,7 @@ async def asyncio(
     *,
     client: AuthenticatedClient | Client,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> (
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -379,7 +379,7 @@ async def asyncio(
 
     Args:
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

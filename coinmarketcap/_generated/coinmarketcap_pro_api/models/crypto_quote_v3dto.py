@@ -37,7 +37,7 @@ class CryptoQuoteV3DTO:
         max_supply (float | None | Unset): Maximum supply of the cryptocurrency
         date_added (str | Unset):
         num_market_pairs (int | Unset):
-        cmc_rank (int | Unset):
+        cmc_rank (int | None | Unset):
         last_updated (str | Unset):
         tvl_ratio (float | None | Unset): TVL to market cap ratio
         self_reported_circulating_supply (float | None | Unset): Self-reported circulating supply
@@ -63,7 +63,7 @@ class CryptoQuoteV3DTO:
     max_supply: float | None | Unset = UNSET
     date_added: str | Unset = UNSET
     num_market_pairs: int | Unset = UNSET
-    cmc_rank: int | Unset = UNSET
+    cmc_rank: int | None | Unset = UNSET
     last_updated: str | Unset = UNSET
     tvl_ratio: float | None | Unset = UNSET
     self_reported_circulating_supply: float | None | Unset = UNSET
@@ -128,7 +128,11 @@ class CryptoQuoteV3DTO:
 
         num_market_pairs = self.num_market_pairs
 
-        cmc_rank = self.cmc_rank
+        cmc_rank: int | None | Unset
+        if isinstance(self.cmc_rank, Unset):
+            cmc_rank = UNSET
+        else:
+            cmc_rank = self.cmc_rank
 
         last_updated = self.last_updated
 
@@ -285,7 +289,14 @@ class CryptoQuoteV3DTO:
 
         num_market_pairs = d.pop("num_market_pairs", UNSET)
 
-        cmc_rank = d.pop("cmc_rank", UNSET)
+        def _parse_cmc_rank(data: object) -> int | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(int | None | Unset, data)
+
+        cmc_rank = _parse_cmc_rank(d.pop("cmc_rank", UNSET))
 
         last_updated = d.pop("last_updated", UNSET)
 

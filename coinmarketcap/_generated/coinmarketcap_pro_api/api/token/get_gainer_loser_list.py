@@ -63,6 +63,13 @@ def sync_detailed(
 
      Get list of top gainer and loser tokens
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryMarketRequestDTO): Market list request
 
@@ -94,6 +101,13 @@ def sync(
 
      Get list of top gainer and loser tokens
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryMarketRequestDTO): Market list request
 
@@ -119,6 +133,13 @@ async def asyncio_detailed(
     """Get top gainers and losers
 
      Get list of top gainer and loser tokens
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryMarketRequestDTO): Market list request
@@ -148,6 +169,13 @@ async def asyncio(
     """Get top gainers and losers
 
      Get list of top gainer and loser tokens
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryMarketRequestDTO): Market list request

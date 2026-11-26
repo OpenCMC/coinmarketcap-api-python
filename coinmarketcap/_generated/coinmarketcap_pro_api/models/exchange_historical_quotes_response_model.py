@@ -21,8 +21,9 @@ T = TypeVar("T", bound="ExchangeHistoricalQuotesResponseModel")
 class ExchangeHistoricalQuotesResponseModel:
     """
     Attributes:
-        data (ExchangeHistoricalQuotesExchangeObject | ExchangeHistoricalQuotesResultsMap): A single object when you
-            request one exchange, and an object map keyed by exchange ID when you request several.
+        data (ExchangeHistoricalQuotesExchangeObject | ExchangeHistoricalQuotesResultsMap): One exchange returns the
+            exchange object itself. Several exchanges return an object map with one entry per exchange, keyed by the
+            identifiers you sent: exchange IDs for `id` requests and slugs for `slug` requests.
         status (APIStatusObject | Unset): Standardized status object for API calls.
     """
 

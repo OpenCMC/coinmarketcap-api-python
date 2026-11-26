@@ -31,7 +31,7 @@ def _get_kwargs(
     start: int | Unset = 1,
     limit: int | Unset = 100,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> dict[str, Any]:
 
     params: dict[str, Any] = {}
@@ -152,7 +152,7 @@ def sync_detailed(
     start: int | Unset = 1,
     limit: int | Unset = 100,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> Response[
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -205,7 +205,7 @@ def sync_detailed(
         start (int | Unset):  Default: 1.
         limit (int | Unset):  Default: 100.
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -247,7 +247,7 @@ def sync(
     start: int | Unset = 1,
     limit: int | Unset = 100,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> (
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -301,7 +301,7 @@ def sync(
         start (int | Unset):  Default: 1.
         limit (int | Unset):  Default: 100.
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -338,7 +338,7 @@ async def asyncio_detailed(
     start: int | Unset = 1,
     limit: int | Unset = 100,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> Response[
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -391,7 +391,7 @@ async def asyncio_detailed(
         start (int | Unset):  Default: 1.
         limit (int | Unset):  Default: 100.
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -431,7 +431,7 @@ async def asyncio(
     start: int | Unset = 1,
     limit: int | Unset = 100,
     convert: str | Unset = "USD",
-    convert_id: str | Unset = "2781",
+    convert_id: str | Unset = UNSET,
 ) -> (
     HTTPStatus400ErrorObject
     | HTTPStatus401ErrorObject
@@ -485,7 +485,7 @@ async def asyncio(
         start (int | Unset):  Default: 1.
         limit (int | Unset):  Default: 100.
         convert (str | Unset):  Default: 'USD'. Example: USD.
-        convert_id (str | Unset):  Default: '2781'. Example: 2781.
+        convert_id (str | Unset):  Example: 2781.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.

@@ -15,7 +15,7 @@ T = TypeVar("T", bound="CryptocurrencyQuotesHistoricalResultsMap")
 
 @_attrs_define
 class CryptocurrencyQuotesHistoricalResultsMap:
-    """Results of your query returned as an object map.
+    """One entry per identifier you sent, keyed by cryptocurrency ID or symbol.
 
     Example:
         {'1': {'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'is_active': 1, 'is_fiat': 0, 'quotes': [{'timestamp':
@@ -24,15 +24,24 @@ class CryptocurrencyQuotesHistoricalResultsMap:
 
     """
 
-    additional_properties: dict[str, CryptocurrencyQuotesHistoricalResultObject] = _attrs_field(
-        init=False, factory=dict
-    )
+    additional_properties: dict[
+        str, CryptocurrencyQuotesHistoricalResultObject | list[CryptocurrencyQuotesHistoricalResultObject]
+    ] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.cryptocurrency_quotes_historical_result_object import CryptocurrencyQuotesHistoricalResultObject
 
         field_dict: dict[str, Any] = {}
         for prop_name, prop in self.additional_properties.items():
-            field_dict[prop_name] = prop.to_dict()
+            if isinstance(prop, CryptocurrencyQuotesHistoricalResultObject):
+                field_dict[prop_name] = prop.to_dict()
+            else:
+                field_dict[prop_name] = []
+                for additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item_data in prop:
+                    additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item = (
+                        additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item_data.to_dict()
+                    )
+                    field_dict[prop_name].append(additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item)
 
         return field_dict
 
@@ -45,7 +54,38 @@ class CryptocurrencyQuotesHistoricalResultsMap:
 
         additional_properties = {}
         for prop_name, prop_dict in d.items():
-            additional_property = CryptocurrencyQuotesHistoricalResultObject.from_dict(prop_dict)
+
+            def _parse_additional_property(
+                data: object,
+            ) -> CryptocurrencyQuotesHistoricalResultObject | list[CryptocurrencyQuotesHistoricalResultObject]:
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    additional_property_type_0 = CryptocurrencyQuotesHistoricalResultObject.from_dict(data)
+
+                    return additional_property_type_0
+                except (TypeError, ValueError, AttributeError, KeyError):
+                    pass
+                if not isinstance(data, list):
+                    raise TypeError()
+                additional_property_symbol_matches_v_2_and_v_3_symbol_requests = []
+                _additional_property_symbol_matches_v_2_and_v_3_symbol_requests = data
+                for (
+                    additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item_data
+                ) in _additional_property_symbol_matches_v_2_and_v_3_symbol_requests:
+                    additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item = (
+                        CryptocurrencyQuotesHistoricalResultObject.from_dict(
+                            additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item_data
+                        )
+                    )
+
+                    additional_property_symbol_matches_v_2_and_v_3_symbol_requests.append(
+                        additional_property_symbol_matches_v_2_and_v_3_symbol_requests_item
+                    )
+
+                return additional_property_symbol_matches_v_2_and_v_3_symbol_requests
+
+            additional_property = _parse_additional_property(prop_dict)
 
             additional_properties[prop_name] = additional_property
 
@@ -56,10 +96,16 @@ class CryptocurrencyQuotesHistoricalResultsMap:
     def additional_keys(self) -> list[str]:
         return list(self.additional_properties.keys())
 
-    def __getitem__(self, key: str) -> CryptocurrencyQuotesHistoricalResultObject:
+    def __getitem__(
+        self, key: str
+    ) -> CryptocurrencyQuotesHistoricalResultObject | list[CryptocurrencyQuotesHistoricalResultObject]:
         return self.additional_properties[key]
 
-    def __setitem__(self, key: str, value: CryptocurrencyQuotesHistoricalResultObject) -> None:
+    def __setitem__(
+        self,
+        key: str,
+        value: CryptocurrencyQuotesHistoricalResultObject | list[CryptocurrencyQuotesHistoricalResultObject],
+    ) -> None:
         self.additional_properties[key] = value
 
     def __delitem__(self, key: str) -> None:

@@ -17,7 +17,7 @@ T = TypeVar("T", bound="CryptocurrencyOHLCVHistoricalResultsObject")
 
 @_attrs_define
 class CryptocurrencyOHLCVHistoricalResultsObject:
-    """Results of your query returned as an object.
+    """A cryptocurrency and its OHLCV quotes.
 
     Example:
         {'id': 1, 'name': 'Bitcoin', 'symbol': 'BTC', 'quotes': [{'time_open': '2019-01-02T00:00:00.000Z', 'time_close':

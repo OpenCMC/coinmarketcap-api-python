@@ -67,6 +67,15 @@ def sync_detailed(
 
      Get security audit information for a token
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v1/dex/security/detail`. See the [Keyless Public
@@ -107,6 +116,15 @@ def sync(
 
      Get security audit information for a token
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v1/dex/security/detail`. See the [Keyless Public
@@ -141,6 +159,15 @@ async def asyncio_detailed(
     r"""Get security detail
 
      Get security audit information for a token
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
@@ -179,6 +206,15 @@ async def asyncio(
     r"""Get security detail
 
      Get security audit information for a token
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-

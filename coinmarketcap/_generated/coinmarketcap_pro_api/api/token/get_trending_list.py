@@ -63,6 +63,13 @@ def sync_detailed(
 
      Get list of trending tokens
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryMarketRequestDTO): Market list request
 
@@ -94,6 +101,13 @@ def sync(
 
      Get list of trending tokens
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryMarketRequestDTO): Market list request
 
@@ -119,6 +133,13 @@ async def asyncio_detailed(
     """Get trending tokens
 
      Get list of trending tokens
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryMarketRequestDTO): Market list request
@@ -148,6 +169,13 @@ async def asyncio(
     """Get trending tokens
 
      Get list of trending tokens
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryMarketRequestDTO): Market list request

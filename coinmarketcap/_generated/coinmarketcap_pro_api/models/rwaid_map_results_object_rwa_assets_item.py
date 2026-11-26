@@ -31,8 +31,10 @@ class RWAIDMapResultsObjectRwaAssetsItem:
             Example: 2.
         has_tokens (bool | Unset): `true` if at least one token exists for this asset; `false` if there are no tokenized
             assets. Example: True.
-        first_historical_data (datetime.datetime | None | Unset): ISO 8601 timestamp of the earliest historical data
-            point available; `null` if none. Example: 2003-09-07T04:00:00.000Z.
+        first_historical_data (datetime.datetime | None | Unset): ISO 8601 timestamp of the earliest price data
+            CoinMarketCap holds for the underlying asset, for example 2009 for gold; `null` if none. The tokenized history
+            in [/v5/real-world-assets/quotes/historical](/pro-api-reference/real-world-assets#quotes-historical-4) starts
+            later, no earlier than January 1, 2020. Example: 2003-09-07T04:00:00.000Z.
         last_historical_data (datetime.datetime | None | Unset): ISO 8601 timestamp of the most recent historical data
             point available; `null` if none. Example: 2026-07-08T10:29:00.000Z.
     """

@@ -83,6 +83,14 @@ def sync_detailed(
 
      Get detailed information for holders trend list
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         platform (str | Unset):
         token_address (str | Unset):
@@ -129,6 +137,14 @@ def sync(
 
      Get detailed information for holders trend list
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         platform (str | Unset):
         token_address (str | Unset):
@@ -169,6 +185,14 @@ async def asyncio_detailed(
     """Get holder trend list
 
      Get detailed information for holders trend list
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         platform (str | Unset):
@@ -213,6 +237,14 @@ async def asyncio(
     """Get holder trend list
 
      Get detailed information for holders trend list
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         platform (str | Unset):

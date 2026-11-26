@@ -6,31 +6,31 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes_currency_type import (
-    RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotesCurrencyType,
-    check_rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes_currency_type,
+from ..models.rwa_market_pairs_results_object_market_pairs_item_market_pair_quote_currency_type import (
+    RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuoteCurrencyType,
+    check_rwa_market_pairs_results_object_market_pairs_item_market_pair_quote_currency_type,
 )
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes")
+T = TypeVar("T", bound="RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote")
 
 
 @_attrs_define
-class RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes:
+class RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote:
     """Quote side of the pair.
 
     Attributes:
         crypto_id (int | Unset): Underlying token's CoinMarketCap cryptocurrency ID. Example: 825.
         symbol (str | Unset): Symbol. Example: USDT.
         exchange_symbol (str | Unset): Symbol as the exchange labels it. Example: USDT.
-        currency_type (RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotesCurrencyType | Unset): Currency type.
+        currency_type (RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuoteCurrencyType | Unset): Currency type.
             One of `cryptocurrency`, `fiat`. Example: cryptocurrency.
     """
 
     crypto_id: int | Unset = UNSET
     symbol: str | Unset = UNSET
     exchange_symbol: str | Unset = UNSET
-    currency_type: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotesCurrencyType | Unset = UNSET
+    currency_type: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuoteCurrencyType | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -68,23 +68,23 @@ class RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes:
         exchange_symbol = d.pop("exchange_symbol", UNSET)
 
         _currency_type = d.pop("currency_type", UNSET)
-        currency_type: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotesCurrencyType | Unset
+        currency_type: RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuoteCurrencyType | Unset
         if isinstance(_currency_type, Unset):
             currency_type = UNSET
         else:
-            currency_type = check_rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes_currency_type(
+            currency_type = check_rwa_market_pairs_results_object_market_pairs_item_market_pair_quote_currency_type(
                 _currency_type
             )
 
-        rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes = cls(
+        rwa_market_pairs_results_object_market_pairs_item_market_pair_quote = cls(
             crypto_id=crypto_id,
             symbol=symbol,
             exchange_symbol=exchange_symbol,
             currency_type=currency_type,
         )
 
-        rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes.additional_properties = d
-        return rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes
+        rwa_market_pairs_results_object_market_pairs_item_market_pair_quote.additional_properties = d
+        return rwa_market_pairs_results_object_market_pairs_item_market_pair_quote
 
     @property
     def additional_keys(self) -> list[str]:

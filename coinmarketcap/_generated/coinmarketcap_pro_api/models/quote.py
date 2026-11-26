@@ -17,7 +17,7 @@ class Quote:
     Attributes:
         id (int | Unset): Currency ID
         symbol (str | Unset): Currency symbol
-        price (float | Unset): Current price in the specified currency
+        price (float | None | Unset): Current price in the specified currency
         volume_24h (float | Unset): 24-hour trading volume
         cex_volume_24h (float | Unset): 24-hour trading volume from centralized exchanges
         dex_volume_24h (float | Unset): 24-hour trading volume from decentralized exchanges
@@ -33,7 +33,7 @@ class Quote:
         percent_change_30d (float | Unset): 30-day percentage change
         percent_change_60d (float | Unset): 60-day percentage change
         percent_change_90d (float | Unset): 90-day percentage change
-        market_cap (float | Unset): Current market capitalization
+        market_cap (float | None | Unset): Current market capitalization
         market_cap_dominance (float | Unset): Market cap dominance percentage
         fully_diluted_market_cap (float | Unset): Fully diluted market capitalization
         minted_market_cap (float | Unset): Minted market capitalization
@@ -44,7 +44,7 @@ class Quote:
 
     id: int | Unset = UNSET
     symbol: str | Unset = UNSET
-    price: float | Unset = UNSET
+    price: float | None | Unset = UNSET
     volume_24h: float | Unset = UNSET
     cex_volume_24h: float | Unset = UNSET
     dex_volume_24h: float | Unset = UNSET
@@ -60,7 +60,7 @@ class Quote:
     percent_change_30d: float | Unset = UNSET
     percent_change_60d: float | Unset = UNSET
     percent_change_90d: float | Unset = UNSET
-    market_cap: float | Unset = UNSET
+    market_cap: float | None | Unset = UNSET
     market_cap_dominance: float | Unset = UNSET
     fully_diluted_market_cap: float | Unset = UNSET
     minted_market_cap: float | Unset = UNSET
@@ -74,7 +74,11 @@ class Quote:
 
         symbol = self.symbol
 
-        price = self.price
+        price: float | None | Unset
+        if isinstance(self.price, Unset):
+            price = UNSET
+        else:
+            price = self.price
 
         volume_24h = self.volume_24h
 
@@ -106,7 +110,11 @@ class Quote:
 
         percent_change_90d = self.percent_change_90d
 
-        market_cap = self.market_cap
+        market_cap: float | None | Unset
+        if isinstance(self.market_cap, Unset):
+            market_cap = UNSET
+        else:
+            market_cap = self.market_cap
 
         market_cap_dominance = self.market_cap_dominance
 
@@ -187,7 +195,14 @@ class Quote:
 
         symbol = d.pop("symbol", UNSET)
 
-        price = d.pop("price", UNSET)
+        def _parse_price(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        price = _parse_price(d.pop("price", UNSET))
 
         volume_24h = d.pop("volume_24h", UNSET)
 
@@ -219,7 +234,14 @@ class Quote:
 
         percent_change_90d = d.pop("percent_change_90d", UNSET)
 
-        market_cap = d.pop("market_cap", UNSET)
+        def _parse_market_cap(data: object) -> float | None | Unset:
+            if data is None:
+                return data
+            if isinstance(data, Unset):
+                return data
+            return cast(float | None | Unset, data)
+
+        market_cap = _parse_market_cap(d.pop("market_cap", UNSET))
 
         market_cap_dominance = d.pop("market_cap_dominance", UNSET)
 

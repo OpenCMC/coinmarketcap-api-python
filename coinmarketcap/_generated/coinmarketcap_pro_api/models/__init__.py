@@ -134,10 +134,11 @@ from .cryptocurrency_ohlcv_historical_interval_quote_object import Cryptocurrenc
 from .cryptocurrency_ohlcv_historical_quote_map import CryptocurrencyOHLCVHistoricalQuoteMap
 from .cryptocurrency_ohlcv_historical_quote_object import CryptocurrencyOHLCVHistoricalQuoteObject
 from .cryptocurrency_ohlcv_historical_response_model import CryptocurrencyOHLCVHistoricalResponseModel
-from .cryptocurrency_ohlcv_historical_response_model_data_type_0 import (
-    CryptocurrencyOHLCVHistoricalResponseModelDataType0,
+from .cryptocurrency_ohlcv_historical_response_model_object_map import (
+    CryptocurrencyOHLCVHistoricalResponseModelObjectMap,
 )
 from .cryptocurrency_ohlcv_historical_results_object import CryptocurrencyOHLCVHistoricalResultsObject
+from .cryptocurrency_ohlcv_historical_v5_response_model import CryptocurrencyOHLCVHistoricalV5ResponseModel
 from .cryptocurrency_ohlcv_latest_cryptocurrency_object import CryptocurrencyOHLCVLatestCryptocurrencyObject
 from .cryptocurrency_ohlcv_latest_cryptocurrency_results_map import CryptocurrencyOHLCVLatestCryptocurrencyResultsMap
 from .cryptocurrency_ohlcv_latest_quote_map import CryptocurrencyOHLCVLatestQuoteMap
@@ -171,8 +172,8 @@ from .cryptocurrency_quotes_historical_response_model import CryptocurrencyQuote
 from .cryptocurrency_quotes_historical_result_object import CryptocurrencyQuotesHistoricalResultObject
 from .cryptocurrency_quotes_historical_results_map import CryptocurrencyQuotesHistoricalResultsMap
 from .cryptocurrency_quotes_latest_cryptocurrency_object import CryptocurrencyQuotesLatestCryptocurrencyObject
-from .cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
-    CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+from .cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2 import (
+    CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2,
 )
 from .cryptocurrency_quotes_latest_cryptocurrency_results_map import CryptocurrencyQuotesLatestCryptocurrencyResultsMap
 from .cryptocurrency_quotes_latest_quote_map import CryptocurrencyQuotesLatestQuoteMap
@@ -412,6 +413,7 @@ from .get_v5_cryptocurrency_derivatives_market_pairs_list_latest_sort import (
 from .get_v5_cryptocurrency_derivatives_market_pairs_list_latest_sort_dir import (
     GetV5CryptocurrencyDerivativesMarketPairsListLatestSortDir,
 )
+from .get_v5_cryptocurrency_ohlcv_historical_interval import GetV5CryptocurrencyOhlcvHistoricalInterval
 from .get_v5_derivatives_liquidations_cryptocurrency_list_latest_sort import (
     GetV5DerivativesLiquidationsCryptocurrencyListLatestSort,
 )
@@ -443,6 +445,7 @@ from .get_v5_real_world_assets_map_asset_type import GetV5RealWorldAssetsMapAsse
 from .get_v5_real_world_assets_map_sort import GetV5RealWorldAssetsMapSort
 from .get_v5_real_world_assets_market_pairs_list_sort import GetV5RealWorldAssetsMarketPairsListSort
 from .get_v5_real_world_assets_market_pairs_list_sort_dir import GetV5RealWorldAssetsMarketPairsListSortDir
+from .get_v5_real_world_assets_quotes_historical_interval import GetV5RealWorldAssetsQuotesHistoricalInterval
 from .global_metrics_batch_request_dto import GlobalMetricsBatchRequestDTO
 from .global_metrics_quote_dto import GlobalMetricsQuoteDTO
 from .global_metrics_quotes_historic_currency_quote_object import GlobalMetricsQuotesHistoricCurrencyQuoteObject
@@ -549,14 +552,23 @@ from .rwa_market_pairs_results_object_market_pairs_item_market_pair_base import 
 from .rwa_market_pairs_results_object_market_pairs_item_market_pair_base_currency_type import (
     RWAMarketPairsResultsObjectMarketPairsItemMarketPairBaseCurrencyType,
 )
-from .rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes import (
-    RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes,
+from .rwa_market_pairs_results_object_market_pairs_item_market_pair_quote import (
+    RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote,
 )
-from .rwa_market_pairs_results_object_market_pairs_item_market_pair_quotes_currency_type import (
-    RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotesCurrencyType,
+from .rwa_market_pairs_results_object_market_pairs_item_market_pair_quote_currency_type import (
+    RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuoteCurrencyType,
 )
 from .rwa_market_pairs_results_object_market_pairs_item_quotes_item import (
     RWAMarketPairsResultsObjectMarketPairsItemQuotesItem,
+)
+from .rwa_quotes_historical_response_model import RWAQuotesHistoricalResponseModel
+from .rwa_quotes_historical_results_object import RWAQuotesHistoricalResultsObject
+from .rwa_quotes_historical_results_object_rwa_assets_item import RWAQuotesHistoricalResultsObjectRwaAssetsItem
+from .rwa_quotes_historical_results_object_rwa_assets_item_asset_type import (
+    RWAQuotesHistoricalResultsObjectRwaAssetsItemAssetType,
+)
+from .rwa_quotes_historical_results_object_rwa_assets_item_quotes_item import (
+    RWAQuotesHistoricalResultsObjectRwaAssetsItemQuotesItem,
 )
 from .rwa_quotes_latest_response_model import RWAQuotesLatestResponseModel
 from .rwa_quotes_latest_results_object import RWAQuotesLatestResultsObject
@@ -756,8 +768,9 @@ __all__ = (
     "CryptocurrencyOHLCVHistoricalQuoteMap",
     "CryptocurrencyOHLCVHistoricalQuoteObject",
     "CryptocurrencyOHLCVHistoricalResponseModel",
-    "CryptocurrencyOHLCVHistoricalResponseModelDataType0",
+    "CryptocurrencyOHLCVHistoricalResponseModelObjectMap",
     "CryptocurrencyOHLCVHistoricalResultsObject",
+    "CryptocurrencyOHLCVHistoricalV5ResponseModel",
     "CryptocurrencyOHLCVLatestCryptocurrencyObject",
     "CryptocurrencyOHLCVLatestCryptocurrencyResultsMap",
     "CryptocurrencyOHLCVLatestQuoteMap",
@@ -779,7 +792,7 @@ __all__ = (
     "CryptocurrencyQuotesHistoricalResultObject",
     "CryptocurrencyQuotesHistoricalResultsMap",
     "CryptocurrencyQuotesLatestCryptocurrencyObject",
-    "CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1",
+    "CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2",
     "CryptocurrencyQuotesLatestCryptocurrencyResultsMap",
     "CryptocurrencyQuotesLatestQuoteMap",
     "CryptocurrencyQuotesLatestQuoteObject",
@@ -952,6 +965,7 @@ __all__ = (
     "GetV5CryptocurrencyDerivativesMarketPairsListLatestFeeType",
     "GetV5CryptocurrencyDerivativesMarketPairsListLatestSort",
     "GetV5CryptocurrencyDerivativesMarketPairsListLatestSortDir",
+    "GetV5CryptocurrencyOhlcvHistoricalInterval",
     "GetV5DerivativesLiquidationsCryptocurrencyListLatestSort",
     "GetV5DerivativesLiquidationsCryptocurrencyListLatestSortDir",
     "GetV5DerivativesLiquidationsExchangeListLatestSort",
@@ -969,6 +983,7 @@ __all__ = (
     "GetV5RealWorldAssetsMapSort",
     "GetV5RealWorldAssetsMarketPairsListSort",
     "GetV5RealWorldAssetsMarketPairsListSortDir",
+    "GetV5RealWorldAssetsQuotesHistoricalInterval",
     "GlobalMetricsBatchRequestDTO",
     "GlobalMetricsQuoteDTO",
     "GlobalMetricsQuotesHistoricCurrencyQuoteObject",
@@ -1059,9 +1074,14 @@ __all__ = (
     "RWAMarketPairsResultsObjectMarketPairsItemFeeType",
     "RWAMarketPairsResultsObjectMarketPairsItemMarketPairBase",
     "RWAMarketPairsResultsObjectMarketPairsItemMarketPairBaseCurrencyType",
-    "RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotes",
-    "RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuotesCurrencyType",
+    "RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuote",
+    "RWAMarketPairsResultsObjectMarketPairsItemMarketPairQuoteCurrencyType",
     "RWAMarketPairsResultsObjectMarketPairsItemQuotesItem",
+    "RWAQuotesHistoricalResponseModel",
+    "RWAQuotesHistoricalResultsObject",
+    "RWAQuotesHistoricalResultsObjectRwaAssetsItem",
+    "RWAQuotesHistoricalResultsObjectRwaAssetsItemAssetType",
+    "RWAQuotesHistoricalResultsObjectRwaAssetsItemQuotesItem",
     "RWAQuotesLatestResponseModel",
     "RWAQuotesLatestResultsObject",
     "RWAQuotesLatestResultsObjectRwaAssetsItem",

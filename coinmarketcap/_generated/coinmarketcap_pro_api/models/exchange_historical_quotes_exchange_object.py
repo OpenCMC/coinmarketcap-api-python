@@ -15,7 +15,7 @@ T = TypeVar("T", bound="ExchangeHistoricalQuotesExchangeObject")
 
 @_attrs_define
 class ExchangeHistoricalQuotesExchangeObject:
-    """An exchange object for each exchange requested. The map key being the id/slug used in the request.
+    """An exchange and its historical quotes.
 
     Attributes:
         id (int): The CoinMarketCap exchange ID. Example: 1.

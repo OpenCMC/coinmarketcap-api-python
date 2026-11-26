@@ -63,6 +63,13 @@ def sync_detailed(
 
      Get list of meme tokens
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryMemeRequestDTO): Meme coin request
 
@@ -94,6 +101,13 @@ def sync(
 
      Get list of meme tokens
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryMemeRequestDTO): Meme coin request
 
@@ -119,6 +133,13 @@ async def asyncio_detailed(
     """Get meme tokens
 
      Get list of meme tokens
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryMemeRequestDTO): Meme coin request
@@ -148,6 +169,13 @@ async def asyncio(
     """Get meme tokens
 
      Get list of meme tokens
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryMemeRequestDTO): Meme coin request

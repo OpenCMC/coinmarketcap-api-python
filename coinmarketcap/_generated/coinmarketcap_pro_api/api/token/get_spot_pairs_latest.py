@@ -168,6 +168,15 @@ def sync_detailed(
      Returns a paginated list of all active dex spot pairs with latest market data. Use the \"convert\"
     option to return market values in multiple fiat and cryptocurrency conversions in the same call.
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v4/dex/spot-pairs/latest`. See the [Keyless Public
@@ -284,6 +293,15 @@ def sync(
      Returns a paginated list of all active dex spot pairs with latest market data. Use the \"convert\"
     option to return market values in multiple fiat and cryptocurrency conversions in the same call.
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
     api/v4/dex/spot-pairs/latest`. See the [Keyless Public
@@ -394,6 +412,15 @@ async def asyncio_detailed(
 
      Returns a paginated list of all active dex spot pairs with latest market data. Use the \"convert\"
     option to return market values in multiple fiat and cryptocurrency conversions in the same call.
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-
@@ -508,6 +535,15 @@ async def asyncio(
 
      Returns a paginated list of all active dex spot pairs with latest market data. Use the \"convert\"
     option to return market values in multiple fiat and cryptocurrency conversions in the same call.
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Basic
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     <Callout type=\"tip\" title=\"Available with no API key\">Call this endpoint keyless - no API key,
     no signup. Prefix the path with `/public-api`: `https://pro-api.coinmarketcap.com/public-

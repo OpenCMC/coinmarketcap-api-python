@@ -15,10 +15,10 @@ T = TypeVar("T", bound="ExchangeHistoricalQuotesResultsMap")
 
 @_attrs_define
 class ExchangeHistoricalQuotesResultsMap:
-    """Results of your query returned as an object map.
+    """One entry per exchange requested, keyed by the exchange ID or slug you sent.
 
     Example:
-        {'1': {'id': 270, 'name': 'Binance', 'slug': 'binance', 'quotes': [{'timestamp': '2018-06-03T00:00:00.000Z',
+        {'270': {'id': 270, 'name': 'Binance', 'slug': 'binance', 'quotes': [{'timestamp': '2018-06-03T00:00:00.000Z',
             'quote': {'USD': {'volume_24h': 1632390000, 'timestamp': '2018-06-03T00:00:00.000Z'}}, 'num_market_pairs': 338},
             {'timestamp': '2018-06-10T00:00:00.000Z', 'quote': {'USD': {'volume_24h': 1034720000, 'timestamp':
             '2018-06-10T00:00:00.000Z'}}, 'num_market_pairs': 349}, {'timestamp': '2018-06-17T00:00:00.000Z', 'quote':

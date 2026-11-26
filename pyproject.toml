@@ -1,6 +1,6 @@
 [project]
 name = "coinmarketcap-sdk"
-version = "5.0.1"
+version = "6.0.0"
 description = "Official CoinMarketCap Pro API Python SDK"
 readme = "README.md"
 license = {text = "MIT"}

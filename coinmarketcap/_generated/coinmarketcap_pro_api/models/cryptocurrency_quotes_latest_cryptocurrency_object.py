@@ -9,8 +9,8 @@ from attrs import field as _attrs_field
 from ..types import UNSET, Unset
 
 if TYPE_CHECKING:
-    from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
-        CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+    from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2 import (
+        CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2,
     )
     from ..models.cryptocurrency_quotes_latest_quote_map import CryptocurrencyQuotesLatestQuoteMap
     from ..models.platform_type_0 import PlatformType0
@@ -48,9 +48,9 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
             cryptocurrency. Example: 21000000.
         date_added (str | Unset): Timestamp (ISO 8601) of when this cryptocurrency was added to CoinMarketCap. Example:
             2013-04-28T00:00:00.000Z.
-        tags (list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str] | Unset): Tags associated with
-            this cryptocurrency. The v1 endpoint returns tag slugs as strings. The v2 endpoint returns tag objects with
-            `slug`, `name` and `category`.
+        tags (list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2 | str] | Unset): Tags associated with this
+            cryptocurrency. The v1 endpoint returns tag slugs as strings. The v2 endpoint returns tag objects with `slug`,
+            `name` and `category`.
         platform (None | PlatformType0 | Unset): Metadata about the parent cryptocurrency platform this cryptocurrency
             belongs to if it is a token, otherwise null.
         self_reported_circulating_supply (float | None | Unset): The self reported number of coins circulating for this
@@ -77,7 +77,7 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
     market_cap_by_total_supply: float | Unset = UNSET
     max_supply: float | None | Unset = UNSET
     date_added: str | Unset = UNSET
-    tags: list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str] | Unset = UNSET
+    tags: list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2 | str] | Unset = UNSET
     platform: None | PlatformType0 | Unset = UNSET
     self_reported_circulating_supply: float | None | Unset = UNSET
     self_reported_market_cap: float | None | Unset = UNSET
@@ -87,8 +87,8 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
-            CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2 import (
+            CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2,
         )
         from ..models.platform_type_0 import PlatformType0
 
@@ -135,7 +135,7 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
             tags = []
             for tags_item_data in self.tags:
                 tags_item: dict[str, Any] | str
-                if isinstance(tags_item_data, CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1):
+                if isinstance(tags_item_data, CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2):
                     tags_item = tags_item_data.to_dict()
                 else:
                     tags_item = tags_item_data
@@ -220,8 +220,8 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 import (
-            CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1,
+        from ..models.cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2 import (
+            CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2,
         )
         from ..models.cryptocurrency_quotes_latest_quote_map import CryptocurrencyQuotesLatestQuoteMap
         from ..models.platform_type_0 import PlatformType0
@@ -272,21 +272,23 @@ class CryptocurrencyQuotesLatestCryptocurrencyObject:
         date_added = d.pop("date_added", UNSET)
 
         _tags = d.pop("tags", UNSET)
-        tags: list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str] | Unset = UNSET
+        tags: list[CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2 | str] | Unset = UNSET
         if _tags is not UNSET:
             tags = []
             for tags_item_data in _tags:
 
-                def _parse_tags_item(data: object) -> CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str:
+                def _parse_tags_item(data: object) -> CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2 | str:
                     try:
                         if not isinstance(data, dict):
                             raise TypeError()
-                        tags_item_type_1 = CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1.from_dict(data)
+                        tags_item_tag_object_v_2 = CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2.from_dict(
+                            data
+                        )
 
-                        return tags_item_type_1
+                        return tags_item_tag_object_v_2
                     except (TypeError, ValueError, AttributeError, KeyError):
                         pass
-                    return cast(CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1 | str, data)
+                    return cast(CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2 | str, data)
 
                 tags_item = _parse_tags_item(tags_item_data)
 

@@ -63,6 +63,14 @@ def sync_detailed(
 
      Query multiple tokens in one request
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryBatchTokenRequestDTO): Batch token query request
 
@@ -94,6 +102,14 @@ def sync(
 
      Query multiple tokens in one request
 
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
+
     Args:
         body (DqueryBatchTokenRequestDTO): Batch token query request
 
@@ -119,6 +135,14 @@ async def asyncio_detailed(
     """Batch query tokens
 
      Query multiple tokens in one request
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryBatchTokenRequestDTO): Batch token query request
@@ -148,6 +172,14 @@ async def asyncio(
     """Batch query tokens
 
      Query multiple tokens in one request
+
+      **This endpoint is available on the following [API
+    plans](https://coinmarketcap.com/api/pricing/):**
+      - Builder
+      - Startup
+      - Growth
+      - Professional
+      - Enterprise
 
     Args:
         body (DqueryBatchTokenRequestDTO): Batch token query request

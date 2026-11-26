@@ -8,11 +8,11 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1")
+T = TypeVar("T", bound="CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2")
 
 
 @_attrs_define
-class CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1:
+class CryptocurrencyQuotesLatestCryptocurrencyObjectTagObjectV2:
     """
     Attributes:
         slug (str | Unset): Tag slug.
@@ -53,14 +53,14 @@ class CryptocurrencyQuotesLatestCryptocurrencyObjectTagsItemType1:
 
         category = d.pop("category", UNSET)
 
-        cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1 = cls(
+        cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2 = cls(
             slug=slug,
             name=name,
             category=category,
         )
 
-        cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1.additional_properties = d
-        return cryptocurrency_quotes_latest_cryptocurrency_object_tags_item_type_1
+        cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2.additional_properties = d
+        return cryptocurrency_quotes_latest_cryptocurrency_object_tag_object_v2
 
     @property
     def additional_keys(self) -> list[str]:

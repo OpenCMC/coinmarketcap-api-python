@@ -148,7 +148,9 @@ def sync_detailed(
       - Professional
       - Enterprise
 
-    **Cache / Update frequency:** Every 10 minutes.
+    **Cache / Update frequency:** Every 10 minutes for the list (every 12 hours for the 30d list), and
+    every 15 to 25 seconds for quotes. The default first page (`start=1`, `limit=100`, USD) can be up to
+    10 minutes old.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per `convert` option beyond the first.
     **CMC equivalent pages:** Our cryptocurrency Trending page [coinmarketcap.com/trending-
@@ -215,7 +217,9 @@ def sync(
       - Professional
       - Enterprise
 
-    **Cache / Update frequency:** Every 10 minutes.
+    **Cache / Update frequency:** Every 10 minutes for the list (every 12 hours for the 30d list), and
+    every 15 to 25 seconds for quotes. The default first page (`start=1`, `limit=100`, USD) can be up to
+    10 minutes old.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per `convert` option beyond the first.
     **CMC equivalent pages:** Our cryptocurrency Trending page [coinmarketcap.com/trending-
@@ -276,7 +280,9 @@ async def asyncio_detailed(
       - Professional
       - Enterprise
 
-    **Cache / Update frequency:** Every 10 minutes.
+    **Cache / Update frequency:** Every 10 minutes for the list (every 12 hours for the 30d list), and
+    every 15 to 25 seconds for quotes. The default first page (`start=1`, `limit=100`, USD) can be up to
+    10 minutes old.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per `convert` option beyond the first.
     **CMC equivalent pages:** Our cryptocurrency Trending page [coinmarketcap.com/trending-
@@ -341,7 +347,9 @@ async def asyncio(
       - Professional
       - Enterprise
 
-    **Cache / Update frequency:** Every 10 minutes.
+    **Cache / Update frequency:** Every 10 minutes for the list (every 12 hours for the 30d list), and
+    every 15 to 25 seconds for quotes. The default first page (`start=1`, `limit=100`, USD) can be up to
+    10 minutes old.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up) and 1 call credit
     per `convert` option beyond the first.
     **CMC equivalent pages:** Our cryptocurrency Trending page [coinmarketcap.com/trending-

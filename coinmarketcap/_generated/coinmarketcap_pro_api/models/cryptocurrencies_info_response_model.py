@@ -20,7 +20,8 @@ T = TypeVar("T", bound="CryptocurrenciesInfoResponseModel")
 class CryptocurrenciesInfoResponseModel:
     """
     Attributes:
-        data (CryptocurrencyInfoResultsMap): Results of your query returned as an object map. Example: {'1': {'urls':
+        data (CryptocurrencyInfoResultsMap): One entry per cryptocurrency requested. Requests by `id`, `slug` or
+            `address` are keyed by cryptocurrency ID, and requests by `symbol` are keyed by symbol. Example: {'1': {'urls':
             {'website': ['https://bitcoin.org/'], 'technical_doc': ['https://bitcoin.org/bitcoin.pdf'], 'twitter': [],
             'reddit': ['https://reddit.com/r/bitcoin'], 'message_board': ['https://bitcointalk.org'], 'announcement': [],
             'chat': [], 'explorer': ['https://blockchain.coinmarketcap.com/chain/bitcoin', 'https://blockchain.info/',

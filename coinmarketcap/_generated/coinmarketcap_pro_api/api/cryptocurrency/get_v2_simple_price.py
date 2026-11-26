@@ -182,7 +182,7 @@ def sync_detailed(
     api/v2/simple/price`. See the [Keyless Public API](https://coinmarketcap.com/api/documentation/pro-
     api-reference/keyless-public-api) for the full list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up), plus 1 credit per
     `convert` / `convert_id` option beyond the first. The `include_*` flags do not add credits.
 
@@ -281,7 +281,7 @@ def sync(
     api/v2/simple/price`. See the [Keyless Public API](https://coinmarketcap.com/api/documentation/pro-
     api-reference/keyless-public-api) for the full list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up), plus 1 credit per
     `convert` / `convert_id` option beyond the first. The `include_*` flags do not add credits.
 
@@ -374,7 +374,7 @@ async def asyncio_detailed(
     api/v2/simple/price`. See the [Keyless Public API](https://coinmarketcap.com/api/documentation/pro-
     api-reference/keyless-public-api) for the full list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up), plus 1 credit per
     `convert` / `convert_id` option beyond the first. The `include_*` flags do not add credits.
 
@@ -471,7 +471,7 @@ async def asyncio(
     api/v2/simple/price`. See the [Keyless Public API](https://coinmarketcap.com/api/documentation/pro-
     api-reference/keyless-public-api) for the full list, rate limits, and examples.</Callout>
 
-    **Cache / Update frequency:** Every 60 seconds.
+    **Cache / Update frequency:** Every 15 to 25 seconds.
     **Plan credit use:** 1 call credit per 250 cryptocurrencies returned (rounded up), plus 1 credit per
     `convert` / `convert_id` option beyond the first. The `include_*` flags do not add credits.
 

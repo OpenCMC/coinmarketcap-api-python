@@ -17,21 +17,22 @@ T = TypeVar("T", bound="CryptocurrencyInfoResultsMap")
 
 @_attrs_define
 class CryptocurrencyInfoResultsMap:
-    """Results of your query returned as an object map.
+    """One entry per cryptocurrency requested. Requests by `id`, `slug` or `address` are keyed by cryptocurrency ID, and
+    requests by `symbol` are keyed by symbol.
 
-    Example:
-        {'1': {'urls': {'website': ['https://bitcoin.org/'], 'technical_doc': ['https://bitcoin.org/bitcoin.pdf'],
-            'twitter': [], 'reddit': ['https://reddit.com/r/bitcoin'], 'message_board': ['https://bitcointalk.org'],
-            'announcement': [], 'chat': [], 'explorer': ['https://blockchain.coinmarketcap.com/chain/bitcoin',
-            'https://blockchain.info/', 'https://live.blockcypher.com/btc/'], 'source_code':
-            ['https://github.com/bitcoin/']}, 'logo': 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png', 'id': 1,
-            'name': 'Bitcoin', 'symbol': 'BTC', 'slug': 'bitcoin', 'description': 'Bitcoin (BTC) is a consensus network that
-            enables a new payment system and a completely digital currency. Powered by its users, it is a peer to peer
-            payment network that requires no central authority to operate. On October 31st, 2008, an individual or group of
-            individuals operating under the pseudonym "Satoshi Nakamoto" published the Bitcoin Whitepaper and described it
-            as: "a purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one
-            party to another without going through a financial institution."', 'date_added': '2013-04-28T00:00:00.000Z',
-            'date_launched': '2013-04-28T00:00:00.000Z', 'tags': ['mineable'], 'platform': None, 'category': 'coin'}}
+        Example:
+            {'1': {'urls': {'website': ['https://bitcoin.org/'], 'technical_doc': ['https://bitcoin.org/bitcoin.pdf'],
+                'twitter': [], 'reddit': ['https://reddit.com/r/bitcoin'], 'message_board': ['https://bitcointalk.org'],
+                'announcement': [], 'chat': [], 'explorer': ['https://blockchain.coinmarketcap.com/chain/bitcoin',
+                'https://blockchain.info/', 'https://live.blockcypher.com/btc/'], 'source_code':
+                ['https://github.com/bitcoin/']}, 'logo': 'https://s2.coinmarketcap.com/static/img/coins/64x64/1.png', 'id': 1,
+                'name': 'Bitcoin', 'symbol': 'BTC', 'slug': 'bitcoin', 'description': 'Bitcoin (BTC) is a consensus network that
+                enables a new payment system and a completely digital currency. Powered by its users, it is a peer to peer
+                payment network that requires no central authority to operate. On October 31st, 2008, an individual or group of
+                individuals operating under the pseudonym "Satoshi Nakamoto" published the Bitcoin Whitepaper and described it
+                as: "a purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one
+                party to another without going through a financial institution."', 'date_added': '2013-04-28T00:00:00.000Z',
+                'date_launched': '2013-04-28T00:00:00.000Z', 'tags': ['mineable'], 'platform': None, 'category': 'coin'}}
 
     """
 
@@ -57,9 +58,11 @@ class CryptocurrencyInfoResultsMap:
                 field_dict[prop_name] = prop.to_dict()
             else:
                 field_dict[prop_name] = []
-                for additional_property_type_1_item_data in prop:
-                    additional_property_type_1_item = additional_property_type_1_item_data.to_dict()
-                    field_dict[prop_name].append(additional_property_type_1_item)
+                for additional_property_symbol_matches_v_2_symbol_requests_item_data in prop:
+                    additional_property_symbol_matches_v_2_symbol_requests_item = (
+                        additional_property_symbol_matches_v_2_symbol_requests_item_data.to_dict()
+                    )
+                    field_dict[prop_name].append(additional_property_symbol_matches_v_2_symbol_requests_item)
 
         return field_dict
 
@@ -95,16 +98,20 @@ class CryptocurrencyInfoResultsMap:
                     pass
                 if not isinstance(data, list):
                     raise TypeError()
-                additional_property_type_1 = []
-                _additional_property_type_1 = data
-                for additional_property_type_1_item_data in _additional_property_type_1:
-                    additional_property_type_1_item = CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint.from_dict(
-                        additional_property_type_1_item_data
+                additional_property_symbol_matches_v_2_symbol_requests = []
+                _additional_property_symbol_matches_v_2_symbol_requests = data
+                for (
+                    additional_property_symbol_matches_v_2_symbol_requests_item_data
+                ) in _additional_property_symbol_matches_v_2_symbol_requests:
+                    additional_property_symbol_matches_v_2_symbol_requests_item = CryptocurrenciesInfoCryptocurrencyObjectPleaseNoteThisWillBeWrappedInAnArrayIfYouRequestBySymbolUsingTheV2Endpoint.from_dict(
+                        additional_property_symbol_matches_v_2_symbol_requests_item_data
                     )
 
-                    additional_property_type_1.append(additional_property_type_1_item)
+                    additional_property_symbol_matches_v_2_symbol_requests.append(
+                        additional_property_symbol_matches_v_2_symbol_requests_item
+                    )
 
-                return additional_property_type_1
+                return additional_property_symbol_matches_v_2_symbol_requests
 
             additional_property = _parse_additional_property(prop_dict)
 
